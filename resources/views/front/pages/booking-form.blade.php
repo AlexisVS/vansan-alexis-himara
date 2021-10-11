@@ -29,7 +29,7 @@
   </main>
 
   {{-- FOOTER --}}
-  @include('front.partials.pages.booking-form.footer')
+  @include('front.partials.layout.footer')
 
 @endsection
 
