@@ -206,7 +206,7 @@
             <div class="col-md-2">
               <button type="submit" class="btn btn-book">BOOK A ROOM</button>
               <div class="advanced-form-link">
-                <a href="booking-form.html">
+                <a href="/booking-form">
                   Advanced Booking Form
                 </a>
               </div>

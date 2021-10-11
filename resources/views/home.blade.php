@@ -1,10 +1,7 @@
 @extends('front.layout.main')
 
-@section('before-wrapper')
-  @include('front.partials.pages.home.preloader')
-@endsection
-
 @section('content')
+
   @include('front.partials.layout.top-menu')
   @include('front.partials.layout.header')
   @include('front.partials.pages.home.revolution-slider')

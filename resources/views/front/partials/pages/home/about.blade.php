@@ -47,7 +47,7 @@
         <div class="brand-info">
           <div class="inner">
             <div class="content">
-              <img src="images/logo-big-transparent.svg" width="100" alt="Image">
+              <img src="{{ asset('images/logo-big-transparent.svg') }}" width="100" alt="Image">
               <div class="stars">
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star" aria-hidden="true"></i>

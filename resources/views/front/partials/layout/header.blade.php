@@ -4,7 +4,7 @@
     <div class="brand">
       <div class="logo">
         <a href="index.html">
-          <img src="images/logo.svg" alt="Hotel Himara">
+          <img src="{{ asset('images/logo.svg') }}" alt="Hotel Himara">
         </a>
       </div>
     </div>
@@ -18,38 +18,30 @@
     <nav id="main-menu" class="main-menu">
       <ul class="menu">
         <li class="menu-item dropdown active">
-          <a href="index.html">HOME</a>
+          <a href="/">HOME</a>
         </li>
         <li class="menu-item dropdown">
-          <a href="rooms-list.html">ROOMS</a>
+          <a href="/room">ROOMS</a>
         </li>
         <li class="menu-item dropdown">
-          <a href="staff.html">TEAM</a>
+          <a href="/team">TEAM</a>
         </li>
         <li class="menu-item dropdown">
-          <a href="gallery.html">GALLERY</a>
+          <a href="/gallery">GALLERY</a>
         </li>
         <li class="menu-item">
-          <a href="contact.html">CONTACT US</a>
-        </li>
-        <li class="menu-item dropdown">
-          <a href="#">ELEMENTS</a>
-          <ul class="submenu">
-            <li class="menu-item">
-              <a href="style-guide.html">Style Guide</a>
-            </li>
-            <li class="menu-item">
-              <a href="buttons.html">Buttons</a>
-            </li>
-            <li class="menu-item">
-              <a href="icons.html">Icons</a>
-            </li>
-          </ul>
+          <a href="/contact">CONTACT US</a>
         </li>
         <li class="menu-item menu-btn">
-          <a href="booking-form.html" class="btn">
-            <i class="fa fa-user"></i>
-            LOG IN</a>
+          @if (Auth::user() !== null)
+            <a href="/booking-form" class="btn">
+              <i class="fa fa-user"></i>
+              Reservation</a>
+          @else
+            <a href="/login" class="btn">
+              <i class="fa fa-user"></i>
+              LOG IN</a>
+          @endif
         </li>
       </ul>
     </nav>

@@ -3,7 +3,7 @@
     <!-- SLIDE -->
     <li data-transition="fade">
       <!-- MAIN IMAGE -->
-      <img src="images/events/event/event.jpg" alt="Image" data-bgposition="center center" data-bgfit="cover"
+      <img src="{{ asset('images/events/event/event.jpg') }}" alt="Image" data-bgposition="center center" data-bgfit="cover"
         data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina="data-no-retina">
       <!-- LAYER NR. 1 -->
       <div class="tp-caption" data-x="['center','center','center','center']" data-hoffset=""

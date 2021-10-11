@@ -1,4 +1,4 @@
-<div class="page-title gradient-overlay op5" style="background: url(images/breadcrumb.jpg); background-repeat: no-repeat;
+<div class="page-title gradient-overlay op5" style="background: url('{{ asset('images/breadcrumb.jpg') }}'); background-repeat: no-repeat;
 background-size: cover;">
   <div class="container">
     <div class="inner">
@@ -8,10 +8,10 @@ background-size: cover;">
       </div>
       <ol class="breadcrumb">
         <li>
-          <a href="index.html">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
-          <a href="index.html">Rooms</a>
+          <a href="/room">Rooms</a>
         </li>
         <li>Istanbul</li>
       </ol>

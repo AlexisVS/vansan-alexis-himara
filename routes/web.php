@@ -13,12 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* -------------------------------------------------------------------------- */
+/*                                  FRONTEND                                  */
+/* -------------------------------------------------------------------------- */
+
 Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/room', function () {
+    return view('front.pages.rooms-list');
+});
+
+Route::get('/team', function () {
+    return view('front.pages.staff');
+});
+
+Route::get('/gallery', function () {
+    return view('front.pages.gallery');
+});
+
+Route::get('/contact', function () {
+    return view('front.pages.contact');
+});
+
+Route::get('/booking-form', function () {
+    return view('front.pages.booking-form');
+});
+
+/* -------------------------------------------------------------------------- */
+/*                                   BACKEND                                  */
+/* -------------------------------------------------------------------------- */
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

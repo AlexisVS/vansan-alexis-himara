@@ -5,14 +5,14 @@
         <!-- WIDGET -->
         <div class="col-md-3">
           <div class="footer-widget">
-            <img src="images/logo.svg" class="footer-logo" alt="Hotel Himara">
+            <img src="{{ asset('images/logo.svg') }}" class="footer-logo" alt="Hotel Himara">
             <div class="inner">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat assumenda incidunt
                 dolorem aliquam!</p>
               <a href="https://www.tripadvisor.com/" target="_blank">
                 <div class="tripadvisor-banner">
                   <span class="review">Recommended</span>
-                  <img src="images/icons/tripadvisor.png" alt="Image">
+                  <img src="{{ asset('images/icons/tripadvisor.png') }}" alt="Image">
                 </div>
               </a>
             </div>
@@ -50,19 +50,19 @@
             <div class="inner">
               <ul class="useful-links">
                 <li>
-                  <a href="about-us.html">About Us</a>
+                  <a href="/about">About Us</a>
                 </li>
                 <li>
-                  <a href="contact.html">Contact Us</a>
+                  <a href="/contact">Contact Us</a>
                 </li>
                 <li>
-                  <a href="shop.html">Shop</a>
+                  <a href="/shop">Shop</a>
                 </li>
                 <li>
-                  <a href="gallery.html">Himara Gallery</a>
+                  <a href="/gallery">Himara Gallery</a>
                 </li>
                 <li>
-                  <a href="location.html">Our Location</a>
+                  <a href="/location">Our Location</a>
                 </li>
               </ul>
             </div>
