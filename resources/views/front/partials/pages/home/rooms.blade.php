@@ -3,14 +3,14 @@
     <div class="section-title">
       <h4>OUR <span class="text-himara">ROOMS</span></h4>
       <p class="section-subtitle">Our favorite rooms</p>
-      <a href="/rooms-list" class="view-all">View all rooms</a>
+      <a href="/room-list" class="view-all">View all rooms</a>
     </div>
     <div class="row">
       <!-- ITEM -->
       <div class="col-md-4">
         <div class="room-grid-item">
           <figure class="gradient-overlay-hover link-icon">
-            <a href="room.html">
+            <a href="/room">
               <img src="images/rooms/single/single1.jpg" class="img-fluid" alt="Image">
             </a>
             <div class="room-services">
@@ -25,7 +25,7 @@
           </figure>
           <div class="room-info">
             <h2 class="room-title">
-              <a href="room.html">Single Room</a>
+              <a href="/room">Single Room</a>
             </h2>
             <p>Enjoy our single room</p>
           </div>
@@ -35,7 +35,7 @@
       <div class="col-md-4">
         <div class="room-grid-item">
           <figure class="gradient-overlay-hover link-icon">
-            <a href="room.html">
+            <a href="/room">
               <img src="images/rooms/double/double.jpg" class="img-fluid" alt="Image">
             </a>
             <div class="room-services">
@@ -50,7 +50,7 @@
           </figure>
           <div class="room-info">
             <h2 class="room-title">
-              <a href="room.html">Double Room</a>
+              <a href="/room">Double Room</a>
             </h2>
             <p>Enjoy our double room</p>
           </div>
@@ -60,7 +60,7 @@
       <div class="col-md-4">
         <div class="room-grid-item">
           <figure class="gradient-overlay-hover link-icon">
-            <a href="room.html">
+            <a href="/room">
               <img src="images/rooms/deluxe/deluxe.jpg" class="img-fluid" alt="Image">
             </a>
             <div class="room-services">
@@ -77,7 +77,7 @@
           </figure>
           <div class="room-info">
             <h2 class="room-title">
-              <a href="room.html">Deluxe Room</a>
+              <a href="/room">Deluxe Room</a>
             </h2>
             <p>Enjoy our delux room</p>
           </div>
