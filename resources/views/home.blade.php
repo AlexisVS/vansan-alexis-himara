@@ -4,7 +4,10 @@
 
   @include('front.partials.layout.top-menu')
   @include('front.partials.layout.header')
-  @include('front.partials.pages.home.revolution-slider')
+  <div class="slider">
+    @include('front.partials.pages.home.revolution-slider')
+    @include('front.partials.pages.home.booking-form')
+  </div>
   @include('front.partials.pages.home.about')
   @include('front.partials.pages.home.rooms')
   @include('front.partials.pages.home.services')

@@ -12,7 +12,7 @@
   <meta content="" name="author">
   <!-- ========== FAVICON ========== -->
   <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon-apple.png') }}" />
-  <link rel="icon" href="{{ asset('public/images/favicon.png') }}">
+  <link rel="icon" href="{{ asset('images/favicon.png') }}">
   <!-- ========== STYLESHEETS ========== -->
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
@@ -48,7 +48,7 @@
   @include('front.partials.layout.back-to-top')
   <!-- ========== JAVASCRIPT ========== -->
   <script src="{{ asset('js/jquery.min.js') }}"></script>
-  <script src="{{ asset('http://maps.google.com/maps/api/js?key=YOUR_API_KEY') }}"></script>
+  <script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/bootstrap-select.min.js') }}"></script>
   <script src="{{ asset('js/jquery.mmenu.js') }}"></script>

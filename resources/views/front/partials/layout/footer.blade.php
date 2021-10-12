@@ -24,6 +24,7 @@
             <h3>LATEST NEWS</h3>
             <div class="inner">
               <ul class="latest-posts">
+                {{-- /*  -------------------------------- Dynamique ------------------------------- */ --}}
                 <li>
                   <a href="blog-post.html">10 Tips for holiday travel</a>
                 </li>
@@ -39,6 +40,7 @@
                 <li>
                   <a href="blog-post.html">Breakfast with coffee and orange juice</a>
                 </li>
+                {{-- /* -------------------------------------------------------------------------- */ --}}
               </ul>
             </div>
           </div>
@@ -107,7 +109,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div class="copyrights">&copy; 2018 Hotel Himara. Designed by
+          <div class="copyrights">& 2018 Hotel Himara. Designed by
             <a href="https://eagle-themes.com/" target="_blank">Eagle-Themes</a>.
           </div>
         </div>

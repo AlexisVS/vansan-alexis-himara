@@ -3,7 +3,7 @@
     <!-- BRAND -->
     <div class="brand">
       <div class="logo">
-        <a href="index.html">
+        <a href="/">
           <img src="{{ asset('images/logo.svg') }}" alt="Hotel Himara">
         </a>
       </div>
