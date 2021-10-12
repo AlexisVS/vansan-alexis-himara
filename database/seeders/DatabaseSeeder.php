@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TopMenuSeeder::class,
             HeaderSeeder::class,
-            FooterSeeder::class
+            FooterSeeder::class,
+            RevolutionSliderSeeder::class,
         ]);
     }
 }

@@ -1,11 +1,13 @@
-// pour faire le slider le mieux est de ne pas faire de foreach sur les 3 première et que si il y en a plus en rajouter
+{{-- // pour faire le slider le mieux est de ne pas faire de foreach sur les 3 première et que si il y en a plus en rajouter
 // faire la table en sorte que toute les slides puisse rentrer dans les colonne quitte a laisser des columns vides
 
 //slide n°1
 // mainImage | layer1-text | layer2-text | layer3-href | layer3-i-class | layer3-text | layer4-href | layer4-i-class |
 layer4-text | layer5-i-class | layer6-text
 //slide n°2
-// 
+// mainImage | layer1-text | layer2-text
+//slide n°3
+// mainImage | layer1-text | layer2-text --}}
 
 <div id="rev-slider-1" class="rev_slider gradient-slider" style="display:none" data-version="5.4.5">
   <ul>

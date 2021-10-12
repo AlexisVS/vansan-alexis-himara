@@ -15,9 +15,8 @@ class FooterSeeder extends Seeder
     public function run()
     {
         DB::table('footers')->insert([
-            'w1-logo' => '',
-            'w1-inner-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat assumenda incidunt
-            dolorem aliquam!',
+            'w1-logo' => 'logo.svg',
+            'w1-inner-text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat assumenda incidunt dolorem aliquam!',
             'w1-a-href' => 'https://www.tripadvisor.com/',
             'w1-a-span' => 'Recommended',
             'w1-a-img' => 'tripadvisor.png',
