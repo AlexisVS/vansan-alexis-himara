@@ -50,7 +50,7 @@
               <i class="flaticon-nature"></i>
             </span>
             <div class="media-body">
-              <h5>Spa - Beauty &amp; Health</h5>
+              <h5>Spa - Beauty & Health</h5>
               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                 ut laoreet.</p>
             </div>

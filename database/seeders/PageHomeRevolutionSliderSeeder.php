@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RevolutionSliderSeeder extends Seeder
+class PageHomeRevolutionSliderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class RevolutionSliderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('revolution-sliders')->insert([
+        DB::table('page_home_revolution-sliders')->insert([
             [
                 'mainImage' => 'slider1.jpg',
                 'layer1-text' => 'TOUCH THE DREAM',
@@ -40,7 +40,6 @@ class RevolutionSliderSeeder extends Seeder
                 'layer4-text' => '',
                 'layer5-i-class' => '',
                 'layer6-text' => '',
-
             ],
             [
                 'mainImage' => 'slider13.jpg',

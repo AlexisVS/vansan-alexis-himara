@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRevolutionSlidersTable extends Migration
+class CreatePageHomeRevolutionSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRevolutionSlidersTable extends Migration
      */
     public function up()
     {
-        Schema::create('revolution-sliders', function (Blueprint $table) {
+        Schema::create('page_home_revolution-sliders', function (Blueprint $table) {
             $table->id();
             $table->string('mainImage');
             $table->string('layer1-text');
@@ -37,6 +37,6 @@ class CreateRevolutionSlidersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('revolution-sliders');
+        Schema::dropIfExists('page_home_revolution-sliders');
     }
 }

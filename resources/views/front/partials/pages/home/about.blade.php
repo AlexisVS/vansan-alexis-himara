@@ -56,9 +56,7 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
               </div>
               <h5 class="title">LUXURY HOTEL</h5>
-              <p class="mt20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorem iste
-                suscipit
-                voluptates architecto nemo.</p>
+              <p class="mt20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorem iste suscipit voluptates architecto nemo.</p>
             </div>
           </div>
         </div>

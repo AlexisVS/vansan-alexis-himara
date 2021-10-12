@@ -18,7 +18,14 @@ class DatabaseSeeder extends Seeder
             TopMenuSeeder::class,
             HeaderSeeder::class,
             FooterSeeder::class,
-            RevolutionSliderSeeder::class,
+            // HOME
+            PageHomeRevolutionSliderSeeder::class,
+            PageHomeAboutSeeder::class,
+            PageHomeAboutProvidersSeeder::class,
+            PageHomeOurRoomsSeeder::class,
+            PageHomeOurRoomsRoomSeeder::class,
+            PageHomeServicesSeeder::class,
+            PageHomeServicesServiceSeeder::class,
         ]);
     }
 }
