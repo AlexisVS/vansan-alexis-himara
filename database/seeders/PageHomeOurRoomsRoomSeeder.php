@@ -22,7 +22,7 @@ class PageHomeOurRoomsRoomSeeder extends Seeder
                 'fig_icon2' => 'fa-wifi',
                 'fig_icon3' => 'fa-television',
                 'fig_icon4' => '',
-                'fig_room-price' => '€89 / night',
+                'fig_room_price' => '€89 / night',
                 'room_title_href' => '/room',
                 'room_title_text' => 'Single Room',
                 'text' => 'Enjoy our single room'
@@ -34,7 +34,7 @@ class PageHomeOurRoomsRoomSeeder extends Seeder
                 'fig_icon2' => 'fa-wifi',
                 'fig_icon3' => 'fa-television',
                 'fig_icon4' => '',
-                'fig_room-price' => '€129 / night',
+                'fig_room_price' => '€129 / night',
                 'room_title_href' => '/room',
                 'room_title_text' => 'Double Room',
                 'text' => 'Enjoy our double room'
@@ -46,7 +46,7 @@ class PageHomeOurRoomsRoomSeeder extends Seeder
                 'fig_icon2' => 'fa-bath',
                 'fig_icon3' => 'fa-wifi',
                 'fig_icon4' => 'fa-television',
-                'fig_room-price' => '€189 / night',
+                'fig_room_price' => '€189 / night',
                 'room_title_href' => '/room',
                 'room_title_text' => 'Deluxe Room',
                 'text' => 'Enjoy our delux room'

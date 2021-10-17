@@ -15,19 +15,19 @@ class TopMenuSeeder extends Seeder
     public function run()
     {
         DB::table('top-menus')->insert([
-            'welcome-mssg' => 'Welcome to Hotel Himara.',
-            'a-tel-href' => 'tel:+18881234567',
-            'a-tel-i-class' => 'fa-phone',
-            'a-tel-text' => '+1 888 123 4567',
-            'a-mail-href' => 'mailto:contact@hotelhimara.com',
-            'a-mail-i-class' => 'fa-envelope-o',
-            'a-mail-text' => 'contact@hotelhimara.com',
-            'flag-active' => 'gb.png',
-            'flag-it' => 'it.png',
-            'flag-gr' => 'gr.png',
-            'flag-al' => 'al.png',
-            'flag-fr' => 'fr.png',
-            'flag-es' => 'es.png'
+            'welcome_mssg' => 'Welcome to Hotel Himara.',
+            'a_tel_href' => 'tel:+18881234567',
+            'a_tel_i_class' => 'fa-phone',
+            'a_tel_text' => '+1 888 123 4567',
+            'a_mail_href' => 'mailto:contact@hotelhimara.com',
+            'a_mail_i_class' => 'fa-envelope-o',
+            'a_mail_text' => 'contact@hotelhimara.com',
+            'flag_active' => 'gb.png',
+            'flag_it' => 'it.png',
+            'flag_gr' => 'gr.png',
+            'flag_al' => 'al.png',
+            'flag_fr' => 'fr.png',
+            'flag_es' => 'es.png'
         ]);
     }
 }

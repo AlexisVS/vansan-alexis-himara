@@ -15,19 +15,19 @@ class CreateTopMenusTable extends Migration
     {
         Schema::create('top-menus', function (Blueprint $table) {
             $table->id();
-            $table->string('welcome-mssg');
-            $table->string('a-tel-href');
-            $table->string('a-tel-i-class');
-            $table->string('a-tel-text');
-            $table->string('a-mail-href');
-            $table->string('a-mail-i-class');
-            $table->string('a-mail-text');
-            $table->string('flag-active');
-            $table->string('flag-it');
-            $table->string('flag-gr');
-            $table->string('flag-al');
-            $table->string('flag-fr');
-            $table->string('flag-es');
+            $table->string('welcome_mssg');
+            $table->string('a_tel_href');
+            $table->string('a_tel_i_class');
+            $table->string('a_tel_text');
+            $table->string('a_mail_href');
+            $table->string('a_mail_i_class');
+            $table->string('a_mail_text');
+            $table->string('flag_active');
+            $table->string('flag_it');
+            $table->string('flag_gr');
+            $table->string('flag_al');
+            $table->string('flag_fr');
+            $table->string('flag_es');
             $table->timestamps();
         });
     }

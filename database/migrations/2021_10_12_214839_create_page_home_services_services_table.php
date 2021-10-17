@@ -17,7 +17,7 @@ class CreatePageHomeServicesServicesTable extends Migration
             $table->id();
             $table->string('fig_img');
             $table->string('fig_title');
-            $table->string('slider_i-class');
+            $table->string('slider_i_class');
             $table->string('slider_title');
             $table->string('slider_text');
             $table->timestamps();

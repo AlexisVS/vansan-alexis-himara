@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePageHomeServicesTable extends Migration
+class CreatePageHomeVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePageHomeServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_home_services', function (Blueprint $table) {
+        Schema::create('page_home_videos', function (Blueprint $table) {
             $table->id();
-            $table->string('section_title_h4');
-            $table->string('section_title_span');
-            $table->string('section_title_text');
+            $table->string('video_src');
+            $table->string('video_href');
+            $table->string('video_i_class');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePageHomeServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_home_services');
+        Schema::dropIfExists('page_home_videos');
     }
 }

@@ -16,16 +16,16 @@ class CreatePageHomeRevolutionSlidersTable extends Migration
         Schema::create('page_home_revolution-sliders', function (Blueprint $table) {
             $table->id();
             $table->string('mainImage');
-            $table->string('layer1-text');
-            $table->string('layer2-text');
-            $table->string('layer3-href');
-            $table->string('layer3-i-class');
-            $table->string('layer3-text');
-            $table->string('layer4-href');
-            $table->string('layer4-i-class');
-            $table->string('layer4-text');
-            $table->string('layer5-i-class');
-            $table->string('layer6-text');
+            $table->string('layer1_text');
+            $table->string('layer2_text');
+            $table->string('layer3_href');
+            $table->string('layer3_i_class');
+            $table->string('layer3_text');
+            $table->string('layer4_href');
+            $table->string('layer4_i_class');
+            $table->string('layer4_text');
+            $table->string('layer5_i_class');
+            $table->string('layer6_text');
             $table->timestamps();
         });
     }

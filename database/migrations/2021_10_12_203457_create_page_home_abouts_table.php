@@ -15,9 +15,9 @@ class CreatePageHomeAboutsTable extends Migration
     {
         Schema::create('page_home_abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('section-title_title');
-            $table->string('section-title_section_subtitle');
-            $table->text('info-branding_p');
+            $table->string('section_title_title');
+            $table->string('section_title_section_subtitle');
+            $table->text('info_branding_p');
             $table->string('providers_text');
             $table->string('content_img');
             $table->string('content_star');

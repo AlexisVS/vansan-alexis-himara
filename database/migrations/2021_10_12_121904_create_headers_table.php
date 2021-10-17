@@ -15,24 +15,24 @@ class CreateHeadersTable extends Migration
     {
         Schema::create('headers', function (Blueprint $table) {
             $table->id();
-            $table->string('brand-href');
-            $table->string('brand-img');
-            $table->string('menu-li1-href');
-            $table->string('menu-li1-text');
-            $table->string('menu-li2-href');
-            $table->string('menu-li2-text');
-            $table->string('menu-li3-href');
-            $table->string('menu-li3-text');
-            $table->string('menu-li4-href');
-            $table->string('menu-li4-text');
-            $table->string('menu-li5-href');
-            $table->string('menu-li5-text');
-            $table->string('menu-li6a-href');
-            $table->string('menu-li6a-class');
-            $table->string('menu-li6a-text');
-            $table->string('menu-li6b-href');
-            $table->string('menu-li6b-class');
-            $table->string('menu-li6b-text');
+            $table->string('brand_href');
+            $table->string('brand_img');
+            $table->string('menu_li1_href');
+            $table->string('menu_li1_text');
+            $table->string('menu_li2_href');
+            $table->string('menu_li2_text');
+            $table->string('menu_li3_href');
+            $table->string('menu_li3_text');
+            $table->string('menu_li4_href');
+            $table->string('menu_li4_text');
+            $table->string('menu_li5_href');
+            $table->string('menu_li5_text');
+            $table->string('menu_li6a_href');
+            $table->string('menu_li6a_class');
+            $table->string('menu_li6a_text');
+            $table->string('menu_li6b_href');
+            $table->string('menu_li6b_class');
+            $table->string('menu_li6b_text');
             $table->timestamps();
         });
     }

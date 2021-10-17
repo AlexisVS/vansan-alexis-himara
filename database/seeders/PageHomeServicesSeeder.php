@@ -15,9 +15,9 @@ class PageHomeServicesSeeder extends Seeder
     public function run()
     {
         DB::table('page_home_services')->insert([
-            'section-title_h4' => 'HIMARA.',
-            'section-title_span' => 'SERVICES',
-            'section-title_text' => 'Check out our awesome services'
+            'section_title_h4' => 'HIMARA.',
+            'section_title_span' => 'SERVICES',
+            'section_title_text' => 'Check out our awesome services'
         ]);
     }
 }

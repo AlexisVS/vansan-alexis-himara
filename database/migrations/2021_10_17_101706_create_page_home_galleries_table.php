@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePageHomeOurRoomsTable extends Migration
+class CreatePageHomeGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePageHomeOurRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_home_our-rooms', function (Blueprint $table) {
+        Schema::create('page_home_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('section_title_title');
-            $table->string('section_title_title_span');
+            $table->string('section_title_h4');
+            $table->string('section_title_span');
             $table->string('section_title_subtitle');
             $table->string('section_title_a_href');
-            $table->string('section_title_a_text');
+            $table->string('section-title_a_text');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreatePageHomeOurRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_home_our-rooms');
+        Schema::dropIfExists('page_home_galleries');
     }
 }

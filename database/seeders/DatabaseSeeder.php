@@ -20,12 +20,23 @@ class DatabaseSeeder extends Seeder
             FooterSeeder::class,
             // HOME
             PageHomeRevolutionSliderSeeder::class,
+            PageHomeBookingFormSeeder::class,
             PageHomeAboutSeeder::class,
             PageHomeAboutProvidersSeeder::class,
             PageHomeOurRoomsSeeder::class,
             PageHomeOurRoomsRoomSeeder::class,
             PageHomeServicesSeeder::class,
             PageHomeServicesServiceSeeder::class,
+            PageHomeGallerySeeder::class,
+            PageHomeGalleryGallerySeeder::class,
+            PageHomeTestimonialSeeder::class,
+            PageHomeTestimonialTestimonialSeeder::class,
+            PageHomeRestaurantSeeder::class,
+            PageHomeRestaurantRestaurantSeeder::class,
+            PageHomeNewSeeder::class,
+            PageHomeNewNewSeeder::class,
+            PageHomeVideoSeeder::class,
+            PageHomeContactV2Seeder::class,
         ]);
     }
 }

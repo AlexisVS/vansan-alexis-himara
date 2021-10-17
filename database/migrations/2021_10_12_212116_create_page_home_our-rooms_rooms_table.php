@@ -21,7 +21,7 @@ class CreatePageHomeOurRoomsRoomsTable extends Migration
             $table->string('fig_icon2');
             $table->string('fig_icon3');
             $table->string('fig_icon4');
-            $table->string('fig_room-price');
+            $table->string('fig_room_price');
             $table->string('room_title_href');
             $table->string('room_title_text');
             $table->string('text');
