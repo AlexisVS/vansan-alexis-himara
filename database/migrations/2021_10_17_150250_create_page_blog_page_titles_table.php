@@ -15,6 +15,11 @@ class CreatePageBlogPageTitlesTable extends Migration
     {
         Schema::create('page_blog_page_titles', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('a_href');
+            $table->string('a_text');
+            $table->string('li');
+            $table->string('img');
             $table->timestamps();
         });
     }

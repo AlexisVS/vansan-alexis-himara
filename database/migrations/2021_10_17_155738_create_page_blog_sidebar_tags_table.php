@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePageBlogPostsTable extends Migration
+class CreatePageBlogSidebarTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreatePageBlogPostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_blog_posts', function (Blueprint $table) {
+        Schema::create('page_blog_sidebar_tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreatePageBlogPostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_blog_posts');
+        Schema::dropIfExists('page_blog_sidebar_tags');
     }
 }

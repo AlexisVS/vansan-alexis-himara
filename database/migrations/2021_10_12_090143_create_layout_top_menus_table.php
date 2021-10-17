@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopMenusTable extends Migration
+class CreateLayoutTopMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTopMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('top_menus', function (Blueprint $table) {
+        Schema::create('layout_top_menus', function (Blueprint $table) {
             $table->id();
             $table->string('welcome_mssg');
             $table->string('a_tel_href');
@@ -39,6 +39,6 @@ class CreateTopMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('top-menus');
+        Schema::dropIfExists('layout_top_menus');
     }
 }

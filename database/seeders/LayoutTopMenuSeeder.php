@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class TopMenuSeeder extends Seeder
+class LayoutTopMenuSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class TopMenuSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('top_menus')->insert([
+        DB::table('layout_top_menus')->insert([
             'welcome_mssg' => 'Welcome to Hotel Himara.',
             'a_tel_href' => 'tel:+18881234567',
             'a_tel_i_class' => 'fa-phone',

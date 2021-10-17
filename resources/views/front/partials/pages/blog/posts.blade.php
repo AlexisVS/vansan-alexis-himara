@@ -78,7 +78,8 @@
             </span>
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam impedit nihil est modi amet, sapiente sed
-            hic quaerat suscipit sunt labore, ea quas ut cumque, cum nam accusantium molestiae ipsum ...</p>
+            hic quaerat suscipit sunt labore, ea quas ut cumque, cum nam accusantium molestiae ipsum ...
+          </p>
         </div>
       </div>
     </div>

@@ -13,19 +13,23 @@
   <aside class="widget">
     <h4 class="widget-title">CATEGORIES</h4>
     <ul class="categories">
+      {{-- // item --}}
       <li>
         <a href="#">Travel<span class="posts-num">51</span></a>
       </li>
+      {{-- // item --}}
       <li>
         <a href="#">Rooms<span class="posts-num">24</span></a>
       </li>
+      {{-- // item --}}
       <li>
-        <a href="#">Holidays
-          <span class="posts-num">9</span></a>
+        <a href="#">Holidays<span class="posts-num">9</span></a>
       </li>
+      {{-- // item --}}
       <li>
         <a href="#">Travel<span class="posts-num">12</span></a>
       </li>
+      {{-- // item --}}
       <li>
         <a href="#">Events<span class="posts-num">28</span></a>
       </li>
@@ -136,22 +140,38 @@
   <aside class="widget">
     <h4 class="widget-title">Tags</h4>
     <div class="tagcloud">
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">Party</span></a>
+        <span class="tag">Party</span>
+      </a>
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">Travel</span></a>
+        <span class="tag">Travel</span>
+      </a>
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">Wedding</span></a>
+        <span class="tag">Wedding</span>
+      </a>
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">Food</span></a>
+        <span class="tag">Food</span>
+      </a>
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">Music</span></a>
+        <span class="tag">Music</span>
+      </a>
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">City</span></a>
+        <span class="tag">City</span>
+      </a>
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">Image</span></a>
+        <span class="tag">Image</span>
+      </a>
+      <!-- ITEM -->
       <a href="#">
-        <span class="tag">Hotel</span></a>
+        <span class="tag">Hotel</span>
+      </a>
     </div>
   </aside>
 </div>

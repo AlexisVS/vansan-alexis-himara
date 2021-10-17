@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class HeaderSeeder extends Seeder
+class LayoutHeaderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class HeaderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('headers')->insert([
+        DB::table('layout_headers')->insert([
             'brand_href' => '/',
             'brand_img' => 'logo.svg',
             'menu_li1_href' => '/',

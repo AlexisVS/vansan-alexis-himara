@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Page_blog_sidebar_category;
+use App\Models\Page_blog_sidebar_tag;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,9 +17,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            TopMenuSeeder::class,
-            HeaderSeeder::class,
-            FooterSeeder::class,
+            // LAYOUT
+            LayoutTopMenuSeeder::class,
+            LayoutHeaderSeeder::class,
+            LayoutFooterSeeder::class,
+
+            // UNIVERSAL
+            PageHomeNewNewSeeder::class, // ? news
+
             // HOME
             PageHomeRevolutionSliderSeeder::class,
             PageHomeBookingFormSeeder::class,
@@ -34,13 +41,15 @@ class DatabaseSeeder extends Seeder
             PageHomeRestaurantSeeder::class,
             PageHomeRestaurantRestaurantSeeder::class,
             PageHomeNewSeeder::class,
-            PageHomeNewNewSeeder::class,
             PageHomeVideoSeeder::class,
             PageHomeContactV2Seeder::class,
+
             // BLOG
             PageBlogPageTitleSeeder::class,
-            PageBlogPostSeeder::class,
             PageBlogSidebarSeeder::class,
+            PageBlogSidebarCategorySeeder::class,
+            PageBlogSidebarTagSeeder::class,
+            
         ]);
     }
 }
