@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\front\home;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 /*                                  FRONTEND                                  */
 /* -------------------------------------------------------------------------- */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::resource('/', home::class);
 
 Route::get('/room', function () {
     return view('front.pages.rooms-list');

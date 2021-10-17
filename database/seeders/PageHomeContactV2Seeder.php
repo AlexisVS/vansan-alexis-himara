@@ -14,7 +14,7 @@ class PageHomeContactV2Seeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_home_contact-v2s')->insert([
+        DB::table('page_home_contact_v2s')->insert([
             'section_title1_h4' => 'GET IN TOUCH',
             'section_title1_p' => 'Get in touch',
             'contact_details_li1_i_class' => 'fa-map-marker',

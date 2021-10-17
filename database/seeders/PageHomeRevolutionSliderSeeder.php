@@ -14,7 +14,7 @@ class PageHomeRevolutionSliderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_home_revolution-sliders')->insert([
+        DB::table('page_home_revolution_sliders')->insert([
             [
                 'mainImage' => 'slider1.jpg',
                 'layer1_text' => 'TOUCH THE DREAM',

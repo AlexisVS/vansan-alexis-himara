@@ -14,7 +14,7 @@ class PageHomeOurRoomsRoomSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_home_our-rooms_rooms')->insert([
+        DB::table('page_home_our_rooms_rooms')->insert([
             [
                 'fig_link' => '/room',
                 'fig_link_img' => 'single1.jpg',

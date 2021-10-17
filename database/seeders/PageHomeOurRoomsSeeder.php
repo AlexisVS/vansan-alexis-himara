@@ -14,7 +14,7 @@ class PageHomeOurRoomsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_home_our-rooms')->insert([
+        DB::table('page_home_our_rooms')->insert([
             'section_title_title' => 'OUR',
             'section_title_title_span' => 'ROOMS',
             'section_title_subtitle' => 'Our favorite rooms',

@@ -37,6 +37,10 @@ class DatabaseSeeder extends Seeder
             PageHomeNewNewSeeder::class,
             PageHomeVideoSeeder::class,
             PageHomeContactV2Seeder::class,
+            // BLOG
+            PageBlogPageTitleSeeder::class,
+            PageBlogPostSeeder::class,
+            PageBlogSidebarSeeder::class,
         ]);
     }
 }

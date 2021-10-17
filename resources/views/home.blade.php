@@ -1,7 +1,6 @@
 @extends('front.layout.main')
 
 @section('content')
-
   @include('front.partials.layout.top-menu')
   @include('front.partials.layout.header')
   <div class="slider">

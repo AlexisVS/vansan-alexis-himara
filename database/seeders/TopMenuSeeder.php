@@ -14,7 +14,7 @@ class TopMenuSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('top-menus')->insert([
+        DB::table('top_menus')->insert([
             'welcome_mssg' => 'Welcome to Hotel Himara.',
             'a_tel_href' => 'tel:+18881234567',
             'a_tel_i_class' => 'fa-phone',

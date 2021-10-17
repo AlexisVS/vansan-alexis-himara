@@ -14,7 +14,7 @@ class PageHomeBookingFormSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_home_booking-forms')->insert([
+        DB::table('page_home_booking_forms')->insert([
             'name_text' => 'Name',
             'name_a_title' => 'Your Name',
             'name_a_data_content' => 'Please type your first name and last name',
