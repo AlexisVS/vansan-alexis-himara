@@ -15,6 +15,6 @@
     <textarea class="form-control" name="message" placeholder="Message"></textarea>
   </div>
   <div class="form-group">
-    <button class="btn mt30">SEND YOUR MESSAGE</button>
+    <button class="btn mt30" type="submit">SEND YOUR MESSAGE</button>
   </div>
 </form>

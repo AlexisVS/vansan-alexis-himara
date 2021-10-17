@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="guests-buttons">
-              <label>Cildren
+              <label>Children
                 <a href="#" title="" data-toggle="popover" data-placement="top" data-trigger="hover"
                   data-content="Under 18 years" data-original-title="Children">
                   <i class="fa fa-info-circle"></i>

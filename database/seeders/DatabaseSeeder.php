@@ -55,7 +55,15 @@ class DatabaseSeeder extends Seeder
             PageBookingFormOfferSeeder::class,
             PageBookingFormLandSeeder::class,
             PageBookingFormLand2Seeder::class,
-
+            
+            // CONTACT
+            PageContactSeeder::class,
+            
+            // EVENT DETAILS
+            PageEventdetailsSeeder::class,
+            PageEventdetailsGallerySeeder::class,
+            PageEventdetailsTableHeadSeeder::class,
+            PageEventdetailsTableBodySeeder::class,
         ]);
     }
 }
