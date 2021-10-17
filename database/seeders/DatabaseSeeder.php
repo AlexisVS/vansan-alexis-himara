@@ -49,7 +49,13 @@ class DatabaseSeeder extends Seeder
             PageBlogSidebarSeeder::class,
             PageBlogSidebarCategorySeeder::class,
             PageBlogSidebarTagSeeder::class,
-            
+
+            // BOOKING FORM
+            PageBookingFormSeeder::class,
+            PageBookingFormOfferSeeder::class,
+            PageBookingFormLandSeeder::class,
+            PageBookingFormLand2Seeder::class,
+
         ]);
     }
 }

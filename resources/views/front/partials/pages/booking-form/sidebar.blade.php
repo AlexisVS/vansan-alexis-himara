@@ -5,6 +5,7 @@
         <h4>OFFERS</h4>
         <p class="section-subtitle">CHECK OUT OUR SPECIAL OFFERS</p>
       </div>
+      <!-- ITEM -->
       <div class="offer-item sm mb50">
         <figure class="gradient-overlay-hover link-icon">
           <a href="offer.html">
