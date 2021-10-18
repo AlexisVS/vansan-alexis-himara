@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Page_blog_sidebar_category;
-use App\Models\Page_blog_sidebar_tag;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,17 +19,23 @@ class DatabaseSeeder extends Seeder
             LayoutTopMenuSeeder::class,
             LayoutHeaderSeeder::class,
             LayoutFooterSeeder::class,
-
+            
             // UNIVERSAL
-            PageHomeNewNewSeeder::class, // ? news
-
+            PageHomeNewNewSeeder::class, // ! news | latest posts
+            
+            RoomSeeder::class,
+            RoomImageSeeder::class,
+            RoomProgressSeeder::class,
+            RoomReviewSeeder::class,
+            RoomServiceSeeder::class,
+            RoomCategoriesSeeder::class,
+            
             // HOME
             PageHomeRevolutionSliderSeeder::class,
             PageHomeBookingFormSeeder::class,
             PageHomeAboutSeeder::class,
             PageHomeAboutProvidersSeeder::class,
             PageHomeOurRoomsSeeder::class,
-            PageHomeOurRoomsRoomSeeder::class,
             PageHomeServicesSeeder::class,
             PageHomeServicesServiceSeeder::class,
             PageHomeGallerySeeder::class,
@@ -59,11 +63,19 @@ class DatabaseSeeder extends Seeder
             // CONTACT
             PageContactSeeder::class,
             
-            // EVENT DETAILS
-            PageEventdetailsSeeder::class,
-            PageEventdetailsGallerySeeder::class,
-            PageEventdetailsTableHeadSeeder::class,
-            PageEventdetailsTableBodySeeder::class,
+            // Gallery
+            PageGallerySeeder::class,
+            PageGalleryGallerySeeder::class,
+
+            // PAGE
+            PagePageSeeder::class,
+            PagePageCategoriesSeeder::class,
+            PagePageTagSeeder::class,
+
+            // Room
+            PageRoomSeeder::class,
+            PageRoomSidebarSeeder::class,
+
         ]);
     }
 }

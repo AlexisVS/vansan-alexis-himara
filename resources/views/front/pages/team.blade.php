@@ -1,0 +1,11 @@
+@extends('front.layout.main')
+@section('content')
+  @include('front.partials.layout.top-menu')
+  @include('front.partials.layout.header')
+  @include('front.partials.pages.team.page-title')
+  @include('front.partials.pages.team.team')
+  @include('front.partials.layout.footer')
+@endsection
+@section('after-wrapper')
+  @include('front.partials.layout.notification')
+@endsection

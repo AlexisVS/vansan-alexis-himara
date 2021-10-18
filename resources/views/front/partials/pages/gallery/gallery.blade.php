@@ -3,7 +3,7 @@
   <div class="container">
     <div class="gallery-filters">
       <a href="#" data-filter="*" class="filter active">ALL</a>
-      <a href="#" data-filter=".filter-restaurnat" class="filter">RESTAURANT</a>
+      <a href="#" data-filter=".filter-restaurant" class="filter">RESTAURANT</a>
       <a href="#" data-filter=".filter-swimmingpool" class="filter">SWIMMING POOL</a>
       <a href="#" data-filter=".filter-spa" class="filter">SPA</a>
       <a href="#" data-filter=".filter-roomview" class="filter">ROOM VIEW</a>
@@ -40,7 +40,7 @@
         </figure>
       </div>
       <!-- ITEM -->
-      <div class="gallery-item filter-restaurnat col-md-3">
+      <div class="gallery-item filter-restaurant col-md-3">
         <figure class="gradient-overlay image-icon">
           <a href="images/gallery/gallery4.jpg">
             <img src="images/gallery/gallery4.jpg" class="img-fluid" alt="Image">
@@ -58,7 +58,7 @@
         </figure>
       </div>
       <!-- ITEM -->
-      <div class="gallery-item filter-restaurnat col-md-3">
+      <div class="gallery-item filter-restaurant col-md-3">
         <figure class="gradient-overlay image-icon">
           <a href="images/gallery/gallery6.jpg">
             <img src="images/gallery/gallery6.jpg" class="img-fluid" alt="Image">
@@ -112,7 +112,7 @@
         </figure>
       </div>
       <!-- ITEM -->
-      <div class="gallery-item filter-restaurnat col-md-3">
+      <div class="gallery-item filter-restaurant col-md-3">
         <figure class="gradient-overlay image-icon">
           <a href="images/gallery/gallery12.jpg">
             <img src="images/gallery/gallery12.jpg" class="img-fluid" alt="Image">
@@ -121,7 +121,7 @@
         </figure>
       </div>
       <!-- ITEM -->
-      <div class="gallery-item filter-roomview filter-restaurnat col-md-3">
+      <div class="gallery-item filter-roomview filter-restaurant col-md-3">
         <figure class="gradient-overlay image-icon">
           <a href="images/gallery/gallery13.jpg">
             <img src="images/gallery/gallery13.jpg" class="img-fluid" alt="Image">
@@ -139,7 +139,7 @@
         </figure>
       </div>
       <!-- ITEM -->
-      <div class="gallery-item filter-restaurnat col-md-3">
+      <div class="gallery-item filter-restaurant col-md-3">
         <figure class="gradient-overlay image-icon">
           <a href="images/gallery/gallery15.jpg">
             <img src="images/gallery/gallery15.jpg" class="img-fluid" alt="Image">

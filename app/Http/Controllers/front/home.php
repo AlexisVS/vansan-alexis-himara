@@ -12,7 +12,6 @@ use App\Models\Page_home_gallery_gallery;
 use App\Models\Page_home_new;
 use App\Models\Page_home_new_new;
 use App\Models\Page_home_our_rooms;
-use App\Models\Page_home_our_rooms_room;
 use App\Models\Page_home_restaurant;
 use App\Models\Page_home_restaurant_restaurant;
 use App\Models\Page_home_revolution_slider;
@@ -21,6 +20,7 @@ use App\Models\Page_home_services_service;
 use App\Models\Page_home_testimonial;
 use App\Models\Page_home_testimonial_testimonial;
 use App\Models\page_home_video;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class home extends Controller
@@ -42,7 +42,7 @@ class home extends Controller
             // * dynamic
             'revolutionSliders' => Page_home_revolution_slider::all(),
             'abouts' => Page_home_about_providers::all(),
-            'rooms' => Page_home_our_rooms_room::all(),
+            'rooms' => Room::all(),
             'services' => Page_home_services_service::all(),
             'gallery' => Page_home_gallery_gallery::all(),
             'testimonials' => Page_home_testimonial_testimonial::all(),

@@ -19,8 +19,7 @@
         <a href="#">Rooms<span class="posts-num">24</span></a>
       </li>
       <li>
-        <a href="#">Holidays
-          <span class="posts-num">9</span></a>
+        <a href="#">Holidays<span class="posts-num">9</span></a>
       </li>
       <li>
         <a href="#">Travel<span class="posts-num">12</span></a>
