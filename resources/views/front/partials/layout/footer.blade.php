@@ -5,14 +5,13 @@
         <!-- WIDGET -->
         <div class="col-md-3">
           <div class="footer-widget">
-            <img src="{{ asset('images/logo.svg') }}" class="footer-logo" alt="Hotel Himara">
+            <img src="{{ asset('images/' . $footer->w1_logo) }}" class="footer-logo" alt="Hotel Himara">
             <div class="inner">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat assumenda incidunt
-                dolorem aliquam!</p>
-              <a href="https://www.tripadvisor.com/" target="_blank">
+              <p>{{ $footer->w1_inner_text }}</p>
+              <a href="{{ $footer->w1_a_href }}" target="_blank">
                 <div class="tripadvisor-banner">
-                  <span class="review">Recommended</span>
-                  <img src="{{ asset('images/icons/tripadvisor.png') }}" alt="Image">
+                  <span class="review">{{ $footer->w1_a_span }}</span>
+                  <img src="{{ asset('images/icons/' . $footer->w1_a_img) }}" alt="Image">
                 </div>
               </a>
             </div>
@@ -21,25 +20,17 @@
         <!-- WIDGET -->
         <div class="col-md-3">
           <div class="footer-widget">
-            <h3>LATEST NEWS</h3>
+            <h3>{{ $footer->w2_h3 }}</h3>
             <div class="inner">
               <ul class="latest-posts">
                 {{-- /*  -------------------------------- Dynamique ------------------------------- */ --}}
-                <li>
-                  <a href="blog-post.html">10 Tips for holiday travel</a>
-                </li>
-                <li>
-                  <a href="blog-post.html">Are you ready to enjoy your holidays</a>
-                </li>
-                <li>
-                  <a href="blog-post.html">Honeymoon at Hotel Himara</a>
-                </li>
-                <li>
-                  <a href="blog-post.html">Travel gift ideas for every type of traveler</a>
-                </li>
-                <li>
-                  <a href="blog-post.html">Breakfast with coffee and orange juice</a>
-                </li>
+                @foreach ($posts as $post)
+                  @if ($loop->iteration < 5)
+                    <li>
+                      <a href="/post/{{ $post->id }}">{{ $post->title_text }}</a>
+                    </li>
+                  @endif
+                @endforeach
                 {{-- /* -------------------------------------------------------------------------- */ --}}
               </ul>
             </div>
@@ -48,23 +39,23 @@
         <!-- WIDGET -->
         <div class="col-md-3">
           <div class="footer-widget">
-            <h3>USEFUL LINKS</h3>
+            <h3>{{ $footer->w3_h3 }}</h3>
             <div class="inner">
               <ul class="useful-links">
                 <li>
-                  <a href="/about">About Us</a>
+                  <a href="{{ $footer->w3_a1_href }}">{{ $footer->w3_a1_text }}</a>
                 </li>
                 <li>
-                  <a href="/contact">Contact Us</a>
+                  <a href="{{ $footer->w3_a2_href }}">{{ $footer->w3_a2_text }}</a>
                 </li>
                 <li>
-                  <a href="/shop">Shop</a>
+                  <a href="{{ $footer->w3_a3_href }}">{{ $footer->w3_a3_text }}</a>
                 </li>
                 <li>
-                  <a href="/gallery">Himara Gallery</a>
+                  <a href="{{ $footer->w3_a4_href }}">{{ $footer->w3_a4_text }}</a>
                 </li>
                 <li>
-                  <a href="/location">Our Location</a>
+                  <a href="{{ $footer->w3_a5_href }}">{{ $footer->w3_a5_text }}</a>
                 </li>
               </ul>
             </div>
@@ -73,29 +64,29 @@
         <!-- WIDGET -->
         <div class="col-md-3">
           <div class="footer-widget">
-            <h3>Contact Info</h3>
+            <h3>{{ $footer->w4_h3 }}</h3>
             <div class="inner">
               <ul class="contact-details">
                 <li>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  Lorem ipsum dolor, 25, Himara
+                  <i class="fa {{ $footer->w4_li1_i_class }}" aria-hidden="true"></i>
+                  {{ $footer->w4_li1_text }}
                 </li>
                 <li>
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  Phone: +1 888 123 4567
+                  <i class="fa {{ $footer->w4_li2_i_class }}" aria-hidden="true"></i>
+                  {{ $footer->w4_li2_text }}
                 </li>
                 <li>
-                  <i class="fa fa-fax"></i>
-                  Fax: +1 888 123 4567
+                  <i class="fa {{ $footer->w4_li3_i_class }}"></i>
+                  {{ $footer->w4_li3_text }}
                 </li>
                 <li>
-                  <i class="fa fa-globe"></i>
-                  Web: www.hotelhimara.com
+                  <i class="fa {{ $footer->w4_li4_i_class }}"></i>
+                  {{ $footer->w4_li4_text }}
                 </li>
                 <li>
-                  <i class="fa fa-envelope"></i>
-                  Email:
-                  <a href="mailto:info@site.com">contact@hotelhimara.com</a>
+                  <i class="fa {{ $footer->w4_li5_i_class }}"></i>
+                  {{ $footer->w4_li5_text }}
+                  <a href="{{ $footer->w4_li5_li_text }}">{{ $footer->w4_li5_a_text }}</a>
                 </li>
               </ul>
             </div>
@@ -109,32 +100,44 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div class="copyrights">& 2018 Hotel Himara. Designed by
-            <a href="https://eagle-themes.com/" target="_blank">Eagle-Themes</a>.
+          <div class="copyrights">{{ $footer->sf_copyright }}
+            <a href="{{ $footer->sf_copyright_href }}" target="_blank">{{ $footer->sf_copyright_text }}</a>.
           </div>
         </div>
         <div class="col-md-6">
           <div class="social-media">
-            <a class="facebook" data-original-title="Facebook" data-toggle="tooltip" href="#">
-              <i class="fa fa-facebook"></i>
+            <a class="{{ $footer->sf_sm_facebook_class }}"
+              data-original-title="{{ $footer->sf_sm_facebook_title }}" data-toggle="tooltip"
+              href="{{ $footer->sf_sm_facebook_href }}">
+              <i class="fa {{ $footer->sf_sm_facebook_i_class }}"></i>
             </a>
-            <a class="twitter" data-original-title="Twitter" data-toggle="tooltip" href="#">
-              <i class="fa fa-twitter"></i>
+            <a class="{{ $footer->sf_sm_twitter_class }}" data-original-title="{{ $footer->sf_sm_twitter_title }}"
+              data-toggle="tooltip" href="{{ $footer->sf_sm_twitter_href }}">
+              <i class="fa f{{ $footer->sf_sm_twitter_i_class }}"></i>
             </a>
-            <a class="googleplus" data-original-title="Google Plus" data-toggle="tooltip" href="#">
-              <i class="fa fa-google-plus"></i>
+            <a class="{{ $footer->sf_sm_googleplus_class }}"
+              data-original-title="{{ $footer->sf_sm_googleplus_title }}" data-toggle="tooltip"
+              href="{{ $footer->sf_sm_googleplus_href }}">
+              <i class="fa {{ $footer->sf_sm_googleplus_i_class }}"></i>
             </a>
-            <a class="pinterest" data-original-title="Pinterest" data-toggle="tooltip" href="#">
-              <i class="fa fa-pinterest"></i>
+            <a class="{{ $footer->sf_sm_pinterest_class }}"
+              data-original-title="{{ $footer->sf_sm_pinterest_title }}" data-toggle="tooltip"
+              href="{{ $footer->sf_sm_pinterest_href }}">
+              <i class="fa {{ $footer->sf_sm_pinterest_i_class }}"></i>
             </a>
-            <a class="linkedin" data-original-title="Linkedin" data-toggle="tooltip" href="#">
-              <i class="fa fa-linkedin"></i>
+            <a class="{{ $footer->sf_sm_linkedin_class }}"
+              data-original-title="{{ $footer->sf_sm_linkedin_title }}" data-toggle="tooltip"
+              href="{{ $footer->sf_sm_linkedin_href }}">
+              <i class="fa {{ $footer->sf_sm_linkedin_i_class }}"></i>
             </a>
-            <a class="youtube" data-original-title="Youtube" data-toggle="tooltip" href="#">
-              <i class="fa fa-youtube"></i>
+            <a class="{{ $footer->sf_sm_youtube_class }}" data-original-title="{{ $footer->sf_sm_youtube_title }}"
+              data-toggle="tooltip" href="{{ $footer->sf_sm_youtube_href }}">
+              <i class="fa {{ $footer->sf_sm_youtube_i_class }}"></i>
             </a>
-            <a class="instagram" data-original-title="Instagram" data-toggle="tooltip" href="#">
-              <i class="fa fa-instagram"></i>
+            <a class="{{ $footer->sf_sm_instagram_class }}"
+              data-original-title="{{ $footer->sf_sm_instagram_title }}" data-toggle="tooltip"
+              href="{{ $footer->sf_sm_instagram_href }}">
+              <i class="fa {{ $footer->sf_sm_instagram_i_class }}"></i>
             </a>
           </div>
         </div>

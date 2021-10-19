@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePageHomeNewNewsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePageHomeNewNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_home_new_news', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('figure_link_href');
             $table->string('figure_link_img');
@@ -39,6 +39,6 @@ class CreatePageHomeNewNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_home_new_news');
+        Schema::dropIfExists('posts');
     }
 }

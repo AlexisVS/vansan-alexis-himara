@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             LayoutFooterSeeder::class,
             
             // UNIVERSAL
-            PageHomeNewNewSeeder::class, // ! news | latest posts
+            PostSeeder::class, // ! footer | news | latest posts
             GallerySeeder::class, // ! home gallery | gallery
             
             RoomSeeder::class,

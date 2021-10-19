@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PageHomeNewNewSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class PageHomeNewNewSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_home_new_news')->insert([
+        DB::table('posts')->insert([
             [
                 'figure_link_href' => 'blog-post.html',
                 'figure_link_img' => 'blog-post1.jpg',

@@ -3,8 +3,8 @@
     <!-- BRAND -->
     <div class="brand">
       <div class="logo">
-        <a href="/">
-          <img src="{{ asset('images/logo.svg') }}" alt="Hotel Himara">
+        <a href="{{ $header->brand_href }}">
+          <img src="{{ asset('images/' . $header->brand_img ) }}" alt="Hotel Himara">
         </a>
       </div>
     </div>
@@ -18,29 +18,29 @@
     <nav id="main-menu" class="main-menu">
       <ul class="menu">
         <li class="menu-item dropdown active">
-          <a href="/">HOME</a>
+          <a href="{{ $header->menu_li1_href }}">{{ $header->menu_li1_text }}</a>
         </li>
         <li class="menu-item dropdown">
-          <a href="/room">ROOMS</a>
+          <a href="{{ $header->menu_li2_href }}">{{ $header->menu_li2_text }}</a>
         </li>
         <li class="menu-item dropdown">
-          <a href="/team">TEAM</a>
+          <a href="{{ $header->menu_li3_href }}">{{ $header->menu_li3_text }}</a>
         </li>
         <li class="menu-item dropdown">
-          <a href="/gallery">GALLERY</a>
+          <a href="{{ $header->menu_li4_href }}">{{ $header->menu_li4_text }}</a>
         </li>
         <li class="menu-item">
-          <a href="/contact">CONTACT US</a>
+          <a href="{{ $header->menu_li5_href }}">{{ $header->menu_li5_text }}</a>
         </li>
         <li class="menu-item menu-btn">
           @if (Auth::user() !== null)
-            <a href="/booking-form" class="btn">
-              <i class="fa fa-user"></i>
-              Reservation</a>
+            <a href="{{ $header->menu_li6a_href }}" class="btn">
+              <i class="fa {{ $header->menu_li6a_class }}"></i>
+              {{ $header->menu_li6a_text }}</a>
           @else
-            <a href="/login" class="btn">
-              <i class="fa fa-user"></i>
-              LOG IN</a>
+            <a href="{{ $header->menu_li6b_href }}" class="btn">
+              <i class="fa {{ $header->menu_li6b_class }}"></i>
+              {{ $header->menu_li6b_text }}</a>
           @endif
         </li>
       </ul>

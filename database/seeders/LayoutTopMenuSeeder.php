@@ -23,11 +23,17 @@ class LayoutTopMenuSeeder extends Seeder
             'a_mail_i_class' => 'fa-envelope-o',
             'a_mail_text' => 'contact@hotelhimara.com',
             'flag_active' => 'gb.png',
+            'flag_active_text' => 'English',
             'flag_it' => 'it.png',
+            'flag_it_text' => 'Italiano',
             'flag_gr' => 'gr.png',
+            'flag_gr_text' => 'Ελληνικα',
             'flag_al' => 'al.png',
+            'flag_al_text' => 'Shqip',
             'flag_fr' => 'fr.png',
-            'flag_es' => 'es.png'
+            'flag_fr_text' => 'Français',
+            'flag_es' => 'es.png',
+            'flag_es_text' => 'Español'
         ]);
     }
 }
