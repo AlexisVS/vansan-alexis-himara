@@ -15,8 +15,16 @@ class CreateRoomProgressesTable extends Migration
     {
         Schema::create('room_progresses', function (Blueprint $table) {
             $table->id();
-            $table->string('progress_start');
-            $table->string('progress_value');
+            $table->string('progress1_start');
+            $table->string('progress1_value');
+            $table->string('progress2_start');
+            $table->string('progress2_value');
+            $table->string('progress3_start');
+            $table->string('progress3_value');
+            $table->string('progress4_start');
+            $table->string('progress4_value');
+            $table->string('progress5_start');
+            $table->string('progress5_value');
             $table->timestamps();
         });
     }
