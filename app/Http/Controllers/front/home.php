@@ -28,16 +28,16 @@ class home extends Controller
     public function index () {
         $compact = [
             // * static
-            'bookingForm' => Page_home_booking_form::find(1),
-            'about' => page_home_about::find(1),
-            'room' => Page_home_our_rooms::find(1),
-            'service' => Page_home_services::find(1),
-            'gallery' => Page_home_gallery::find(1),
-            'testimonial' => Page_home_testimonial::find(1),
-            'restaurant' => Page_home_restaurant::find(1),
-            'new' => Page_home_new::find(1),
-            'video' => Page_home_video::find(1),
-            'contact' => Page_home_contact_v2::find(1),
+            'static_bookingForm' => Page_home_booking_form::find(1),
+            'static_about' => page_home_about::find(1),
+            'static_room' => Page_home_our_rooms::find(1),
+            'static_service' => Page_home_services::find(1),
+            'static_gallery' => Page_home_gallery::find(1),
+            'static_testimonial' => Page_home_testimonial::find(1),
+            'static_restaurant' => Page_home_restaurant::find(1),
+            'static_new' => Page_home_new::find(1),
+            'static_video' => Page_home_video::find(1),
+            'static_contact' => Page_home_contact_v2::find(1),
             
             // * dynamic
             'revolutionSliders' => Page_home_revolution_slider::all(),
