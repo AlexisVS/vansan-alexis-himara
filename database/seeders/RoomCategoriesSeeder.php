@@ -26,7 +26,11 @@ class RoomCategoriesSeeder extends Seeder
             [
                 'value' => 'Deluxe',
                 'text' => 'Deluxe Room',
-            ]
+            ],
+            [
+                'value' => 'Family',
+                'text' => 'Family Room',
+            ],
         ]);
     }
 }

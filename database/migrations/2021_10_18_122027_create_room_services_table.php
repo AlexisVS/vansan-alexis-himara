@@ -15,16 +15,16 @@ class CreateRoomServicesTable extends Migration
     {
         Schema::create('room_services', function (Blueprint $table) {
             $table->id();
-            $table->string('active');
+            $table->boolean('displayed_card');
+            $table->string('span_card');
+            $table->boolean('active');
             $table->string('name1');
             $table->string('name2');
-            $table->string('value1');
-            $table->string('value2');
+            $table->integer('value1');
+            $table->integer('value2');
             $table->string('i_class');
             $table->string('similar_rooms_room_services_i_data_content');
             $table->string('similar_rooms_room_services_i_data_title');
-            $table->string('room_id');
-            $table->string('label');
             $table->timestamps();
         });
     }

@@ -20,8 +20,7 @@
           <a href="#">Double Room<span class="posts-num">24</span></a>
         </li>
         <li>
-          <a href="#">Family Room
-            <span class="posts-num">9</span></a>
+          <a href="#">Family Room<span class="posts-num">9</span></a>
         </li>
         <li>
           <a href="#">Deluxe Room<span class="posts-num">12</span></a>
@@ -29,6 +28,7 @@
       </ul>
     </aside>
     <!-- WIDGET -->
+    <!-- ! Remplacer par room services -->
     <aside class="widget">
       <h4 class="widget-title">Tags</h4>
       <div class="tagcloud">
