@@ -20,8 +20,8 @@ class CreateRoomServicesTable extends Migration
             $table->boolean('active');
             $table->string('name1');
             $table->string('name2');
-            $table->integer('value1');
-            $table->integer('value2');
+            $table->string('value1');
+            $table->string('value2');
             $table->string('i_class');
             $table->string('similar_rooms_room_services_i_data_content');
             $table->string('similar_rooms_room_services_i_data_title');
