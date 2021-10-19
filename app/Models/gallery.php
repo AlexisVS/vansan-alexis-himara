@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Page_gallery_gallery extends Model
+class gallery extends Model
 {
     use HasFactory;
 }

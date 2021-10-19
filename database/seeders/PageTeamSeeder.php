@@ -15,11 +15,11 @@ class PageTeamSeeder extends Seeder
     public function run()
     {
         DB::table('page_teams')->insert([
-            'page_title_bg' => '',
-            'page_title_title' => '',
-            'page_title_a_href' => '',
-            'page_title_a_text' => '',
-            'page_title_li' => '',
+            'page_title_bg' => 'breadcrumb.jpg',
+            'page_title_title' => 'OUR STAFF',
+            'page_title_a_href' => '/',
+            'page_title_a_text' => 'Home',
+            'page_title_li' => 'Our Staff',
         ]);
     }
 }

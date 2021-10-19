@@ -16,24 +16,16 @@ class RoomProgressSeeder extends Seeder
     {
         DB::table('room_progresses')->insert([
             [
-                'progress_start' => '5 star',
-                'progress_value' => '91',
-            ],
-            [
-                'progress_start' => '4 star',
-                'progress_value' => '0',
-            ],
-            [
-                'progress_start' => '3 star',
-                'progress_value' => '8',
-            ],
-            [
-                'progress_start' => '2 star',
-                'progress_value' => '0',
-            ],
-            [
-                'progress_start' => '1 star',
-                'progress_value' => '0',
+                'progress1_start' => '5 star',
+                'progress1_value' => '91',
+                'progress2_start' => '4 star',
+                'progress2_value' => '0',
+                'progress3_start' => '3 star',
+                'progress3_value' => '8',
+                'progress4_start' => '2 star',
+                'progress4_value' => '0',
+                'progress5_start' => '1 star',
+                'progress5_value' => '0',
             ],
         ]);
     }

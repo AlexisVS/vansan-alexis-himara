@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             
             // UNIVERSAL
             PageHomeNewNewSeeder::class, // ! news | latest posts
+            GallerySeeder::class, // ! home gallery | gallery
             
             RoomSeeder::class,
             RoomImageSeeder::class,
@@ -39,7 +40,6 @@ class DatabaseSeeder extends Seeder
             PageHomeServicesSeeder::class,
             PageHomeServicesServiceSeeder::class,
             PageHomeGallerySeeder::class,
-            PageHomeGalleryGallerySeeder::class,
             PageHomeTestimonialSeeder::class,
             PageHomeTestimonialTestimonialSeeder::class,
             PageHomeRestaurantSeeder::class,
@@ -65,7 +65,6 @@ class DatabaseSeeder extends Seeder
             
             // Gallery
             PageGallerySeeder::class,
-            PageGalleryGallerySeeder::class,
 
             // PAGE
             PagePageSeeder::class,
