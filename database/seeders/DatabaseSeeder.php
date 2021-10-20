@@ -69,13 +69,14 @@ class DatabaseSeeder extends Seeder
 
             // PAGE
             PagePageSeeder::class,
-            PagePageCategoriesSeeder::class,
-            PagePageTagSeeder::class,
 
             // Room
             PageRoomSeeder::class,
             PageRoomSidebarSeeder::class,
 
+            // TEAM
+            PageTeamSeeder::class,
+            PageTeamTeamSeeder::class,
         ]);
     }
 }
