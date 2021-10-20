@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Page_blog_sidebar_tag extends Model
+class Post_category extends Model
 {
     use HasFactory;
 }

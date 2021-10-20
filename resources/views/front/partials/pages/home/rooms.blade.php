@@ -1,9 +1,11 @@
 <section class="rooms gray">
   <div class="container">
     <div class="section-title">
-      <h4>OUR <span class="text-himara">ROOMS</span></h4>
-      <p class="section-subtitle">Our favorite rooms</p>
-      <a href="/room-list" class="view-all">View all rooms</a>
+      <h4>{{ $static_room->section_title_title }}<span
+          class="text-himara">{{ $static_room->section_title_title_span }}</span></h4>
+      <p class="section-subtitle">{{ $static_room->section_title_subtitle }}</p>
+      <a href="{{ $static_room->section_title_a_href }}"
+        class="view-all">{{ $static_room->section_title_a_text }}</a>
     </div>
     <div class="row">
       <!-- ITEM -->

@@ -29,6 +29,7 @@ class CreatePageBookingFormsTable extends Migration
             $table->string('form_email_placeholder');
             $table->string('form_phone_text');
             $table->string('form_phone_placeholder');
+            $table->string('select_label');
             $table->string('select_title');
             $table->string('select_data_header');
             $table->string('form_check_text');
@@ -49,15 +50,6 @@ class CreatePageBookingFormsTable extends Migration
             $table->string('room_type_title');
             $table->string('room_type_select_title');
             $table->string('room_type_select_data_header');
-            $table->string('room_type_option1_value');
-            $table->string('room_type_option1_data_subtext');
-            $table->string('room_type_option1_text');
-            $table->string('room_type_option2_value');
-            $table->string('room_type_option2_data_subtext');
-            $table->string('room_type_option2_text');
-            $table->string('room_type_option3_value');
-            $table->string('room_type_option3_data_subtext');
-            $table->string('room_type_option3_text');
             $table->string('comment_title');
             $table->string('comment_placeholder');
             $table->string('submit_i_class');

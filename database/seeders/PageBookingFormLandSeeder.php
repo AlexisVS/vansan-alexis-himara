@@ -15,6 +15,8 @@ class PageBookingFormLandSeeder extends Seeder
     public function run()
     {
         DB::table('page_booking_form_lands')->insert([
+
+
             "Afganistan" => "Afganistan",
             "Albania" => "Albania",
             "Algeria" => "Algeria",

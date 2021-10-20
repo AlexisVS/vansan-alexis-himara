@@ -15,11 +15,11 @@ class PageBlogPageTitleSeeder extends Seeder
     public function run()
     {
         DB::table('page_blog_page_titles')->insert([
+            'img' => 'breadcrumb.jpg',
             'title' => 'Blog',
             'a_href' => '/',
             'a_text' => 'Home',
             'li' => 'Blog',
-            'img' => 'breadcrumb.jpg'
         ]);
     }
 }

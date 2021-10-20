@@ -1,13 +1,13 @@
-<div class="page-title gradient-overlay op6" style="background: url('{{ asset('images/breadcrumb.jpg') }}'); background-repeat: no-repeat;
+<div class="page-title gradient-overlay op6" style="background: url('{{ asset('images/' . $static_bookingForm->page_title_bg ) }}'); background-repeat: no-repeat;
 background-size: cover;">
   <div class="container">
     <div class="inner">
-      <h1>Booking Form</h1>
+      <h1>{{ $static_bookingForm->page_title_title }}</h1>
       <ol class="breadcrumb">
         <li>
-          <a href="/">Home</a>
+          <a href="{{ $static_bookingForm->page_title_a_href }}">{{ $static_bookingForm->page_title_a_text }}</a>
         </li>
-        <li>Booking Form</li>
+        <li>{{ $static_bookingForm->page_title_text }}</li>
       </ol>
     </div>
   </div>

@@ -19,7 +19,7 @@ class CreatePageHomeGalleriesTable extends Migration
             $table->string('section_title_span');
             $table->string('section_title_subtitle');
             $table->string('section_title_a_href');
-            $table->string('section-title_a_text');
+            $table->string('section_title_a_text');
             $table->timestamps();
         });
     }

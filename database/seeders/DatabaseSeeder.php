@@ -21,8 +21,11 @@ class DatabaseSeeder extends Seeder
             LayoutFooterSeeder::class,
             
             // UNIVERSAL
-            PostSeeder::class, // ! footer | news | latest posts
             GallerySeeder::class, // ! home gallery | gallery
+
+            PostSeeder::class, // ! footer | news | latest posts
+            PostCategorySeeder::class,
+            PostTagSeeder::class,
             
             RoomSeeder::class,
             RoomImageSeeder::class,
@@ -51,8 +54,6 @@ class DatabaseSeeder extends Seeder
             // BLOG
             PageBlogPageTitleSeeder::class,
             PageBlogSidebarSeeder::class,
-            PageBlogSidebarCategorySeeder::class,
-            PageBlogSidebarTagSeeder::class,
 
             // BOOKING FORM
             PageBookingFormSeeder::class,

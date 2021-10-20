@@ -8,38 +8,43 @@
         <div class="row">
           <div class="col-md-2">
             <div class="form-group">
-              <label>Name
-                <a href="#" title="Your Name" data-toggle="popover" data-placement="top" data-trigger="hover"
-                  data-content="Please type your first name and last name">
-                  <i class="fa fa-info-circle"></i>
+              <label>{{ $static_bookingForm->name_text }}
+                <a href="#" title="{{ $static_bookingForm->name_a_title }}" data-toggle="popover" data-placement="top"
+                  data-trigger="hover" data-content="{{ $static_bookingForm->name_a_data_content }}">
+                  <i class="fa {{ $static_bookingForm->name_i_class }}"></i>
                 </a>
               </label>
               <input class="form-control" name="booking-name" type="text" data-trigger="hover"
-                placeholder="Write Your Name">
+                placeholder="{{ $static_bookingForm->name_input_placeholder }}">
             </div>
           </div>
           <!-- EMAIL -->
           <div class="col-md-2">
             <div class="form-group">
-              <label>Email
-                <a href="#" title="Your Email" data-toggle="popover" data-placement="top" data-trigger="hover"
-                  data-content="Please type your email adress">
-                  <i class="fa fa-info-circle"></i>
+              <label>{{ $static_bookingForm->email_text }}
+                <a href="#" title="{{ $static_bookingForm->email_a_title }}" data-toggle="popover"
+                  data-placement="top" data-trigger="hover"
+                  data-content="{{ $static_bookingForm->email_a_data_content }}">
+                  <i class="fa {{ $static_bookingForm->email_i_class }}"></i>
                 </a>
               </label>
-              <input class="form-control" name="booking-email" type="email" placeholder="Write your Email">
+              <input class="form-control" name="booking-email" type="email"
+                placeholder="{{ $static_bookingForm->email_input_placeholder }}">
             </div>
           </div>
           <!-- ROOM TYPE -->
           <div class="col-md-2">
             <div class="form-group">
-              <label>Room Type
-                <a href="#" title="Room Type" data-toggle="popover" data-placement="top" data-trigger="hover"
-                  data-content="Please select room type">
-                  <i class="fa fa-info-circle"></i>
+              <label>{{ $static_bookingForm->roomtype_text }}
+                <a href="#" title="{{ $static_bookingForm->roomtype_a_title }}" data-toggle="popover"
+                  data-placement="top" data-trigger="hover"
+                  data-content="{{ $static_bookingForm->roomtype_a_data_content }}">
+                  <i class="fa {{ $static_bookingForm->roomtype_i_class }}"></i>
                 </a>
               </label>
-              <select class="form-control" name="booking-roomtype" title="Select Room Type" data-header="Room Type">
+              <select class="form-control" name="booking-roomtype"
+                title="{{ $static_bookingForm->roomtype_select_title }}" data-header="Room Type">
+                {{-- ! Reprendre room_categories --}}
                 <option value="Single">Single Room</option>
                 <option value="Double">Double Room</option>
                 <option value="Deluxe">Deluxe Room</option>
@@ -49,35 +54,38 @@
           <!-- DATE -->
           <div class="col-md-2">
             <div class="form-group">
-              <label>Check-In/Out
-                <a href="#" title="Check-In / Check-Out" data-toggle="popover" data-placement="top" data-trigger="hover"
-                  data-content="Please select check-in and check-out date <br>*Check In from 11:00am">
-                  <i class="fa fa-info-circle"></i>
+              <label>{{ $static_bookingForm->date_text }}
+                <a href="#" title="{{ $static_bookingForm->date_a_title }}" data-toggle="popover"
+                  data-placement="top" data-trigger="hover"
+                  data-content="{{ $static_bookingForm->date_a_data_content }}">
+                  <i class="fa {{ $static_bookingForm->date_i_class }}"></i>
                 </a>
               </label>
-              <input type="text" class="datepicker form-control" name="booking-date" placeholder="Arrival & Departure"
-                readonly="readonly">
+              <input type="text" class="datepicker form-control" name="booking-date"
+                placeholder="{{ $static_bookingForm->date_input_placeholder }}" readonly="readonly">
             </div>
           </div>
           <!-- GUESTS -->
           <div class="col-md-2">
             <div class="form-group">
-              <label>Guests
-                <a href="#" title="Guests" data-toggle="popover" data-placement="top" data-trigger="hover"
-                  data-content="Please Select Adults / Children">
-                  <i class="fa fa-info-circle"></i>
+              <label>{{ $static_bookingForm->guest_text }}
+                <a href="#" title="{{ $static_bookingForm->guest_a_title }}" data-toggle="popover"
+                  data-placement="top" data-trigger="hover"
+                  data-content="{{ $static_bookingForm->guest_a_data_content }}">
+                  <i class="fa {{ $static_bookingForm->guest_i_class }}"></i>
                 </a>
               </label>
               <div class="panel-dropdown">
-                <div class="form-control guestspicker">Guests
+                <div class="form-control guestspicker">{{ $static_bookingForm->guest_guestpicker }}
                   <span class="gueststotal"></span>
                 </div>
                 <div class="panel-dropdown-content">
                   <div class="guests-buttons">
-                    <label>Adults
+                    <label>{{ $static_bookingForm->guest_adult_text }}
                       <a href="#" title="" data-toggle="popover" data-placement="top" data-trigger="hover"
-                        data-content="18+ years" data-original-title="Adults">
-                        <i class="fa fa-info-circle"></i>
+                        data-content="{{ $static_bookingForm->guest_adult_a_data_content }}"
+                        data-original-title="Adults">
+                        <i class="fa {{ $static_bookingForm->guest_adult_a_i_class }}"></i>
                       </a>
                     </label>
                     <div class="guests-button">
@@ -87,10 +95,11 @@
                     </div>
                   </div>
                   <div class="guests-buttons">
-                    <label>Children
+                    <label>{{ $static_bookingForm->guest_children_text }}
                       <a href="#" title="" data-toggle="popover" data-placement="top" data-trigger="hover"
-                        data-content="Under 18 years" data-original-title="Children">
-                        <i class="fa fa-info-circle"></i>
+                        data-content="{{ $static_bookingForm->guest_children_a_data_content }}"
+                        data-original-title="Children">
+                        <i class="fa {{ $static_bookingForm->guest_children_a_i_class }}"></i>
                       </a>
                     </label>
                     <div class="guests-button">
@@ -105,11 +114,13 @@
           </div>
           <!-- BOOKING BUTTON -->
           <div class="col-md-2">
-            <button type="submit" class="btn btn-book">BOOK A ROOM</button>
-            <div class="advanced-form-link">
-              <a href="/booking-form">
-                Advanced Booking Form
-              </a>
+            <button type="submit" class="btn btn-book">{{ $static_bookingForm->guest_submit_text }}</button>
+            @auth
+              <div class="advanced-form-link">
+                <a href="{{ $static_bookingForm->guest_submit_a_href }}">
+                  {{ $static_bookingForm->guest_submit_a_text }}
+                </a>
+              @endauth
             </div>
           </div>
         </div>

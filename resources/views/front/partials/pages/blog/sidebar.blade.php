@@ -2,16 +2,16 @@
   <aside class="widget noborder">
     <div class="search">
       <form class="widget-search">
-        <input type="search" placeholder="Search">
+        <input type="search" placeholder="{{ $static_sidebar->search_placeholder }}">
         <button class="btn-search" id="searchsubmit" type="submit">
-          <i class="fa fa-search"></i>
+          <i class="fa {{ $static_sidebar->search_btn_i_class }}"></i>
         </button>
       </form>
     </div>
   </aside>
   <!-- WIDGET -->
   <aside class="widget">
-    <h4 class="widget-title">CATEGORIES</h4>
+    <h4 class="widget-title">{{ $static_sidebar->categories_title }}</h4>
     <ul class="categories">
       {{-- // item --}}
       <li>
@@ -37,7 +37,7 @@
   </aside>
   <!-- WIDGET -->
   <aside class="widget">
-    <h4 class="widget-title">Latest Posts</h4>
+    <h4 class="widget-title">{{ $static_sidebar->latest_posts_title }}</h4>
     <div class="latest-posts">
       <!-- ITEM -->
       <div class="latest-post-item">
@@ -138,7 +138,7 @@
   </aside>
   <!-- WIDGET -->
   <aside class="widget">
-    <h4 class="widget-title">Tags</h4>
+    <h4 class="widget-title">{{ $static_sidebar->tags_title }}</h4>
     <div class="tagcloud">
       <!-- ITEM -->
       <a href="#">

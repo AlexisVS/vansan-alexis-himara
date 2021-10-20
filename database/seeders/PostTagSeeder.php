@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PageBlogSidebarTagSeeder extends Seeder
+class PostTagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class PageBlogSidebarTagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_blog_sidebar_tags')->insert([
+        DB::table('post_tags')->insert([
             [
                 'name' => 'Party'
             ],

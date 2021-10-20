@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PageBlogSidebarCategorySeeder extends Seeder
+class PostCategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class PageBlogSidebarCategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('page_blog_sidebar_categories')->insert([
+        DB::table('post_categories')->insert([
             [
                 "name" => 'Travel',
                 'post_number' => '51'

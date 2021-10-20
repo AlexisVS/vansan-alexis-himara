@@ -23,11 +23,17 @@ class CreateLayoutTopMenusTable extends Migration
             $table->string('a_mail_i_class');
             $table->string('a_mail_text');
             $table->string('flag_active');
+            $table->string('flag_active_text');
             $table->string('flag_it');
+            $table->string('flag_it_text');
             $table->string('flag_gr');
+            $table->string('flag_gr_text');
             $table->string('flag_al');
+            $table->string('flag_al_text');
             $table->string('flag_fr');
+            $table->string('flag_fr_text');
             $table->string('flag_es');
+            $table->string('flag_es_text');
             $table->timestamps();
         });
     }

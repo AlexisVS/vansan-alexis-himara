@@ -30,12 +30,6 @@ class CreatePageHomeBookingFormsTable extends Migration
             $table->string('roomtype_a_data_content');
             $table->string('roomtype_i_class');
             $table->string('roomtype_select_title');
-            $table->string('roomtype_select_option1_value');
-            $table->string('roomtype_select_option1_text');
-            $table->string('roomtype_select_option2_value');
-            $table->string('roomtype_select_option2_text');
-            $table->string('roomtype_select_option3_value');
-            $table->string('roomtype_select_option3_text');
             $table->string('date_text');
             $table->string('date_a_title');
             $table->string('date_a_data_content');
@@ -46,8 +40,10 @@ class CreatePageHomeBookingFormsTable extends Migration
             $table->string('guest_a_data_content');
             $table->string('guest_i_class');
             $table->string('guest_guestpicker');
+            $table->string('guest_adult_text');
             $table->string('guest_adult_a_data_content');
             $table->string('guest_adult_a_i_class');
+            $table->string('guest_children_text');
             $table->string('guest_children_a_data_content');
             $table->string('guest_children_a_i_class');
             $table->string('guest_submit_text');

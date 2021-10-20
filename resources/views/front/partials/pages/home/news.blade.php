@@ -1,8 +1,8 @@
 <section class="news">
   <div class="container">
     <div class="section-title">
-      <h4 class="title">LATEST NEWS</h4>
-      <p class="section-subtitle">Check out our latest news</p>
+      <h4 class="title">{{ $static_new->section_title_h4 }}</h4>
+      <p class="section-subtitle">{{ $static_new->section_title_p }}</p>
     </div>
     <div class="row">
       <!-- ITEM -->

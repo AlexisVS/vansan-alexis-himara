@@ -19,7 +19,7 @@ class PageHomeGallerySeeder extends Seeder
             'section_title_span' => 'GALLERY',
             'section_title_subtitle' => 'Check out our image gallery',
             'section_title_a_href' => '/gallery',
-            'section-title_a_text' => 'View gallery images',
+            'section_title_a_text' => 'View gallery images',
         ]);
     }
 }

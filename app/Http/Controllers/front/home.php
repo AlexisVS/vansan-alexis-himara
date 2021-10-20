@@ -22,7 +22,7 @@ use App\Models\page_home_video;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
-class home extends Controller
+class Home extends Controller
 {
     public function index () {
         $compact = [
@@ -40,10 +40,10 @@ class home extends Controller
             
             // * dynamic
             'revolutionSliders' => Page_home_revolution_slider::all(),
-            'abouts' => Page_home_about_providers::all(),
+            'aboutProviders' => Page_home_about_providers::all(),
             'rooms' => Room::all(),
             'services' => Page_home_services_service::all(),
-            'gallery' => Gallery::all(),
+            'galleries' => Gallery::all(),
             'testimonials' => Page_home_testimonial_testimonial::all(),
             'restaurants' => Page_home_restaurant_restaurant::all(),
         ];

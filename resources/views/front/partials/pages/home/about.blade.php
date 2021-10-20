@@ -3,43 +3,22 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="section-title">
-          <h4 class="text-uppercase">Hotel Himara. <span class="text-himara"> since 1992</span></h4>
-          <p class="section-subtitle">High quality accommodation services</p>
+          <h4 class="text-uppercase">{{ $static_about->section_title_title }}<span
+              class="text-himara">{{ $static_about->section_title_title2 }}</span></h4>
+          <p class="section-subtitle">{{ $static_about->section_title_section_subtitle }}</p>
         </div>
         <div class="info-branding">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus deleniti nulla, hic
-            voluptatibus eum voluptatum libero suscipit nemo voluptates cupiditate, ipsum provident facere modi
-            tempora ducimus enim dicta laborum esse aliquam rem
-            assumenda dolores. Commodi, aperiam, blanditiis! Ipsum iure necessitatibus eaque, fuga. Excepturi
-            facilis libero dicta soluta officiis, sint sit voluptatem, vero doloribus nesciunt suscipit dolores
-            veritatis minus quam atque non autem quasi
-            consequatur quae sequi ex, ipsa facere qui ut recusandae. Quod earum cupiditate quaerat assumenda.</p>
+          <p>{{ $static_about->info_branding_p }}</p>
           <div class="providers">
-            <span>Recommended on:</span>
-            <!-- ITEM -->
-            <div class="item">
-              <a href="#">
-                <img src="images/providers/provider-1.png" alt="Image">
-              </a>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-              <a href="#">
-                <img src="images/providers/provider-2.png" alt="Image">
-              </a>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-              <a href="#">
-                <img src="images/providers/provider-3.png" alt="Image">
-              </a>
-            </div>
-            <!-- ITEM -->
-            <div class="item">
-              <a href="#">
-                <img src="images/providers/provider-4.png" alt="Image">
-              </a>
-            </div>
+            <span>{{ $static_about->providers_text }}</span>
+            @foreach ($aboutProviders as $aboutProvider)
+              <!-- ITEM -->
+              <div class="item">
+                <a href="{{ $aboutProvider->provider_href }}">
+                  <img src={{ asset('images/providers/' . $aboutProvider->provider_img) }} alt="Image">
+                </a>
+              </div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -47,16 +26,16 @@
         <div class="brand-info">
           <div class="inner">
             <div class="content">
-              <img src="{{ asset('images/logo-big-transparent.svg') }}" width="100" alt="Image">
+              <img src="{{ asset('images/' . $static_about->content_img) }}" width="100" alt="Image">
               <div class="stars">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
               </div>
-              <h5 class="title">LUXURY HOTEL</h5>
-              <p class="mt20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolorem iste suscipit voluptates architecto nemo.</p>
+              <h5 class="title">{{ $static_about->content_title }}</h5>
+              <p class="mt20">{{ $static_about->content_text }}</p>
             </div>
           </div>
         </div>

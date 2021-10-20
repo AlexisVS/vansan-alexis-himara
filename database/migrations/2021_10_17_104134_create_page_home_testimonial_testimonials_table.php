@@ -18,6 +18,7 @@ class CreatePageHomeTestimonialTestimonialsTable extends Migration
             $table->string('img');
             $table->string('author_name');
             $table->string('author_location');
+            $table->string('rating');
             $table->string('rating_i_class');
             $table->string('text');
             $table->timestamps();
