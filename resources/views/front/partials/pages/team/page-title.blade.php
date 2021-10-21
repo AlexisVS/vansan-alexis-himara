@@ -1,13 +1,13 @@
-<div class="page-title gradient-overlay op6" style="background: url('{{ asset('images/' . $static_team->page_title_bg) }}'); background-repeat: no-repeat;
+<div class="page-title gradient-overlay op6" style="background: url('{{ asset('images/breadcrumb.jpg') }}'); background-repeat: no-repeat;
 background-size: cover;">
   <div class="container">
     <div class="inner">
-      <h1>{{ $static_team->page_title_title }}</h1>
+      <h1>OUR STAFF</h1>
       <ol class="breadcrumb">
         <li>
-          <a href="{{ $static_team->page_title_a_href }}">{{ $static_team->page_title_a_text }}</a>
+          <a href="/">Home</a>
         </li>
-        <li>{{ $static_team->page_title_li }}</li>
+        <li>Our Staff</li>
       </ol>
     </div>
   </div>

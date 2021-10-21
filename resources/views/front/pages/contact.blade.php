@@ -13,10 +13,13 @@
       <div class="row">
         <div class="col-md-8">
           <div class="section-title">
-            <h4>{{ $static_contact->section_title_title }}</h4>
-            <p class="section-subtitle">{{ $static_contact->section_title_subtitle }}</p>
+            <h4>CONTACT US</h4>
+            <p class="section-subtitle">Let’s Talk</p>
           </div>
-          <p>{{ $static_contact->section_title_text }}</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus sit, fugiat at in assumenda corrupti autem
+            iste eveniet eaque vitae beatae tenetur, voluptatem eius. Numquam.
+          </p>
           @include('front.partials.pages.contact.contact-form')
         </div>
         <div class="col-md-4">
