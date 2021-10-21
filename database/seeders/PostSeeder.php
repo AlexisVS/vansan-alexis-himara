@@ -25,6 +25,7 @@ class PostSeeder extends Seeder
                 'date_text' => 'August 13, 2017',
                 'comments_i_class' => 'fa-commenting-o',
                 'comments_text' => '1 Comment',
+                'post_category_id' => 5,
             ],
             [
                 'figure_link_img' => 'blog-post2.jpg',
@@ -36,6 +37,7 @@ class PostSeeder extends Seeder
                 'date_text' => 'August 16, 2017',
                 'comments_i_class' => 'fa-commenting-o',
                 'comments_text' => '5 Comments',
+                'post_category_id' => 5,
             ],
             [
                 'figure_link_img' => 'blog-post3.jpg',
@@ -47,6 +49,7 @@ class PostSeeder extends Seeder
                 'date_text' => 'January 11, 2018',
                 'comments_i_class' => 'fa-commenting-o',
                 'comments_text' => '3 Comments',
+                'post_category_id' => 5,
             ],
         ]);
     }

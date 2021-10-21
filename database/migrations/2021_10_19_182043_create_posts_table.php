@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->string('date_text');
             $table->string('comments_i_class');
             $table->string('comments_text');
+            $table->foreignId('post_category_id')->constrained();
             $table->timestamps();
         });
     }

@@ -21,6 +21,9 @@ class Blog extends Controller
             'posts_categories' => Post_category::all(),
         ];
 
+        $posts = Post::find(1);
+        dd($posts->categories);
+
         return view('front.pages.blog', $data);
     }
 }

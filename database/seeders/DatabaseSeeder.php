@@ -23,9 +23,10 @@ class DatabaseSeeder extends Seeder
             // UNIVERSAL
             GallerySeeder::class, // ! home gallery | gallery
 
-            PostSeeder::class, // ! footer | news | latest posts
             PostCategorySeeder::class,
+            PostSeeder::class, // ! footer | news | latest posts
             PostTagSeeder::class,
+            PostTagPostSeeder::class,
             
             RoomSeeder::class,
             RoomImageSeeder::class,
