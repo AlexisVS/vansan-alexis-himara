@@ -75,6 +75,7 @@ class DatabaseSeeder extends Seeder
             PageRoomSidebarSeeder::class,
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // ROOM LIST
             PageRoomlistSeeder::class,
 
@@ -84,6 +85,11 @@ class DatabaseSeeder extends Seeder
             
 =======
 >>>>>>> parent of f6c5691 (placement de variable sur la page contact & gallery & page & team)
+=======
+            // TEAM
+            PageTeamSeeder::class,
+            PageTeamTeamSeeder::class,
+>>>>>>> parent of ab734d0 (ok)
         ]);
     }
 }
