@@ -69,8 +69,6 @@ class DatabaseSeeder extends Seeder
 
             // PAGE
             PagePageSeeder::class,
-            PagePageCategoriesSeeder::class,
-            PagePageTagSeeder::class,
 
             // Room
             PageRoomSeeder::class,

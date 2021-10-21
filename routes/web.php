@@ -2,7 +2,13 @@
 
 use App\Http\Controllers\front\Blog;
 use App\Http\Controllers\front\BookingForm;
+use App\Http\Controllers\front\Contact;
+use App\Http\Controllers\front\Gallery;
 use App\Http\Controllers\front\Home;
+use App\Http\Controllers\front\Team;
+use App\Models\Page_page;
+use App\Models\Post_category;
+use App\Models\Post_tag;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,30 +29,28 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/', Home::class);
 
 Route::resource('/blog', Blog::class);
+Route::get('/page', function () { // ! le SHOW de blog
+    $data = [
+        'static_page' => Page_page::find(1),
+        'posts_categories' => Post_category::all(),
+        'posts_tags' => Post_tag::all(),
+    ];
+    return view('front.pages.page', $data);
+});
 
 Route::resource('/booking-form', BookingForm::class);
+
+Route::resource('/contact', Contact::class);
+
+Route::resource('/gallery', Gallery::class);
+
+Route::resource('/team', Team::class);
 
 Route::get('/room', function () {
     return view('front.pages.rooms-list');
 });
 Route::get('/room1', function () {
     return view('front.pages.room');
-});
-
-
-Route::get('/team', function () {
-    return view('front.pages.team');
-});
-Route::get('/blog1', function () {
-    return view('front.pages.page');
-});
-
-Route::get('/contact', function () {
-    return view('front.pages.contact');
-});
-
-Route::get('/gallery', function () {
-    return view('front.pages.gallery');
 });
 
 /* -------------------------------------------------------------------------- */
