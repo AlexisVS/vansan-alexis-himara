@@ -6,6 +6,7 @@ use App\Models\Layout_Footer;
 use App\Models\Layout_Header;
 use App\Models\Layout_top_menu;
 use App\Models\Post;
+use App\Models\Room;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -35,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
             'header' => Layout_Header::find(1),
             'topMenu' => Layout_top_menu::find(1),
             'posts' => Post::all(),
+            'rooms' => Room::all(),
         ]);
     }
 }

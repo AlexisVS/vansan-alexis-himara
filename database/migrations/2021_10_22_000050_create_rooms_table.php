@@ -31,6 +31,7 @@ class CreateRoomsTable extends Migration
             $table->string('price');
             $table->string('name');
             $table->string('slogan');
+            $table->foreignId('room_category_id')->constrained();
             $table->timestamps();
         });
     }

@@ -47,6 +47,10 @@ class Home extends Controller
             'testimonials' => Page_home_testimonial_testimonial::all(),
             'restaurants' => Page_home_restaurant_restaurant::all(),
         ];
+
+        $room = Room::find(1);
+        // dd($room);
+
         return view('home', $compact);
     }
 }

@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Room_service extends Model
+class Room_service_room extends Model
 {
     use HasFactory;
-
-    public function rooms () {
-        return $this->belongsToMany(Room::class, 'rooms');
-    }
 }

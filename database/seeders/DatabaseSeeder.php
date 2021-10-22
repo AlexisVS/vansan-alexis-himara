@@ -28,12 +28,13 @@ class DatabaseSeeder extends Seeder
             PostTagSeeder::class,
             PostTagPostSeeder::class,
             
-            RoomSeeder::class,
-            RoomImageSeeder::class,
+            RoomCategoriesSeeder::class,
             RoomProgressSeeder::class,
             RoomReviewSeeder::class,
+            RoomSeeder::class,
+            RoomImageSeeder::class,
             RoomServiceSeeder::class,
-            RoomCategoriesSeeder::class,
+            RoomServiceRoomSeeder::class,
             
             // HOME
             PageHomeRevolutionSliderSeeder::class,

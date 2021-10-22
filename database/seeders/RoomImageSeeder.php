@@ -15,14 +15,38 @@ class RoomImageSeeder extends Seeder
     public function run()
     {
         DB::table('room_images')->insert([
-            ['image' => 'single1.jpg'],
-            ['image' => 'single2.jpg'],
-            ['image' => 'single3.jpg'],
-            ['image' => 'single4.jpg'],
-            ['image' => 'single5.jpg'],
-            ['image' => 'single6.jpg'],
-            ['image' => 'single7.jpg'],
-            ['image' => 'single8.jpg'],
+            [
+                'image' => 'single1.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image' => 'single2.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image' => 'single3.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image' => 'single4.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image' => 'single5.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image' => 'single6.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image' => 'single7.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image' => 'single8.jpg',
+                'room_id' => 1
+            ],
         ]);
     }
 }

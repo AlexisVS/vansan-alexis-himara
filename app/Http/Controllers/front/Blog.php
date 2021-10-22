@@ -16,13 +16,13 @@ class Blog extends Controller
         $data = [
             'static_pageTitle' => Page_blog_page_title::find(1),
             'static_sidebar' => Page_blog_sidebar::find(1),
-            'posts' => Post::all(),
+            // 'posts' => Post::all(),
             'posts_tags' => Post_tag::all(),
             'posts_categories' => Post_category::all(),
         ];
 
-        $posts = Post::find(1);
-        dd($posts->categories);
+        // $posts = Post::find(1);
+        // dd($posts->categories);
 
         return view('front.pages.blog', $data);
     }

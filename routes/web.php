@@ -5,6 +5,7 @@ use App\Http\Controllers\front\BookingForm;
 use App\Http\Controllers\front\Contact;
 use App\Http\Controllers\front\Gallery;
 use App\Http\Controllers\front\Home;
+use App\Http\Controllers\front\room;
 use App\Http\Controllers\front\Team;
 use App\Models\Page_page;
 use App\Models\Post_category;
@@ -46,9 +47,8 @@ Route::resource('/gallery', Gallery::class);
 
 Route::resource('/team', Team::class);
 
-Route::get('/room', function () {
-    return view('front.pages.rooms-list');
-});
+Route::resource('/room', room::class);
+
 Route::get('/room1', function () {
     return view('front.pages.room');
 });
