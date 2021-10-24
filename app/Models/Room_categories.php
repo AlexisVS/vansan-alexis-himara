@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Room_categories extends Model
 {
     use HasFactory;
+
+    public function rooms () {
+        return $this->hasMany(Room_categories::class);
+    }
 }

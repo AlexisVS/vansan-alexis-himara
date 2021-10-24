@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Room as ModelsRoom;
 use Illuminate\Http\Request;
 
 class Room extends Controller

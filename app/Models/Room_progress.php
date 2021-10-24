@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Room_progress extends Model
 {
     use HasFactory;
+
+    public function rooms () {
+        return $this->belongsTo(Room::class, 'room_id');
+    }
 }

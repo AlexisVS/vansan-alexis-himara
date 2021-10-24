@@ -26,6 +26,7 @@ class RoomProgressSeeder extends Seeder
                 'progress4_value' => '0',
                 'progress5_start' => '1 star',
                 'progress5_value' => '0',
+                'room_id' => 1,
             ],
         ]);
     }

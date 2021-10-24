@@ -29,10 +29,10 @@ class DatabaseSeeder extends Seeder
             PostTagPostSeeder::class,
             
             RoomCategoriesSeeder::class,
-            RoomProgressSeeder::class,
-            RoomReviewSeeder::class,
             RoomSeeder::class,
             RoomImageSeeder::class,
+            RoomProgressSeeder::class,
+            RoomReviewSeeder::class,
             RoomServiceSeeder::class,
             RoomServiceRoomSeeder::class,
             

@@ -25,6 +25,7 @@ class CreateRoomProgressesTable extends Migration
             $table->string('progress4_value');
             $table->string('progress5_start');
             $table->string('progress5_value');
+            $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
