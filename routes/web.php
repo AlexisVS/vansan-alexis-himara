@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/', Home::class);
 
 Route::resource('/blog', Blog::class);
-Route::get('/page', function () { // ! le SHOW de blog
+Route::get('/blog-post', function () { // ! le SHOW de blog
     $data = [
         'static_page' => Page_page::find(1),
         'posts_categories' => Post_category::all(),

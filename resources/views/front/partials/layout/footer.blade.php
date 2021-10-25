@@ -24,10 +24,10 @@
             <div class="inner">
               <ul class="latest-posts">
                 {{-- /*  -------------------------------- Dynamique ------------------------------- */ --}}
-                @foreach ($posts as $post)
+                @foreach ($rooms as $room)
                   @if ($loop->iteration < 5)
                     <li>
-                      <a href="/post/{{ $post->id }}">{{ $post->title_text }}</a>
+                      <a href="/room/{{ $room->id }}">{{ $room->name }}</a>
                     </li>
                   @endif
                 @endforeach

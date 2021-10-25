@@ -20,7 +20,7 @@ class LayoutFooterSeeder extends Seeder
             'w1_a_href' => 'https://www.tripadvisor.com/',
             'w1_a_span' => 'Recommended',
             'w1_a_img' => 'tripadvisor.png',
-            'w2_h3' => 'LATEST NEWS',
+            'w2_h3' => 'OUR ROOMS',
             'w3_h3' => 'USEFUL LINKS',
             'w3_a1_href' => '/about',
             'w3_a1_text' => 'About Us',
