@@ -15,6 +15,22 @@ class RoomServiceRoomSeeder extends Seeder
     public function run()
     {
         DB::table('room_service_rooms')->insert([
+            // [
+            //     'room_service_id' => 1,
+            //     'room_id' => 1,
+            // ],
+            // [
+            //     'room_service_id' => 2,
+            //     'room_id' => 1,
+            // ],
+            // [
+            //     'room_service_id' => 3,
+            //     'room_id' => 1,
+            // ],
+            // [
+            //     'room_service_id' => 4,
+            //     'room_id' => 1,
+            // ],
             [
                 'room_service_id' => 1,
                 'room_id' => 1,
@@ -49,22 +65,6 @@ class RoomServiceRoomSeeder extends Seeder
             ],
             [
                 'room_service_id' => 9,
-                'room_id' => 1,
-            ],
-            [
-                'room_service_id' => 10,
-                'room_id' => 1,
-            ],
-            [
-                'room_service_id' => 11,
-                'room_id' => 1,
-            ],
-            [
-                'room_service_id' => 12,
-                'room_id' => 1,
-            ],
-            [
-                'room_service_id' => 13,
                 'room_id' => 1,
             ],
         ]);

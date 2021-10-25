@@ -16,38 +16,6 @@ class RoomServiceSeeder extends Seeder
     {
         DB::table('room_services')->insert([
             [
-                'displayed_card' => TRUE,
-                'room_service_text' => 'Double Bed',
-                'span_card' => 'Beds: 2 King',
-                'i_class' => '',
-                'similar_rooms_room_services_i_data_content' => '',
-                'similar_rooms_room_services_i_data_title' => '',
-            ],
-            [
-                'displayed_card' => TRUE,
-                'room_service_text' => '5 persons',
-                'span_card' => 'Max Guests: 4',
-                'i_class' => '',
-                'similar_rooms_room_services_i_data_content' => '',
-                'similar_rooms_room_services_i_data_title' => '',
-            ],
-            [
-                'displayed_card' => FALSE,
-                'room_service_text' => '80 Sq mt',
-                'span_card' => '',
-                'i_class' => '',
-                'similar_rooms_room_services_i_data_content' => '',
-                'similar_rooms_room_services_i_data_title' => '',
-            ],
-            [
-                'displayed_card' => FALSE,
-                'room_service_text' => '3 Persons',
-                'span_card' => '',
-                'i_class' => '',
-                'similar_rooms_room_services_i_data_content' => '',
-                'similar_rooms_room_services_i_data_title' => '',
-            ],
-            [
                 'displayed_card' => FALSE,
                 'room_service_text' => 'Free Internet',
                 'span_card' => '',

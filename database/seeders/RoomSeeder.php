@@ -32,6 +32,9 @@ class RoomSeeder extends Seeder
                 'price' => '89',
                 'name' => 'Istanbul',
                 'slogan' => 'Enjoy our single room',
+                'number_bed' => '1',
+                'number_persons' => '2',
+                'sq_mt' => '80',
                 'room_category_id' => 1,
             ],
         ]);

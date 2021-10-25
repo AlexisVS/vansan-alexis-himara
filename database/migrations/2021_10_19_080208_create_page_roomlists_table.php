@@ -20,6 +20,9 @@ class CreatePageRoomlistsTable extends Migration
             $table->string('page_title_a_href');
             $table->string('page_title_a_text');
             $table->string('page_title_li');
+            $table->string('room_list_room_price_price');
+            $table->string('room_list_room_price_a_text1');
+            $table->string('room_list_room_price_a_text2');
             $table->string('sidebar_search_placeholder');
             $table->string('sidebar_search_i_class');
             $table->string('sidebar_widget1_title');
