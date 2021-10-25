@@ -1,5 +1,8 @@
 @foreach ($rooms as $room)
-<div class="room-list-item">
+<div id="room-item-{{ $room->id }}" class="room-list-item" data-roomId="{{ $room->id }}"
+  data-categoryId="{{ $room->category_id }}"
+  {{-- data-servicesId="{{ $roomServicesRooms->where('room_id', $room->id)->pluck('id')->toJSON() }}" --}}
+  >
   <div class="row">
     <div class="col-lg-5">
       <figure class="gradient-overlay-hover link-icon">
@@ -33,7 +36,7 @@
             data-original-title="{{ $service->similar_rooms_room_services_i_data_title }}"></i>
           @endif
           @endforeach
-          <span>Bed{{ $room->number_bed > 1 ? 's' : '' }}: {{ $room->number_bed }} King {{ $room->number_bed > 1 ? 's' :
+          <span>Bed{{ $room->number_bed > 1 ? 's' : '' }}: {{ $room->number_bed }} King{{ $room->number_bed > 1 ? 's' :
             '' }}</span>
           <span>Max Guest{{ $room->number_persons > 1 ? 's' : '' }} : {{ $room->number_persons }}</span>
         </div>

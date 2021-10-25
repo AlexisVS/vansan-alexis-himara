@@ -113,7 +113,7 @@
             </a>
             <a class="{{ $footer->sf_sm_twitter_class }}" data-original-title="{{ $footer->sf_sm_twitter_title }}"
               data-toggle="tooltip" href="{{ $footer->sf_sm_twitter_href }}">
-              <i class="fa f{{ $footer->sf_sm_twitter_i_class }}"></i>
+              <i class="fa {{ $footer->sf_sm_twitter_i_class }}"></i>
             </a>
             <a class="{{ $footer->sf_sm_googleplus_class }}"
               data-original-title="{{ $footer->sf_sm_googleplus_title }}" data-toggle="tooltip"

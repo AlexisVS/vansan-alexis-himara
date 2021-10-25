@@ -18,6 +18,7 @@ class Room extends Controller
             'static_roomList' => Page_roomlist::find(1),
 
             // * dynamic
+            // 'roomServicesRooms' => Room_service_room::all(),
             'roomCategories' => Room_categories::all(),
             'roomServices' => Room_service::all()
         ];

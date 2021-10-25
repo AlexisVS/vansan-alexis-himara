@@ -15,22 +15,6 @@ class RoomServiceRoomSeeder extends Seeder
     public function run()
     {
         DB::table('room_service_rooms')->insert([
-            // [
-            //     'room_service_id' => 1,
-            //     'room_id' => 1,
-            // ],
-            // [
-            //     'room_service_id' => 2,
-            //     'room_id' => 1,
-            // ],
-            // [
-            //     'room_service_id' => 3,
-            //     'room_id' => 1,
-            // ],
-            // [
-            //     'room_service_id' => 4,
-            //     'room_id' => 1,
-            // ],
             [
                 'room_service_id' => 1,
                 'room_id' => 1,
@@ -67,6 +51,79 @@ class RoomServiceRoomSeeder extends Seeder
                 'room_service_id' => 9,
                 'room_id' => 1,
             ],
+
+
+
+            [
+                'room_service_id' => 2,
+                'room_id' => 2,
+            ],
+            [
+                'room_service_id' => 3,
+                'room_id' => 2,
+            ],
+            [
+                'room_service_id' => 4,
+                'room_id' => 2,
+            ],
+            [
+                'room_service_id' => 5,
+                'room_id' => 2,
+            ],
+
+
+
+            [
+                'room_service_id' => 1,
+                'room_id' => 3,
+            ],
+
+            [
+                'room_service_id' => 3,
+                'room_id' => 3,
+            ],
+
+            [
+                'room_service_id' => 5,
+                'room_id' => 3,
+            ],
+
+            [
+                'room_service_id' => 7,
+                'room_id' => 3,
+            ],
+
+            [
+                'room_service_id' => 9,
+                'room_id' => 3,
+            ],
+
+
+
+
+
+
+
+            [
+                'room_service_id' => 2,
+                'room_id' => 4,
+            ],
+
+            [
+                'room_service_id' => 4,
+                'room_id' => 4,
+            ],
+
+            [
+                'room_service_id' => 6,
+                'room_id' => 4,
+            ],
+
+            [
+                'room_service_id' => 8,
+                'room_id' => 4,
+            ],
+
         ]);
     }
 }
