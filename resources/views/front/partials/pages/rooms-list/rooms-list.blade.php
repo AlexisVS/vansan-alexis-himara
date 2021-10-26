@@ -1,4 +1,4 @@
-@foreach ($rooms as $room)
+@foreach ($roomLists as $room)
 <div id="room-item-{{ $room->id }}" class="room-list-item" data-roomId="{{ $room->id }}"
   data-categoryId="{{ $room->category_id }}"
   {{-- data-servicesId="{{ $roomServicesRooms->where('room_id', $room->id)->pluck('id')->toJSON() }}" --}}
@@ -29,6 +29,7 @@
         </span>
         <p>{{ Str::limit($room->text1, 52, ' ..') }}</p>
         <div class="room-services">
+          
           @foreach ($room->services as $service)
           @if ($service->i_class != '')
           <i class="fa {{ $service->i_class }}" data-toggle="popover" data-placement="top" data-trigger="hover"
