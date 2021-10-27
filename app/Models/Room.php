@@ -11,7 +11,8 @@ class Room extends Model
 
     public function services()
     {
-        return $this->belongsToMany(Room_service::class, 'room_service_rooms');
+        return $this->belongsToMany(Room_service::class, 'room_service_rooms')
+        ->withPivot('available');
     }
 
     public function categories()

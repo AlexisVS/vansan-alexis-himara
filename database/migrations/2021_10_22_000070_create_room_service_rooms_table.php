@@ -17,6 +17,7 @@ class CreateRoomServiceRoomsTable extends Migration
             $table->id();
             $table->foreignId('room_service_id')->constrained();
             $table->foreignId('room_id')->constrained()->onDelete('cascade');
+            $table->boolean('available');
             $table->timestamps();
         });
     }

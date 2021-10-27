@@ -18,38 +18,47 @@ class RoomServiceRoomSeeder extends Seeder
             [
                 'room_service_id' => 1,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 2,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 3,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 4,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 5,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 6,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 7,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 8,
                 'room_id' => 1,
+                'available' => true,
             ],
             [
                 'room_service_id' => 9,
                 'room_id' => 1,
+                'available' => true,
             ],
 
 
@@ -57,18 +66,22 @@ class RoomServiceRoomSeeder extends Seeder
             [
                 'room_service_id' => 2,
                 'room_id' => 2,
+                'available' => true,
             ],
             [
                 'room_service_id' => 3,
                 'room_id' => 2,
+                'available' => true,
             ],
             [
                 'room_service_id' => 4,
                 'room_id' => 2,
+                'available' => false,
             ],
             [
                 'room_service_id' => 5,
                 'room_id' => 2,
+                'available' => true,
             ],
 
 
@@ -76,26 +89,31 @@ class RoomServiceRoomSeeder extends Seeder
             [
                 'room_service_id' => 1,
                 'room_id' => 3,
+                'available' => true,
             ],
 
             [
                 'room_service_id' => 3,
                 'room_id' => 3,
+                'available' => false,
             ],
 
             [
                 'room_service_id' => 5,
                 'room_id' => 3,
+                'available' => true,
             ],
 
             [
                 'room_service_id' => 7,
                 'room_id' => 3,
+                'available' => true,
             ],
 
             [
                 'room_service_id' => 9,
                 'room_id' => 3,
+                'available' => true,
             ],
 
 
@@ -107,21 +125,25 @@ class RoomServiceRoomSeeder extends Seeder
             [
                 'room_service_id' => 2,
                 'room_id' => 4,
+                'available' => true,
             ],
 
             [
                 'room_service_id' => 4,
                 'room_id' => 4,
+                'available' => false,
             ],
 
             [
                 'room_service_id' => 6,
                 'room_id' => 4,
+                'available' => true,
             ],
 
             [
                 'room_service_id' => 8,
                 'room_id' => 4,
+                'available' => true,
             ],
 
         ]);

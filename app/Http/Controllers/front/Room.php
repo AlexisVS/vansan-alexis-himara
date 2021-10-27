@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
 use App\Http\Controllers\Controller;
+use App\Models\Page_room;
 use App\Models\Page_roomlist;
 use App\Models\Room as ModelsRoom;
 use App\Models\Room_categories;
@@ -58,11 +59,12 @@ class Room extends Controller
 
         // dd($servicesRoom);
 
-
+            // ? c'est oké
         $roomLists = QueryBuilder::for(ModelsRoom::class)
             ->allowedFilters(['name', 'room_category_id', AllowedFilter::exact('services.id')])
             ->allowedIncludes(['services'])
             ->get();
+            
         $data = [
             // * static
             'static_roomList' => Page_roomlist::find(1),
@@ -77,8 +79,12 @@ class Room extends Controller
         return view('front.pages.rooms-list', $data);
     }
 
-    public function show()
+    public function show($id)
     {
-        return view('front.pages.room');
+        $data = [
+            'static_room' => Page_room::find(1),
+            'show' => ModelsRoom::find($id),
+        ];
+        return view('front.pages.room', $data);
     }
 }

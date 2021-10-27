@@ -31,7 +31,7 @@
         <div class="room-services">
           
           @foreach ($room->services as $service)
-          @if ($service->i_class != '')
+          @if ($service->i_class != '' && $service->pivot->available != false)
           <i class="fa {{ $service->i_class }}" data-toggle="popover" data-placement="top" data-trigger="hover"
             data-content="{{ $service->similar_rooms_room_services_i_data_content }}"
             data-original-title="{{ $service->similar_rooms_room_services_i_data_title }}"></i>
