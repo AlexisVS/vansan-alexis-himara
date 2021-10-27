@@ -1,13 +1,18 @@
 <div id="room-reviews" class="room-reviews">
   <div class="section-title sm">
-    <h4>ROOM REVIEWS</h4>
-    <p class="section-subtitle">What our guests are saying about us</p>
+    <h4>{{ $static_room->reviews_title }}</h4>
+    <p class="section-subtitle">{{ $static_room->reviews_subtitle }}</p>
   </div>
   <div class="rating-details">
     <div class="row">
       <div class="col-lg-3">
         <div class="review-summary">
-          <div class="average">4.9</div>
+          <div class="average">
+            @php
+            $review = $show->reviews->pluck('rating')->flatten();
+            echo number_format($review->sum() / $review->count(), 1)
+            @endphp
+          </div>
           <div class="rating">
             <i class="fa fa-star voted" aria-hidden="true"></i>
             <i class="fa fa-star voted" aria-hidden="true"></i>
@@ -15,7 +20,7 @@
             <i class="fa fa-star voted" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
           </div>
-          <small>Based on 3 ratings</small>
+          <small>Based on {{ $show->reviews->count() }} ratings</small>
         </div>
       </div>
       <div class="col-lg-9">
@@ -23,16 +28,19 @@
         <div class="progress-item">
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-3">
-              <div class="progress-stars">5 star</div>
+              <div class="progress-stars">{{ $static_room->reviews_5star }}</div>
             </div>
             <div class="col-lg-9 col-sm-9 col-8">
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 91%" aria-valuenow="91" aria-valuemin="0"
-                  aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar"
+                  style="width: {{ number_format($show->reviews->where('rating', 5)->count() / $show->reviews->count() * 100, 2) }}%"
+                  aria-valuenow="{{ number_format($show->reviews->where('rating', 5)->count() / $show->reviews->count() * 100, 2) }}"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="col-lg-1 col-sm-1 col-1">
-              <div class="progress-value">91%</div>
+              <div class="progress-value">{{ number_format($show->reviews->where('rating', 5)->count() /
+                $show->reviews->count() * 100, 2) }}%</div>
             </div>
           </div>
         </div>
@@ -40,16 +48,19 @@
         <div class="progress-item">
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-3">
-              <div class="progress-stars">4 star</div>
+              <div class="progress-stars">{{ $static_room->reviews_4star }}</div>
             </div>
             <div class="col-lg-9 col-sm-9 col-8">
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                  aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar"
+                  style="width: {{ number_format($show->reviews->where('rating', 4)->count() / $show->reviews->count() * 100, 2) }}%"
+                  aria-valuenow="{{ number_format($show->reviews->where('rating', 4)->count() / $show->reviews->count() * 100, 2) }}"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="col-lg-1 col-sm-1 col-1">
-              <div class="progress-value">0%</div>
+              <div class="progress-value">{{ number_format($show->reviews->where('rating', 4)->count() /
+                $show->reviews->count() * 100, 2) }}%</div>
             </div>
           </div>
         </div>
@@ -57,16 +68,19 @@
         <div class="progress-item">
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-3">
-              <div class="progress-stars">3 star</div>
+              <div class="progress-stars">{{ $static_room->reviews_3star }}</div>
             </div>
             <div class="col-lg-9 col-sm-2 col-8">
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 8%" aria-valuenow="8" aria-valuemin="0"
-                  aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar"
+                  style="width: {{ number_format($show->reviews->where('rating', 3)->count() / $show->reviews->count() * 100, 2) }}%"
+                  aria-valuenow="{{ number_format($show->reviews->where('rating', 3)->count() / $show->reviews->count() * 100, 2) }}"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="col-lg-1 col-sm-1 col-1">
-              <div class="progress-value">8%</div>
+              <div class="progress-value">{{ number_format($show->reviews->where('rating', 3)->count() /
+                $show->reviews->count() * 100, 2) }}%</div>
             </div>
           </div>
         </div>
@@ -74,16 +88,19 @@
         <div class="progress-item">
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-3">
-              <div class="progress-stars">2 star</div>
+              <div class="progress-stars">{{ $static_room->reviews_2star }}</div>
             </div>
             <div class="col-lg-9 col-sm-9 col-8">
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                  aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar"
+                  style="width: {{ number_format($show->reviews->where('rating', 2)->count() / $show->reviews->count() * 100, 2) }}%"
+                  aria-valuenow="{{ number_format($show->reviews->where('rating', 2)->count() / $show->reviews->count() * 100, 2) }}"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="col-lg-1 col-sm-1 col-1">
-              <div class="progress-value">0%</div>
+              <div class="progress-value">{{ number_format($show->reviews->where('rating', 2)->count() /
+                $show->reviews->count() * 100, 2) }}%</div>
             </div>
           </div>
         </div>
@@ -91,91 +108,49 @@
         <div class="progress-item">
           <div class="row">
             <div class="col-lg-2 col-sm-2 col-3">
-              <div class="progress-stars">1 star</div>
+              <div class="progress-stars">{{ $static_room->reviews_1star }}</div>
             </div>
             <div class="col-lg-9 col-sm-9 col-8">
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                  aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar"
+                  style="width: {{ number_format($show->reviews->where('rating', 1)->count() / $show->reviews->count() * 100, 2) }}%"
+                  aria-valuenow="{{ number_format($show->reviews->where('rating', 1)->count() / $show->reviews->count() * 100, 2) }}"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="col-lg-1 col-sm-1 col-1">
-              <div class="progress-value">0%</div>
+              <div class="progress-value">{{ number_format($show->reviews->where('rating', 1)->count() /
+                $show->reviews->count() * 100, 2) }}%</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="review-box">
+  @foreach ($show->reviews as $review )
+
+  <div class="review-box {{ $loop->iteration > 1 ? 'clearfix' : '' }}">
     <figure class="review-author">
-      <img src="images/users/user1.jpg" alt="Image">
+      <img src={{ asset("images/users/" . $review->userImage) }} alt="Image">
     </figure>
     <div class="review-contentt">
       <div class="rating">
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star" aria-hidden="true"></i>
+        @for ($i = 0; $i < $review->rating; $i++)
+          <i class="fa {{ $review->rating_i_class }} voted" aria-hidden="true"></i>
+        @endfor
+        @for ($j = 0; $j < 5 - $review->rating; $j++)
+          <i class="fa {{ $review->rating_i_class }}" aria-hidden="true"></i>
+        @endfor
       </div>
       <div class="review-info">
-        Marlene Simpson – February 03, 2018
+        {{ $review->review_info }}
       </div>
       <div class="review-text">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quis rem esse quaerat eius labore repellendus,
-          odit officia, quas provident reprehenderit magnam adipisci inventore quibusdam est architecto nisi.
+          {{ $review->review_text }}
         </p>
       </div>
     </div>
   </div>
-  <!-- End review-box -->
-  <div class="review-box clearfix">
-    <figure class="review-author">
-      <img src="images/users/user2.jpg" alt="Image">
-    </figure>
-    <div class="review-contentt">
-      <div class="rating">
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-      </div>
-      <div class="review-info">
-        Brad Knight – January 17, 2018
-      </div>
-      <div class="review-text">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium omnis, eius impedit cum. Necessitatibus
-          illum veritatis, consequatur quia itaque tenetur recusandae nostrum quod aperiam.
-        </p>
-      </div>
-    </div>
-  </div>
-  <!-- End review-box -->
-  <div class="review-box clearfix">
-    <figure class="review-author">
-      <img src="images/users/user3.jpg" alt="Image">
-    </figure>
-    <div class="review-contentt">
-      <div class="rating">
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-        <i class="fa fa-star voted" aria-hidden="true"></i>
-      </div>
-      <div class="review-info">
-        Daryl Phillips – August 16, 2017
-      </div>
-      <div class="review-text">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim id, facere porro. Ipsum quia maxime atque
-          adipisci inventore dolor nesciunt, molestias voluptatum, ab dignissimos! Alias.
-        </p>
-      </div>
-    </div>
-  </div>
+  @endforeach
 </div>

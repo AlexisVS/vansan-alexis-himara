@@ -31,7 +31,6 @@ class DatabaseSeeder extends Seeder
             RoomCategoriesSeeder::class,
             RoomSeeder::class,
             RoomImageSeeder::class,
-            RoomProgressSeeder::class,
             RoomReviewSeeder::class,
             RoomServiceSeeder::class,
             RoomServiceRoomSeeder::class,

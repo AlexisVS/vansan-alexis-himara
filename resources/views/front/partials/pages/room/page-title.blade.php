@@ -1,19 +1,19 @@
-<div class="page-title gradient-overlay op5" style="background: url('{{ asset('images/breadcrumb.jpg') }}'); background-repeat: no-repeat;
+<div class="page-title gradient-overlay op5" style="background: url('{{ asset('images/' . $static_room->page_title_bg) }}'); background-repeat: no-repeat;
 background-size: cover;">
   <div class="container">
     <div class="inner">
-      <h1>ISTANBUL</h1>
+      <h1>{{ strtoupper($show->name) }}</h1>
       <div class="room-details-price">
-        €89 / NIGHT
+        €{{ $show->price }} {{ $static_room->page_title_room_details_price }}
       </div>
       <ol class="breadcrumb">
         <li>
-          <a href="/">Home</a>
+          <a href="{{ $static_room->page_titleli1_href }}">{{ $static_room->page_titleli1_text }}</a>
         </li>
         <li>
-          <a href="/room">Rooms</a>
+          <a href="{{ $static_room->page_titleli2_href }}">{{ $static_room->page_titleli2_text }}</a>
         </li>
-        <li>Istanbul</li>
+        <li>{{ $show->name }}</li>
       </ol>
     </div>
   </div>

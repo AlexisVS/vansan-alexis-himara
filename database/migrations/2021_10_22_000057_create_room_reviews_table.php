@@ -15,6 +15,7 @@ class CreateRoomReviewsTable extends Migration
     {
         Schema::create('room_reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('userImage');
             $table->string('rating');
             $table->string('rating_i_class');
             $table->string('review_info');

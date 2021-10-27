@@ -3,7 +3,7 @@
     <div class="col-sm-4">
       <ul class="list-unstyled">
         <li>
-          <i class="fa fa-check"></i>
+          <i class="fa {{ $static_room->service_list_i_class_accepted }}"></i>
           @if ($show->number_bed == 1)
           Single bed
           @endif
@@ -15,10 +15,10 @@
           @endif
         </li>
         <li>
-          <i class="fa fa-check"></i>{{ $show->sq_mt }} Sq mt
+          <i class="fa {{ $static_room->service_list_i_class_accepted }}"></i>{{ $show->sq_mt }} Sq mt
         </li>
         <li>
-          <i class="fa fa-check"></i>
+          <i class="fa {{ $static_room->service_list_i_class_accepted }}"></i>
           @if ($show->number_persons == 1)
           1 person
           @endif
@@ -28,11 +28,11 @@
         </li>
         @if ($show->services[0]->pivot->available == true)
         <li>
-          <i class="fa fa-check"></i>{{ $show->services[0]->room_service_text }}
+          <i class="fa {{ $static_room->service_list_i_class_accepted }}"></i>{{ $show->services[0]->room_service_text }}
         </li>
         @else
         <li class="no">
-          <i class="fa fa-check"></i>{{ $show->services[0]->room_service_text }}
+          <i class="fa {{ $static_room->service_list_i_class_accepted }}"></i>{{ $show->services[0]->room_service_text }}
         </li>
         @endif
       </ul>
@@ -40,19 +40,16 @@
     <div class="col-sm-4">
       <ul class="list-unstyled">
         {{-- {{ dd($show->services) }} --}}
-        @foreach ($show->services as $service)
-        // Je doit prendre l'id de tous ceux qui sont actuellement dans les services de la room,
-        // afficher en rouge ou pas si il le faut. ensuite faire un count()
-        // pour savoir combien j'en ai actuellement
-        // pour pouvoir les rajouter sans prendre les mêmes qu'il y a déja et forcément les mettres en rouge.
+        @foreach ($services as $service)
+
         @if ($loop->iteration > 1)
-        @if ($service->pivot->available == true)
+        @if ($loop->iteration <= $numberShowServices && $service->pivot->available == true)
         <li>
-          <i class="fa fa-check"></i>{{ $service->rom_service_text }}
+          <i class="fa {{ $static_room->service_list_i_class_accepted }}"></i>{{ $service->room_service_text }}
         </li>
         @else
         <li class="no">
-          <i class="fa fa-check"></i>{{ $service->rom_service_text }}
+          <i class="fa {{ $static_room->service_list_i_class_refused }}"></i>{{ $service->room_service_text }}
         </li>
         @endif
         @if ($loop->iteration % 4 == 1)
@@ -63,32 +60,7 @@
         @endif
         @endif
         @endforeach
-        {{-- <li>
-          <i class="fa fa-check"></i>Breakfast Include
-        </li>
-        <li>
-          <i class="fa fa-check"></i>Private Balcony
-        </li>
-        <li class="no">
-          <i class="fa fa-times"></i>Free Newspaper
-        </li> --}}
       </ul>
     </div>
-    {{-- <div class="col-sm-4">
-      <ul class="list-unstyled">
-        <li class="no">
-          <i class="fa fa-times"></i>Flat Screen Tv
-        </li>
-        <li>
-          <i class="fa fa-check"></i>Full Ac
-        </li>
-        <li class="no">
-          <i class="fa fa-times"></i>Beach View
-        </li>
-        <li>
-          <i class="fa fa-check"></i>Room Service
-        </li>
-      </ul>
-    </div> --}}
   </div>
 </div>

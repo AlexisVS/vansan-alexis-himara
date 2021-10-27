@@ -16,7 +16,6 @@ class RoomServiceSeeder extends Seeder
     {
         DB::table('room_services')->insert([
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Free Internet',
                 'span_card' => '',
                 'i_class' => '',
@@ -24,7 +23,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => '',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Free Wi-Fi',
                 'span_card' => '',
                 'i_class' => 'fa-wifi',
@@ -32,7 +30,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => 'WiFi',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Breakfast Include',
                 'span_card' => '',
                 'i_class' => 'fa-coffee',
@@ -40,7 +37,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => 'Breakfast',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Private Balcony',
                 'span_card' => '',
                 'i_class' => '',
@@ -48,7 +44,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => '',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Free Newspaper',
                 'span_card' => '',
                 'i_class' => '',
@@ -56,7 +51,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => '',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Flat Screen Tv',
                 'span_card' => '',
                 'i_class' => 'fa-television',
@@ -64,7 +58,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => 'TV',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Full Ac',
                 'span_card' => '',
                 'i_class' => '',
@@ -72,7 +65,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => '',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Beach View',
                 'span_card' => '',
                 'i_class' => '',
@@ -80,7 +72,6 @@ class RoomServiceSeeder extends Seeder
                 'similar_rooms_room_services_i_data_title' => '',
             ],
             [
-                'displayed_card' => FALSE,
                 'room_service_text' => 'Room Service',
                 'span_card' => '',
                 'i_class' => '',

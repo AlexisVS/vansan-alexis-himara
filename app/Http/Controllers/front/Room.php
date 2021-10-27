@@ -6,6 +6,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
 use App\Http\Controllers\Controller;
 use App\Models\Page_room;
+use App\Models\Page_room_sidebar;
 use App\Models\Page_roomlist;
 use App\Models\Room as ModelsRoom;
 use App\Models\Room_categories;
@@ -59,12 +60,12 @@ class Room extends Controller
 
         // dd($servicesRoom);
 
-            // ? c'est oké
+        // ? c'est oké
         $roomLists = QueryBuilder::for(ModelsRoom::class)
             ->allowedFilters(['name', 'room_category_id', AllowedFilter::exact('services.id')])
             ->allowedIncludes(['services'])
             ->get();
-            
+
         $data = [
             // * static
             'static_roomList' => Page_roomlist::find(1),
@@ -81,10 +82,33 @@ class Room extends Controller
 
     public function show($id)
     {
+        // il y a un nombre defini de service dans ma room
+        // je doit remplir si il le faut ma collection de services en fonction du nombre
+        // je doit prendre des service qui ne sont pas encore contenu dans ma collection
+        // il me faut en tout 9 services
+
+        $show = ModelsRoom::find($id);
+
+        $showServices = $show->services;
+
+        $numberShowServices = $show->services->count();
+
+        $allServices = Room_service::all();
+
+        $servicesNeeded = $allServices->diff($showServices)->take(9  - $numberShowServices);
+
+        $services = collect([$showServices, $servicesNeeded])->collapse();
+
+        // dd($services[7]->pivot->room_id ?? 'bonjourt');
+
         $data = [
             'static_room' => Page_room::find(1),
-            'show' => ModelsRoom::find($id),
+            'static_room_sidebar' => Page_room_sidebar::find(1),
+            'show' => $show,
+            'numberShowServices' => $numberShowServices,
+            'services' => $services,
         ];
+
         return view('front.pages.room', $data);
     }
 }

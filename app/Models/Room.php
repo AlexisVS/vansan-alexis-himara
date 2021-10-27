@@ -25,11 +25,6 @@ class Room extends Model
         return $this->hasMany(Room_image::class);
     }
 
-    public function progresses()
-    {
-        return $this->hasOne(Room_progress::class);
-    }
-
     public function reviews()
     {
         return $this->hasMany(Room_review::class);

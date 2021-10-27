@@ -15,7 +15,6 @@ class CreateRoomServicesTable extends Migration
     {
         Schema::create('room_services', function (Blueprint $table) {
             $table->id();
-            $table->boolean('displayed_card');
             $table->string('room_service_text');
             $table->string('span_card');
             $table->string('i_class');
