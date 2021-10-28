@@ -4,6 +4,7 @@
       <i class="fa {{ $static_contact->sidebar_map_i_class }}" aria-hidden="true"></i>
     </div>
     <div id="map-canvas"></div>
+    {{-- <iframe src="https://maps.google.com/maps?q={{$contact[0]->adress}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen="" loading="lazy"></iframe> --}}
   </div>
   <div class="contact-details mt75">
     <div class="contact-info">

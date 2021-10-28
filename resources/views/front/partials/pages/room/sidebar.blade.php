@@ -5,8 +5,7 @@
       <div id="booking-notification" class="notification"></div>
       <h3 class="form-title">{{ $static_room_sidebar->sidebar_title }}</h3>
       <div class="inner">
-        <form id="booking-form" action="/room/show/send-form" method="POST">
-          @csrf
+        <form id="booking-form" action="/" method="POST">
           <!-- EMAIL -->
           <div class="form-group">
             <input class="form-control" name="booking-email" value="{{ auth()->user()->email ?? '' }}" {{ auth()->user()

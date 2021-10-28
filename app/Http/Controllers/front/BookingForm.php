@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 
 class BookingForm extends Controller
 {
-    public function index () {
+    public function index()
+    {
         $data = [
             // * static
             'static_bookingForm' => Page_booking_form::find(1),
@@ -23,5 +24,10 @@ class BookingForm extends Controller
         ];
 
         return view('front.pages.booking-form', $data);
+    }
+
+    public function saveFormRoomSidebar()
+    {
+        return dd(request()->query());
     }
 }
