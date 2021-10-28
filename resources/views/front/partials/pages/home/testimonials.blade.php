@@ -1,4 +1,4 @@
-@if ($testimonials->count() > 0)
+@if ($room_reviews_number > 0)
 <section class="testimonials gray">
   <div class="container">
     <div class="section-title">

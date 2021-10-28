@@ -20,6 +20,7 @@ use App\Models\Page_home_testimonial;
 use App\Models\Page_home_testimonial_testimonial;
 use App\Models\page_home_video;
 use App\Models\Room;
+use App\Models\Room_review;
 use Illuminate\Http\Request;
 
 class Home extends Controller
@@ -44,7 +45,7 @@ class Home extends Controller
             'rooms' => Room::all(),
             'services' => Page_home_services_service::all(),
             'galleries' => Gallery::all(),
-            'testimonials' => Page_home_testimonial_testimonial::all(),
+            'room_reviews_number' => Room_review::all()->count(),
             'restaurants' => Page_home_restaurant_restaurant::all(),
         ];
 
