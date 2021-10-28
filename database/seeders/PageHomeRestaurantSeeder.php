@@ -15,6 +15,7 @@ class PageHomeRestaurantSeeder extends Seeder
     public function run()
     {
         DB::table('page_home_restaurants')->insert([
+            'section_title_data_src' => 'restaurant.jpg',
             'section_title_h4' => 'HIMARA. RESTAURANT',
             'section_title_p' => 'Live a gourmet dining experience',
         ]);

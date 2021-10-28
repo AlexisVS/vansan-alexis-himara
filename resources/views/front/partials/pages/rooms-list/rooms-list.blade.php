@@ -1,8 +1,12 @@
 @foreach ($roomLists as $room)
 <div id="room-item-{{ $room->id }}" class="room-list-item" data-roomId="{{ $room->id }}"
-  data-categoryId="{{ $room->category_id }}"
-  {{-- data-servicesId="{{ $roomServicesRooms->where('room_id', $room->id)->pluck('id')->toJSON() }}" --}}
-  >
+  data-categoryId="{{ $room->category_id }}" {{--
+  data-servicesId="{{ $roomServicesRooms->where('room_id', $room->id)->pluck('id')->toJSON() }}" --}}>
+  @if ($room->favorite_roomList == true)
+  <div class="favorite-item">
+    <i class="fa fa-star-o"></i>
+  </div>
+  @endif
   <div class="row">
     <div class="col-lg-5">
       <figure class="gradient-overlay-hover link-icon">
@@ -29,7 +33,7 @@
         </span>
         <p>{{ Str::limit($room->text1, 52, ' ..') }}</p>
         <div class="room-services">
-          
+
           @foreach ($room->services as $service)
           @if ($service->i_class != '' && $service->pivot->available != false)
           <i class="fa {{ $service->i_class }}" data-toggle="popover" data-placement="top" data-trigger="hover"
@@ -54,38 +58,4 @@
 </div>
 @endforeach
 <!-- PAGINATION -->
-<nav class="pagination">
-  <ul>
-    <li class="prev-pagination">
-      <a href="#">
-        &nbsp;<i class="fa fa-angle-left"></i>
-        Previous &nbsp;</a>
-    </li>
-    <li class="active">
-      <a href="#">1</a>
-    </li>
-    <li>
-      <a href="#">2</a>
-    </li>
-    <li>
-      <a href="#">3</a>
-    </li>
-    <li>...</li>
-    <li>
-      <a href="#">7</a>
-    </li>
-    <li>
-      <a href="#">8</a>
-    </li>
-    <li>
-      <a href="#">9</a>
-    </li>
-    <li class="next_pagination">
-      <a href="#">
-        &nbsp; Next
-        <i class="fa fa-angle-right"></i>
-        &nbsp;
-      </a>
-    </li>
-  </ul>
-</nav>
+{{ $roomLists->links() }}

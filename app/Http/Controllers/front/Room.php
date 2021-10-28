@@ -64,7 +64,7 @@ class Room extends Controller
         $roomLists = QueryBuilder::for(ModelsRoom::class)
             ->allowedFilters(['name', 'room_category_id', AllowedFilter::exact('services.id')])
             ->allowedIncludes(['services'])
-            ->get();
+            ->paginate(2);
 
         $data = [
             // * static

@@ -1,11 +1,12 @@
+@if ($galleries->count() > 0)
 <section class="gallery">
   <div class="container">
     <div class="section-title">
-      <h4>{{ $static_gallery->section_title_h4 }}<span
-          class="text-himara">{{ $static_gallery->section_title_span }}</span></h4>
+      <h4>{{ $static_gallery->section_title_h4 }}<span class="text-himara">{{ $static_gallery->section_title_span
+          }}</span></h4>
       <p class="section-subtitle">{{ $static_gallery->section_title_subtitle }}</p>
-      <a href="{{ $static_gallery->section_title_a_href }}"
-        class="view-all">{{ $static_gallery->section_title_a_text }}</a>
+      <a href="{{ $static_gallery->section_title_a_href }}" class="view-all">{{ $static_gallery->section_title_a_text
+        }}</a>
     </div>
     <div class="gallery-owl owl-carousel image-gallery">
       @foreach ($galleries as $gallery)
@@ -22,3 +23,4 @@
     </div>
   </div>
 </section>
+@endif

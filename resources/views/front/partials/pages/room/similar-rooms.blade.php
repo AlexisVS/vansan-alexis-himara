@@ -4,11 +4,11 @@
     <p class="section-subtitle">{{ $static_room->similar_rooms_subtitle }}</p>
   </div>
   <div class="row">
-    @foreach ($rooms->random(3) as $room)
+    @foreach ($rooms->where('id', '!=', $show->id)->random(3) as $room)
     <div class="col-lg-4">
       <div class="room-grid-item">
         <figure class="gradient-overlay-hover link-icon">
-          <a href="room.html">
+          <a href="/room/{{ $room->id }}">
             <img src="{{ asset('images/rooms/single/' . $room->images[0]->image) }}" class="img-fluid" alt="Image">
           </a>
           <div class="room-services">
@@ -24,7 +24,7 @@
         </figure>
         <div class="room-info">
           <h2 class="room-title">
-            <a href="room.html">{{ $room->name }}</a>
+            <a href="/room/{{ $room->id }}">{{ $room->name }}</a>
           </h2>
           <p>{{ $room->slogan }}</p>
         </div>

@@ -1,3 +1,4 @@
+@if ($posts->count() > 0)
 <section class="news">
   <div class="container">
     <div class="section-title">
@@ -6,98 +7,33 @@
     </div>
     <div class="row">
       <!-- ITEM -->
+      @foreach ($posts->sortDesc()->take(3) as $post)
       <div class="col-md-4">
         <div class="news-grid-item">
           <figure class="gradient-overlay-hover link-icon">
-            <a href="blog-post.html">
-              <img src="images/blog/blog-post1.jpg" class="img-fluid" alt="Image">
+            <a href="/blog-post">
+              <img src="{{ asset('images/blog/' . $post->figure_link_img) }}" class="img-fluid" alt="Image">
             </a>
           </figure>
           <div class="news-info">
             <h4 class="title">
-              <a href="blog-post.html">10 Tips for Holiday Travel</a>
+              <a href="/blog-post">{{ $post->title_text }}</a>
             </h4>
-            <p>An examination of how the current political and economical climate is affecting the mental healthcare
-              industry...</p>
+            <p>{{ $post->text }}</p>
             <div class="post-meta">
               <span class="author">
-                <a href="#"><img src="images/users/admin.jpg" width="16" alt="Image">
-                  JANE</a>
+                <a href="#"><img src="{{ asset('images/users/' . $post->author_img) }}" width="16" alt="Image">
+                  {{ $post->author_text }}</a>
               </span>
               <span class="date">
-                <i class="fa fa-clock-o"></i>
-                August 13, 2017</span>
-              <span class="comments">
-                <a href="#">
-                  <i class="fa fa-commenting-o"></i>
-                  1 Comment</a>
-              </span>
+                <i class="fa {{ $post->date_i_class }}"></i>
+                {{ $post->date_text }}</span>
             </div>
           </div>
         </div>
       </div>
-      <!-- ITEM -->
-      <div class="col-md-4">
-        <div class="news-grid-item">
-          <figure class="gradient-overlay-hover link-icon">
-            <a href="blog-post.html">
-              <img src="images/blog/blog-post2.jpg" class="img-fluid" alt="Image">
-            </a>
-          </figure>
-          <div class="news-info">
-            <h4 class="title">
-              <a href="blog-post.html">Enjoy your holidays</a>
-            </h4>
-            <p>An examination of how the current political and economical climate is affecting the mental healthcare
-              industry...</p>
-            <div class="post-meta">
-              <span class="author">
-                <a href="#"><img src="images/users/admin.jpg" width="16" alt="Image">
-                  JANE</a>
-              </span>
-              <span class="date">
-                <i class="fa fa-clock-o"></i>
-                August 16, 2017</span>
-              <span class="comments">
-                <a href="#">
-                  <i class="fa fa-commenting-o"></i>
-                  5 Comments</a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- ITEM -->
-      <div class="col-md-4">
-        <div class="news-grid-item">
-          <figure class="gradient-overlay-hover link-icon">
-            <a href="blog-post.html">
-              <img src="images/blog/blog-post3.jpg" class="img-fluid" alt="Image">
-            </a>
-          </figure>
-          <div class="news-info">
-            <h4 class="title">
-              <a href="blog-post.html">Honeymoon at Hotel Himara</a>
-            </h4>
-            <p>An examination of how the current political and economical climate is affecting the mental healthcare
-              industry...</p>
-            <div class="post-meta">
-              <span class="author">
-                <a href="#"><img src="images/users/admin.jpg" width="16" alt="Image">
-                  JANE</a>
-              </span>
-              <span class="date">
-                <i class="fa fa-clock-o"></i>
-                January 11, 2018</span>
-              <span class="comments">
-                <a href="#">
-                  <i class="fa fa-commenting-o"></i>
-                  3 Comments</a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </section>
+@endif

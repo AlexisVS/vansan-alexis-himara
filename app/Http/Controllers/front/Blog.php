@@ -19,6 +19,7 @@ class Blog extends Controller
             // 'posts' => Post::all(),
             'posts_tags' => Post_tag::all(),
             'posts_categories' => Post_category::all(),
+            'blog_posts' => Post::paginate(2),
         ];
 
         // $posts = Post::find(1);

@@ -15,6 +15,7 @@ class CreatePageHomeRestaurantsTable extends Migration
     {
         Schema::create('page_home_restaurants', function (Blueprint $table) {
             $table->id();
+            $table->string('section_title_data_src');
             $table->string('section_title_h4');
             $table->string('section_title_p');
             $table->timestamps();
