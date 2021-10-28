@@ -143,7 +143,7 @@
         @endfor
       </div>
       <div class="review-info">
-        {{ $review->review_info }}
+        {{ $review->review_info . ' – ' . $review->review_date }}
       </div>
       <div class="review-text">
         <p>
