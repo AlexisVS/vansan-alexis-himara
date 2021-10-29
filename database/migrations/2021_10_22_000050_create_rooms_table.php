@@ -36,6 +36,7 @@ class CreateRoomsTable extends Migration
             $table->string('sq_mt');
             $table->foreignId('room_category_id')->constrained();
             $table->boolean('favorite_roomList');
+            $table->boolean('available');
             $table->timestamps();
         });
     }

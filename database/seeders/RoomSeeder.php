@@ -36,6 +36,7 @@ class RoomSeeder extends Seeder
                 'sq_mt' => '80',
                 'room_category_id' => 1,
                 'favorite_roomList' => false,
+                'available' => true
             ],
             [
                 'dropcap_before' => 'Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea',
@@ -58,6 +59,7 @@ class RoomSeeder extends Seeder
                 'sq_mt' => '120',
                 'room_category_id' => 4,
                 'favorite_roomList' => true,
+                'available' => true
             ],
             [
                 'dropcap_before' => 'Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea',
@@ -80,6 +82,7 @@ class RoomSeeder extends Seeder
                 'sq_mt' => '120',
                 'room_category_id' => 4,
                 'favorite_roomList' => false,
+                'available' => true
             ],
             [
                 'dropcap_before' => 'Horem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea',
@@ -102,6 +105,7 @@ class RoomSeeder extends Seeder
                 'sq_mt' => '100',
                 'room_category_id' => 3,
                 'favorite_roomList' => false,
+                'available' => true
             ],
         ]);
     }

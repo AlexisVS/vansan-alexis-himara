@@ -48,7 +48,7 @@ Route::resource('/gallery', Gallery::class);
 Route::resource('/team', Team::class);
 
 Route::resource('/room', room::class);
-Route::get('/room/show/send-form', [BookingForm::class, 'saveFormRoomSidebar'])->name('room.show.send-form');
+Route::post('/room/send-form', [room::class, 'saveFormSidebar'])->name('room.send-form');
 
 Route::get('/room1', function () {
     return view('front.pages.room');

@@ -324,79 +324,79 @@ Version:       1.1.0
 
     });
 
-    // =============================================
-    // BOOKING FORM
-    // =============================================
-    $("#booking-form").on('submit', function(e) {
-      e.preventDefault();
+    // // =============================================
+    // // BOOKING FORM
+    // // =============================================
+    // $("#booking-form").on('submit', function(e) {
+    //   e.preventDefault();
 
-      //Get input field values from HTML form
-      var booking_name = $("input[name=booking-name]").val();
-      var booking_email = $("input[name=booking-email]").val();
-      var booking_phone = $("input[name=booking-phone]").val();
-      var booking_roomtype = $("select[name=booking-roomtype]").val();
-      var booking_startdate = $("input[name=daterangepicker_start]").val();
-      var booking_enddate = $("input[name=daterangepicker_end]").val();
-      var booking_adults = $("input[name=booking-adults]").val();
-      var booking_children = $("input[name=booking-children]").val();
-      var booking_country = $("select[name=booking-country]").val();
-      var booking_comments = $("textarea[name=booking-comments]").val();
+    //   //Get input field values from HTML form
+    //   var booking_name = $("input[name=booking-name]").val();
+    //   var booking_email = $("input[name=booking-email]").val();
+    //   var booking_phone = $("input[name=booking-phone]").val();
+    //   var booking_roomtype = $("select[name=booking-roomtype]").val();
+    //   var booking_startdate = $("input[name=daterangepicker_start]").val();
+    //   var booking_enddate = $("input[name=daterangepicker_end]").val();
+    //   var booking_adults = $("input[name=booking-adults]").val();
+    //   var booking_children = $("input[name=booking-children]").val();
+    //   var booking_country = $("select[name=booking-country]").val();
+    //   var booking_comments = $("textarea[name=booking-comments]").val();
 
-      //Data to be sent to server
-      var post_data;
-      var output;
-      post_data = {
-        'booking_name': booking_name,
-        'booking_email': booking_email,
-        'booking_phone': booking_phone,
-        'booking_roomtype': booking_roomtype,
-        'booking_startdate': booking_startdate,
-        'booking_enddate': booking_enddate,
-        'booking_adults': booking_adults,
-        'booking_children': booking_children,
-        'booking_country': booking_country,
-        'booking_comments': booking_comments
-      };
+    //   //Data to be sent to server
+    //   var post_data;
+    //   var output;
+    //   post_data = {
+    //     'booking_name': booking_name,
+    //     'booking_email': booking_email,
+    //     'booking_phone': booking_phone,
+    //     'booking_roomtype': booking_roomtype,
+    //     'booking_startdate': booking_startdate,
+    //     'booking_enddate': booking_enddate,
+    //     'booking_adults': booking_adults,
+    //     'booking_children': booking_children,
+    //     'booking_country': booking_country,
+    //     'booking_comments': booking_comments
+    //   };
 
-      //Ajax post data to server
-      $.post('email/booking.php', post_data, function(response) {
+    //   //Ajax post data to server
+    //   $.post('send-form', post_data, function(response) {
 
-        var notification = $("#booking-notification");
-        var bookingform = $("#booking-form");
+    //     var notification = $("#booking-notification");
+    //     var bookingform = $("#booking-form");
 
-        //Response server message
-        output = '<p class="notification-text">' + response.text + '</div>';
+    //     //Response server message
+    //     output = '<p class="notification-text">' + response.text + '</div>';
 
-        if (response.type === 'error') {
-          notification.addClass('scale-out error');
-          notification.removeClass('success');
-          bookingform.addClass("booking-notification-open");
-        } else {
-          notification.addClass('scale-out success');
-          notification.removeClass('error');
-          //If success clear inputs
-          $("input, textarea").val('');
-          $('select').val('');
-          $('select').val('').selectpicker('refresh');
-        }
-        notification.html(output);
-        notification.delay(15000).queue(function(next) {
-          $(this).removeClass("scale-out");
-          bookingform.removeClass("booking-notification-open");
-          next();
-        });
-        notification.on("click", function() {
-          $(this).removeClass("scale-out");
-          bookingform.removeClass("booking-notification-open");
-        });
-        $('#booking-form .form-control, #booking-form .bootstrap-select button, #booking-form .guestspicker').on("click", function() {
-          notification.removeClass("scale-out");
-          bookingform.removeClass("booking-notification-open");
-        });
+    //     if (response.type === 'error') {
+    //       notification.addClass('scale-out error');
+    //       notification.removeClass('success');
+    //       bookingform.addClass("booking-notification-open");
+    //     } else {
+    //       notification.addClass('scale-out success');
+    //       notification.removeClass('error');
+    //       //If success clear inputs
+    //       $("input, textarea").val('');
+    //       $('select').val('');
+    //       $('select').val('').selectpicker('refresh');
+    //     }
+    //     notification.html(output);
+    //     notification.delay(15000).queue(function(next) {
+    //       $(this).removeClass("scale-out");
+    //       bookingform.removeClass("booking-notification-open");
+    //       next();
+    //     });
+    //     notification.on("click", function() {
+    //       $(this).removeClass("scale-out");
+    //       bookingform.removeClass("booking-notification-open");
+    //     });
+    //     $('#booking-form .form-control, #booking-form .bootstrap-select button, #booking-form .guestspicker').on("click", function() {
+    //       notification.removeClass("scale-out");
+    //       bookingform.removeClass("booking-notification-open");
+    //     });
 
-      }, 'json');
+    //   }, 'json');
 
-    });
+    // });
 
     // =============================================
     // CONTACT FORM

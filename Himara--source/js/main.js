@@ -359,7 +359,7 @@ Version:       1.1.0
       };
 
       //Ajax post data to server
-      $.post('email/booking.php', post_data, function(response) {
+      $.post('/room/send-form', post_data, function(response) {
 
         var notification = $("#booking-notification");
         var bookingform = $("#booking-form");

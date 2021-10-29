@@ -99,8 +99,6 @@ class Room extends Controller
 
         $services = collect([$showServices, $servicesNeeded])->collapse();
 
-        // dd($services[7]->pivot->room_id ?? 'bonjourt');
-
         $data = [
             'static_room' => Page_room::find(1),
             'static_room_sidebar' => Page_room_sidebar::find(1),
@@ -110,5 +108,23 @@ class Room extends Controller
         ];
 
         return view('front.pages.room', $data);
+    }
+
+    public function saveFormSidebar()
+    {
+
+        $categoryId = request()->query('categoryId');
+        $roomId = request()->query('roomId');
+
+        $dataForm = [
+            'form_roomId' => $roomId,
+            'form_categoryId' => $categoryId,
+            'form_email' => request('booking-email') ,
+            'form_checkin' => request('booking-checkin') ,
+            'form_adults' =>request('booking-adults') ,
+            'form_children' =>request('booking-children') ,
+        ];
+
+        return redirect('/booking-form')->with(['dataForm' => $dataForm]);
     }
 }

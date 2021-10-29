@@ -5,19 +5,24 @@
       <div id="booking-notification" class="notification"></div>
       <h3 class="form-title">{{ $static_room_sidebar->sidebar_title }}</h3>
       <div class="inner">
-        <form id="booking-form" action="/" method="POST">
+
+
+        <form id="booking-form" action="/room/send-form?categoryId={{ $show->room_category_id }}&roomId={{ $show->id }}" method="POST">
+          @csrf
+          @method('POST')
           <!-- EMAIL -->
           <div class="form-group">
-            <input class="form-control" name="booking-email" value="{{ auth()->user()->email ?? '' }}" {{ auth()->user()
+            <input class="form-control" name="booking-email" value="{{ auth()->user()->email ?? null }}" {{
+              auth()->user()
             ? 'disabled' : null }} type="email" placeholder="{{ $static_room_sidebar->sidebar_form_email_placeholder
             }}">
           </div>
           <!-- ROOM TYPE -->
           <div class="form-group">
-            <select class="form-control" name="booking-roomtype"
+            <select class="form-control" name="booking-roomtype" value="{{ $show->categories->value }}"
               title="{{ $static_room_sidebar->sidebar_form_roomtype_title }}"
               data-header="{{ $static_room_sidebar->sidebar_form_roomtype_data_header }}" disabled="disabled">
-              <option value="{{ $show->categories->value }}" selected="selected">{{ $show->categories->text }}</option>
+              <option value="{{ $show->categories->value }}">{{ $show->categories->text }}</option>
 
             </select>
           </div>
@@ -64,9 +69,9 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
+
           <script>
             {{-- ! C'est claqué au sol mais ça à la qualité de parvenir a ses fin --}}
             let divPlus, divMinus;
@@ -87,8 +92,6 @@
               if (guestTotal == numberPersons - 1) {
                 divPlus.forEach( e => e.style.visibility = 'hidden');
               }
-
-
             })});
 
             divMinus = [...document.querySelectorAll('.minus')];
@@ -111,8 +114,9 @@
           </script>
 
           <!-- BOOKING BUTTON -->
-          <button type="submit" class="btn btn-dark btn-fw mt20 mb20">{{ $static_room_sidebar->sidebar_form_submit
-            }}</button>
+          <button type="submit" class="btn btn-dark btn-fw mt20 mb20">
+            {{ $static_room_sidebar->sidebar_form_submit}}
+          </button>
         </form>
       </div>
     </div>
