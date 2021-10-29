@@ -1,4 +1,5 @@
 <form class="booking-form-advanced" id="booking-form">
+  {{-- Rajouter les informations aussi par les AUTH --}}
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
@@ -359,7 +360,7 @@
           </a>
         </label>
         <div class="panel-dropdown">
-          <div class="form-control guestspicker" style="{{$dataForm['form_adults'] != null ?? false ? 'pointer-events:
+          <div class="form-control guestspicker" style="{{$dataForm['form_adults'] ?? false ? 'pointer-events:
             none' : null }}">{{ $static_bookingForm->dropdown_text }}
             <span class="gueststotal">
               @if ($dataForm['form_adults'] ?? false)
