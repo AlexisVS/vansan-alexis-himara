@@ -30,6 +30,7 @@ class PageContactSeeder extends Seeder
             'form_message' => 'Message',
             'form_submit' => 'SEND YOUR MESSAGE',
             'sidebar_map_i_class' => 'fa-street-view',
+            'sidebar_map_canvas_address' => 'Place de la Minoterie 10 1080 Molenbeek-Saint-Jean',
             'sidebar_info_li1_a_href' => '#',
             'sidebar_info_li1_i_class' => 'fa-map-marker',
             'sidebar_info_li1_text' => 'Lorem ipsum dolor, 25, Himara',

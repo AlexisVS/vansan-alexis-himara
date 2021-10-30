@@ -24,7 +24,7 @@
             <div class="inner">
               <ul class="latest-posts">
                 {{-- /*  -------------------------------- Dynamique ------------------------------- */ --}}
-                @foreach ($rooms as $room)
+                @foreach ($rooms->where('available', true) as $room)
                   @if ($loop->iteration < 5)
                     <li>
                       <a href="/room/{{ $room->id }}">{{ $room->name }}</a>

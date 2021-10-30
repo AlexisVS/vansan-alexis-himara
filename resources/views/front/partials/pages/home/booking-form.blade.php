@@ -3,7 +3,9 @@
     <div class="inner box-shadow-007">
       <!-- ========== BOOKING NOTIFICATION ========== -->
       <div id="booking-notification" class="notification"></div>
-      <form id="booking-form">
+      <form id="booking-form" action="/send-form?formHome=true" method="POST">
+        @csrf
+        @method('POST')
         <!-- NAME -->
         <div class="row">
           <div class="col-md-2">
@@ -45,9 +47,9 @@
               <select class="form-control" name="booking-roomtype"
                 title="{{ $static_bookingForm->roomtype_select_title }}" data-header="Room Type">
                 {{-- ! Reprendre room_categories --}}
-                <option value="Single">Single Room</option>
-                <option value="Double">Double Room</option>
-                <option value="Deluxe">Deluxe Room</option>
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->text }}</option>
+                @endforeach
               </select>
             </div>
           </div>

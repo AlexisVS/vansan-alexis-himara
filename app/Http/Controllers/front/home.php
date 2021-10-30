@@ -20,12 +20,22 @@ use App\Models\Page_home_testimonial;
 use App\Models\Page_home_testimonial_testimonial;
 use App\Models\page_home_video;
 use App\Models\Room;
+use App\Models\Room_categories;
 use App\Models\Room_review;
 use Illuminate\Http\Request;
 
 class Home extends Controller
 {
     public function index () {
+        $categories = Room_categories::all()->filter(function ($item) {
+            foreach ($item->rooms as $room) {
+                if ($room->available == true) {
+                    return true;
+                }
+                return false;
+            }
+        })->unique('id');
+
         $compact = [
             // * static
             'static_bookingForm' => Page_home_booking_form::find(1),
@@ -44,6 +54,7 @@ class Home extends Controller
             'aboutProviders' => Page_home_about_providers::all(),
             'rooms' => Room::all(),
             'services' => Page_home_services_service::all(),
+            'categories' => $categories,
             'galleries' => Gallery::all(),
             'room_reviews_number' => Room_review::all()->count(),
             'restaurants' => Page_home_restaurant_restaurant::all(),
@@ -53,5 +64,20 @@ class Home extends Controller
         // dd($room);
 
         return view('home', $compact);
+    }
+
+    public function sendForm() {
+        $formHome = request()->query('formHome');
+
+        $dataForm = [
+            'form_home' => $formHome,
+            'form_categoryId' => request('booking-roomtype'),
+            'form_email' => request('booking-email') ,
+            'form_checkin' => request('booking-checkin') ,
+            'form_adults' =>request('booking-adults') ,
+            'form_children' =>request('booking-children') ,
+        ];
+
+        return redirect("/booking-form")->with('dataForm', $dataForm);
     }
 }

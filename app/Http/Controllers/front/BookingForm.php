@@ -22,7 +22,7 @@ class BookingForm extends Controller
                 }
                 return false;
             }
-        });
+        })->unique('id');
 
         $data = [
 
@@ -37,15 +37,14 @@ class BookingForm extends Controller
             'categories' => $categories,
         ];
 
-
         // * BookingForm de la page room -> sidebar -> form
 
         // je doit prendre toute les categories
         // ou les rooms qui lui sont associés
         // on leur available a true
 
-
         $dataForm = [
+            'form_home' => request()->session()->get('dataForm.form_home'),
             'form_roomId' => request()->session()->get('dataForm.form_roomId'),
             'form_categoryId' => request()->session()->get('dataForm.form_categoryId'),
             'form_email' => request()->session()->get('dataForm.form_email'),
@@ -55,10 +54,11 @@ class BookingForm extends Controller
         ];
 
         // * fusion de $data && $dataForm
-        if ($dataForm['form_roomId'] !== null) {
+        if ($dataForm['form_categoryId'] != null) {
             $data = Arr::add($data, 'dataForm', $dataForm);
         }
 
+        // dd($data);
 
         return view('front.pages.booking-form', $data);
     }

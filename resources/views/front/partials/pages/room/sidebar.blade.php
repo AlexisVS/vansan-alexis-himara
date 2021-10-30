@@ -7,7 +7,8 @@
       <div class="inner">
 
 
-        <form id="booking-form" action="/room/send-form?categoryId={{ $show->room_category_id }}&roomId={{ $show->id }}" method="POST">
+        <form id="booking-form" action="/room/send-form?categoryId={{ $show->room_category_id }}&roomId={{ $show->id }}"
+          method="POST">
           @csrf
           @method('POST')
           <!-- EMAIL -->
@@ -22,7 +23,7 @@
             <select class="form-control" name="booking-roomtype" value="{{ $show->categories->value }}"
               title="{{ $static_room_sidebar->sidebar_form_roomtype_title }}"
               data-header="{{ $static_room_sidebar->sidebar_form_roomtype_data_header }}" disabled="disabled">
-              <option value="{{ $show->categories->value }}">{{ $show->categories->text }}</option>
+              <option selected value="{{ $show->categories->value }}">{{ $show->categories->text }}</option>
 
             </select>
           </div>
@@ -74,42 +75,41 @@
 
           <script>
             {{-- ! C'est claqué au sol mais ça à la qualité de parvenir a ses fin --}}
-            let divPlus, divMinus;
-            divPlus = [...document.querySelectorAll('.plus')];
-            divPlus.map( function (e) {e.addEventListener('click', function (event) {
+          let divPlus, divMinus;
+          divPlus = [...document.querySelectorAll('.plus')];
+          divPlus.map( function (e) {e.addEventListener('click', function (event) {
 
-              let divPlus, guestTotal;
-              var numberPersons = {!!  json_encode($show->number_persons, JSON_HEX_TAG) !!};
+          let divPlus, guestTotal;
+          var numberPersons = {!! json_encode($show->number_persons, JSON_HEX_TAG) !!};
 
-              divPlus = [...document.querySelectorAll('.plus')];
+          divPlus = [...document.querySelectorAll('.plus')];
 
-              guestTotal = document.querySelector('.gueststotal');
-              guestTotal = guestTotal.innerText;
+          guestTotal = document.querySelector('.gueststotal');
+          guestTotal = guestTotal.innerText;
 
-              if (guestTotal < numberPersons) {
-                divPlus.forEach( e => e.style.visibility = 'visible');
-              }
-              if (guestTotal == numberPersons - 1) {
-                divPlus.forEach( e => e.style.visibility = 'hidden');
-              }
+          if (guestTotal < numberPersons) { divPlus.forEach( e=> e.style.visibility = 'visible');
+            }
+            if (guestTotal == numberPersons - 1) {
+            divPlus.forEach( e => e.style.visibility = 'hidden');
+            }
             })});
 
             divMinus = [...document.querySelectorAll('.minus')];
             divMinus.map( function (e) {e.addEventListener('click', function (event) {
 
-              let divPlus, divMinus, guestTotal;
-              var numberPersons = {!!  json_encode($show->number_persons, JSON_HEX_TAG) !!};
+            let divPlus, divMinus, guestTotal;
+            var numberPersons = {!! json_encode($show->number_persons, JSON_HEX_TAG) !!};
 
-              divPlus = [...document.querySelectorAll('.plus')];
-              divMinus = [...document.querySelectorAll('.minus')]
+            divPlus = [...document.querySelectorAll('.plus')];
+            divMinus = [...document.querySelectorAll('.minus')]
 
-              guestTotal = document.querySelector('.gueststotal');
-              guestTotal = guestTotal.innerText;
+            guestTotal = document.querySelector('.gueststotal');
+            guestTotal = guestTotal.innerText;
 
-              if (guestTotal == 1) {
-                divPlus.forEach( e => e.style.visibility = 'visible');
-                divMinus.forEach( e => e.style.visibility = 'visible');
-              }
+            if (guestTotal == 1) {
+            divPlus.forEach( e => e.style.visibility = 'visible');
+            divMinus.forEach( e => e.style.visibility = 'visible');
+            }
             })});
           </script>
 

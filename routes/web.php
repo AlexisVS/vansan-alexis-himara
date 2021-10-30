@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 /* -------------------------------------------------------------------------- */
 
 Route::resource('/', Home::class);
+Route::post('/send-form', [Home::class, 'sendForm']);
 
 Route::resource('/blog', Blog::class);
 Route::get('/blog-post', function () { // ! le SHOW de blog

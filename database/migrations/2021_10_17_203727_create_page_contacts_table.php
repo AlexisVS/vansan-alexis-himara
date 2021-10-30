@@ -30,6 +30,7 @@ class CreatePageContactsTable extends Migration
             $table->string('form_message');
             $table->string('form_submit');
             $table->string('sidebar_map_i_class');
+            $table->string('sidebar_map_canvas_address');
             $table->string('sidebar_info_li1_a_href');
             $table->string('sidebar_info_li1_i_class');
             $table->string('sidebar_info_li1_text');
