@@ -26,6 +26,8 @@ class CreatePageBookingFormsTable extends Migration
             $table->string('section_title_not_connected');
             $table->string('section_title_not_connected_link_href');
             $table->string('section_title_not_connected_link_text');
+            $table->string('section_title_not_connected_link2_href');
+            $table->string('section_title_not_connected_link2_text');
             $table->string('form_name_text');
             $table->string('form_name_placeholder');
             $table->string('form_email_text');

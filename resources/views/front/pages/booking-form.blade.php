@@ -21,8 +21,14 @@
         @else
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h2>{{ $static_bookingForm->section_title_not_connected }}</h2>
-          <a class="btn mx-auto mt-3" href="{{ $static_bookingForm->section_title_not_connected_link_href }}">{{
-            $static_bookingForm->section_title_not_connected_link_text }}</a>
+          <div class="d-flex align-items-center mt-3">
+
+            <a class="btn mx-auto" href="{{ $static_bookingForm->section_title_not_connected_link_href }}">{{
+              $static_bookingForm->section_title_not_connected_link_text }}</a>
+              <span class="mb-0 mx-3 h2">OR</span>
+            <a class="btn mx-auto" href="{{ $static_bookingForm->section_title_not_connected_link2_href }}">{{
+              $static_bookingForm->section_title_not_connected_link2_text }}</a>
+              </div>
         </div>
         @endif
       </div>

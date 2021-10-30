@@ -26,6 +26,8 @@ class PageBookingFormSeeder extends Seeder
             'section_title_not_connected' => 'You are not connected for continue your reservation.',
             'section_title_not_connected_link_href' => '/register',
             'section_title_not_connected_link_text' => 'Register',
+            'section_title_not_connected_link2_href' => '/login',
+            'section_title_not_connected_link2_text' => 'Login',
             'form_name_text' => 'Your Name',
             'form_name_placeholder' => 'Your Name',
             'form_email_text' => 'Email Address',
