@@ -10,7 +10,21 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+                display: ['Oswald', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                himaraGold: {
+                    600: '#d8ba8e',
+                    500: '#edcb9a',
+                    400: '#f5dbb7',
+                },
+                'himaraGray' : '#d7d8d9',
+                himaraBlue: {
+                    400: '#54d3fd',
+                    500: '#1dc1f8',
+                    600: '#1aadde',
+                },
             },
         },
     },

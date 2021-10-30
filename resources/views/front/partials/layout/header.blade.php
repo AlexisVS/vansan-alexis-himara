@@ -17,19 +17,19 @@
     <!-- MAIN MENU -->
     <nav id="main-menu" class="main-menu">
       <ul class="menu">
-        <li class="menu-item dropdown active">
+        <li class="menu-item dropdown {{ request()->route('/') == '/' ? 'active' : null }} ">
           <a href="{{ $header->menu_li1_href }}">{{ $header->menu_li1_text }}</a>
         </li>
-        <li class="menu-item dropdown">
+        <li class="menu-item dropdown {{ request()->route('/room') == 'room' ? 'active' : null }}">
           <a href="{{ $header->menu_li2_href }}">{{ $header->menu_li2_text }}</a>
         </li>
-        <li class="menu-item dropdown">
+        <li class="menu-item dropdown {{ request()->route()->uri == 'team' ? 'active' : null }}">
           <a href="{{ $header->menu_li3_href }}">{{ $header->menu_li3_text }}</a>
         </li>
-        <li class="menu-item dropdown">
+        <li class="menu-item dropdown {{ request()->route()->uri == 'gallery' ? 'active' : null }}">
           <a href="{{ $header->menu_li4_href }}">{{ $header->menu_li4_text }}</a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{ request()->route()->uri == 'contact' ? 'active' : null }}">
           <a href="{{ $header->menu_li5_href }}">{{ $header->menu_li5_text }}</a>
         </li>
         <li class="menu-item menu-btn">

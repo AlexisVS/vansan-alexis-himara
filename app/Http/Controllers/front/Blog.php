@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Page_blog_page_title;
 use App\Models\Page_blog_sidebar;
+use App\Models\Page_page;
 use App\Models\Post;
 use App\Models\Post_category;
 use App\Models\Post_tag;
@@ -26,5 +27,14 @@ class Blog extends Controller
         // dd($posts->categories);
 
         return view('front.pages.blog', $data);
+    }
+
+    public function customShow () {
+        $data = [
+            'static_page' => Page_page::find(1),
+            'posts_categories' => Post_category::all(),
+            'posts_tags' => Post_tag::all(),
+        ];
+        return view('front.pages.page', $data);
     }
 }

@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\back\Blog as BackBlog;
+use App\Http\Controllers\back\BookingForm as BackBookingForm;
+use App\Http\Controllers\back\Contact as BackContact;
+use App\Http\Controllers\back\Gallery as BackGallery;
+use App\Http\Controllers\back\Home as BackHome;
+use App\Http\Controllers\back\Mailbox;
+use App\Http\Controllers\back\Room as BackRoom;
+use App\Http\Controllers\back\Team as BackTeam;
 use App\Http\Controllers\front\Blog;
 use App\Http\Controllers\front\BookingForm;
 use App\Http\Controllers\front\Contact;
@@ -27,18 +35,11 @@ use Illuminate\Support\Facades\Route;
 /*                                  FRONTEND                                  */
 /* -------------------------------------------------------------------------- */
 
-Route::resource('/', Home::class);
+Route::get('/', [Home::class, 'index']);
 Route::post('/send-form', [Home::class, 'sendForm']);
 
 Route::resource('/blog', Blog::class);
-Route::get('/blog-post', function () { // ! le SHOW de blog
-    $data = [
-        'static_page' => Page_page::find(1),
-        'posts_categories' => Post_category::all(),
-        'posts_tags' => Post_tag::all(),
-    ];
-    return view('front.pages.page', $data);
-});
+Route::get('/blog-post', [Blog::class, 'customShow']);
 
 Route::resource('/booking-form', BookingForm::class);
 
@@ -51,16 +52,24 @@ Route::resource('/team', Team::class);
 Route::resource('/room', room::class);
 Route::post('/room/send-form', [room::class, 'saveFormSidebar'])->name('room.send-form');
 
-Route::get('/room1', function () {
-    return view('front.pages.room');
-});
-
 /* -------------------------------------------------------------------------- */
 /*                                   BACKEND                                  */
 /* -------------------------------------------------------------------------- */
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->name('dashboard');
+
+Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
+
+    Route::resource('/home', BackHome::class);
+    Route::resource('/blog', BackBlog::class);
+    Route::resource('/booking-form', BackBookingForm::class);
+    Route::resource('/contact', BackContact::class);
+    Route::resource('/gallery', BackGallery::class);
+    Route::resource('/room', BackRoom::class);
+    Route::resource('/team', BackTeam::class);
+    Route::resource('/mailbox', Mailbox::class);
+});
 
 require __DIR__ . '/auth.php';
