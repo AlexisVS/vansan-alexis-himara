@@ -36,7 +36,7 @@ class Home extends Controller
             }
         })->unique('id');
 
-        $compact = [
+        $data = [
             // * static
             'static_bookingForm' => Page_home_booking_form::find(1),
             'static_about' => page_home_about::find(1),
@@ -60,10 +60,7 @@ class Home extends Controller
             'restaurants' => Page_home_restaurant_restaurant::all(),
         ];
 
-        $room = Room::find(1);
-        // dd($room);
-
-        return view('home', $compact);
+        return view('home', $data);
     }
 
     public function sendForm() {

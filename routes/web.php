@@ -3,6 +3,7 @@
 use App\Http\Controllers\back\Blog as BackBlog;
 use App\Http\Controllers\back\BookingForm as BackBookingForm;
 use App\Http\Controllers\back\Contact as BackContact;
+use App\Http\Controllers\back\dashboard;
 use App\Http\Controllers\back\Gallery as BackGallery;
 use App\Http\Controllers\back\Home as BackHome;
 use App\Http\Controllers\back\Mailbox;
@@ -56,12 +57,10 @@ Route::post('/room/send-form', [room::class, 'saveFormSidebar'])->name('room.sen
 /*                                   BACKEND                                  */
 /* -------------------------------------------------------------------------- */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
+Route::get('/dashboard', [dashboard::class, 'index'])->name('dashboard');
 Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
-
+    
     Route::resource('/home', BackHome::class);
     Route::resource('/blog', BackBlog::class);
     Route::resource('/booking-form', BackBookingForm::class);
@@ -70,6 +69,9 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::resource('/room', BackRoom::class);
     Route::resource('/team', BackTeam::class);
     Route::resource('/mailbox', Mailbox::class);
+});
+Route::get('/dashboard/mailbox/sos/send', function () {
+    return view('dashboard');
 });
 
 require __DIR__ . '/auth.php';

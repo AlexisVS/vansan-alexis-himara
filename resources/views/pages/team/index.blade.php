@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-himaraGold-500 leading-tight">
-            Dashboard
+            Team
         </h2>
     </x-slot>
 

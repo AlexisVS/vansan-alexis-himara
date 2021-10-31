@@ -14,7 +14,7 @@ class BookingForm extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.booking-form.index');
     }
 
     /**

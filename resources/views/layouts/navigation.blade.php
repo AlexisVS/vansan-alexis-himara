@@ -9,61 +9,60 @@
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.mailbox.index')" :active="request()->routeIs('dashboard.mailbox.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.mailbox.index')" :active="request()->is('dashboard/mailbox*')">
                         Mailbox
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.home.index')" :active="request()->routeIs('dashboard.home.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.home.index')" :active="request()->is('dashboard/home*')">
                         Home
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.blog.index')" :active="request()->routeIs('dashboard.blog.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.blog.index')" :active="request()->is('dashboard/blog*')">
                         Blog
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.booking-form.index')" :active="request()->routeIs('dashboard.booking-form.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.booking-form.index')" :active="request()->is('dashboard/booking-form*')">
                         Booking Form
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.contact.index')" :active="request()->routeIs('dashboard.contact.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.contact.index')" :active="request()->is('dashboard/contact*')">
                         Contact
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.gallery.index')" :active="request()->routeIs('dashboard.gallery.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.gallery.index')" :active="request()->is('dashboard/gallery*')">
                         Gallery
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.room.index')" :active="request()->routeIs('dashboard.room.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.room.index')" :active="request()->is('dashboard/room*')">
                         Room
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard.team.index')" :active="request()->routeIs('dashboard.team.index')">
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.team.index')" :active="request()->is('dashboard/team*')">
                         Team
                     </x-nav-link>
                 </div>
                 
             </div>
-
+            
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:pl-6">
+            <div class="hidden lg:flex lg:items-center lg:pl-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-display font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        <button class="flex items-center text-sm font-display font-medium text-gray-400 hover:text-himaraGold-500 hover:border-gray-300 focus:outline-none focus:text-himaraGold-500 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -90,8 +89,8 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+            <div class="-mr-2 flex items-center lg:hidden">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-himaraGold-500 hover:text-himaraGold-600 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-himaraGold-600 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -100,20 +99,60 @@
             </div>
         </div>
     </div>
-
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden lg:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
 
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.mailbox.index')" :active="request()->is('dashboard/mailbox*')">
+                Mailbox
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.home.index')" :active="request()->is('dashboard/home*')">
+                Home
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.blog.index')" :active="request()->is('dashboard/blog*')">
+                Blog
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.booking-form.index')" :active="request()->is('dashboard/booking-form*')">
+                Booking Form
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.contact.index')" :active="request()->is('dashboard/contact*')">
+                Contact
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.gallery.index')" :active="request()->is('dashboard/gallery*')">
+                Gallery
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.room.index')" :active="request()->is('dashboard/room*')">
+                Room
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.team.index')" :active="request()->is('dashboard/team*')">
+                Team
+            </x-responsive-nav-link>
+        </div>
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-himaraGold-500">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-himaraGold-400">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">

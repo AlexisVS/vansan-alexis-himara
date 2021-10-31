@@ -14,7 +14,7 @@ class Team extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.team.index');
     }
 
     /**

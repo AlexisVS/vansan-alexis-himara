@@ -82,6 +82,11 @@ class DatabaseSeeder extends Seeder
             PageTeamSeeder::class,
             PageTeamTeamSeeder::class,
 
+            /* -------------------------------------------------------------------------- */
+            /*                                   Backend                                  */
+            /* -------------------------------------------------------------------------- */
+
+            FontawesomeiconlistSeeder::class,
         ]);
     }
 }
