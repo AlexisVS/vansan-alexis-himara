@@ -9,11 +9,4 @@ class Room_service_room extends Model
 {
     use HasFactory;
 
-    // public function rooms () {
-    //     return $this->has
-    // }
-
-    // public function services () {
-
-    // }
 }

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-himaraGold-500 leading-tight">
+        <h2 class="font-semibold font-display text-xl text-himaraGold-500 leading-tight">
             Room
         </h2>
     </x-slot>
