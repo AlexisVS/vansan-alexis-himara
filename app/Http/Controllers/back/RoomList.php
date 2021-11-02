@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
-use App\Models\Gallery as ModelsGallery;
-use App\Models\Page_gallery;
-use App\Models\Room;
 use Illuminate\Http\Request;
 
-class Gallery extends Controller
+class RoomList extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +14,7 @@ class Gallery extends Controller
      */
     public function index()
     {
-        $data = [
-            'static_gallery' => Page_gallery::all(),
-            'galleries' => ModelsGallery::all(),
-        ];
-
-
-
-        return view('pages.gallery.index', $data);
+        return view('pages.room-list.index');
     }
 
     /**

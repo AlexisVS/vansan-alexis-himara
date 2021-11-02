@@ -46,6 +46,11 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('dashboard.list-room.index')" :active="request()->is('dashboard/list-room*')">
+                        List Room
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
                     <x-nav-link :href="route('dashboard.room.index')" :active="request()->is('dashboard/room*')">
                         Room
                     </x-nav-link>
@@ -135,6 +140,11 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard.gallery.index')" :active="request()->is('dashboard/gallery*')">
                 Gallery
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.list-room.index')" :active="request()->is('dashboard/list-room*')">
+                List Room
             </x-responsive-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">

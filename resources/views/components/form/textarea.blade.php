@@ -3,6 +3,7 @@
   * @param string $label
   * @param string $name
   * @param string $placeholder
+  * @param string $text
   * @param string $description
   */
 @endphp

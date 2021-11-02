@@ -8,6 +8,7 @@ use App\Http\Controllers\back\Gallery as BackGallery;
 use App\Http\Controllers\back\Home as BackHome;
 use App\Http\Controllers\back\Mailbox;
 use App\Http\Controllers\back\Room as BackRoom;
+use App\Http\Controllers\back\RoomList;
 use App\Http\Controllers\back\Team as BackTeam;
 use App\Http\Controllers\front\Blog;
 use App\Http\Controllers\front\BookingForm;
@@ -58,17 +59,26 @@ Route::post('/room/send-form', [room::class, 'saveFormSidebar'])->name('room.sen
 /* -------------------------------------------------------------------------- */
 
 
-Route::get('/dashboard', [dashboard::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
     
     Route::resource('/home', BackHome::class);
+    // Route::resource('/home/static', ::class);
     Route::resource('/blog', BackBlog::class);
+    // Route::resource('/blog/static', ::class);
     Route::resource('/booking-form', BackBookingForm::class);
+    // Route::resource('/booking-form/static', ::class);
     Route::resource('/contact', BackContact::class);
+    // Route::resource('/contact/static', ::class);
     Route::resource('/gallery', BackGallery::class);
+    // Route::resource('/gallery/static', ::class);
     Route::resource('/room', BackRoom::class);
+    // Route::resource('/room/static', ::class);
     Route::resource('/team', BackTeam::class);
+    // Route::resource('/team/static', ::class);
     Route::resource('/mailbox', Mailbox::class);
+    // Route::resource('/mailbox/static', ::class);
+    Route::resource('/list-room', RoomList::class);
 });
 Route::get('/dashboard/mailbox/sos/send', function () {
     return view('dashboard');

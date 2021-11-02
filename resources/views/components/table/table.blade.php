@@ -1,11 +1,12 @@
 @php
-  /* 
-  * @param attribute collection :columns = column de la table avec collect($MODEL->first())->keys()
-  * @param attribute string crud-uri = chemin du crud index. EX: model Room in backend = /dashboard/room 
-  * @param attribute collection :data-tables = une collection de table ou les colonnes = :columns
-  */
+/*
+* @param attribute collection :columns = column de la table avec collect($MODEL->first())->keys()
+* @param attribute string crud-uri = chemin du crud index. EX: model Room in backend = /dashboard/room
+* @param attribute collection :data-tables = une collection de table ou les colonnes = :columns
+* @param attribute numberHeadActions = bollean pour desactiver un table.head
+*/
 @endphp
-<div class="flex flex-col mt-8 mb-36">
+<div class="flex flex-col mt-8 mb-28">
   <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-6 lg:px-8">
     <div
       class="inline-block min-w-full mr-8 overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
@@ -17,9 +18,15 @@
               <x-table.head :name="$column" />
               @endif
               @endforeach
+              @if ($numberHeadActions ?? false)
               @for ($i = 0; $i
-              < 3 ; $i++) <x-table.head />
+              < $numberHeadActions; $i++) <x-table.head />
               @endfor
+              @else
+              <x-table.head />
+              <x-table.head />
+              <x-table.head />
+              @endif
           </tr>
         </thead>
 

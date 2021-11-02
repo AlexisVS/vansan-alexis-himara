@@ -1,8 +1,10 @@
 @php
 /*
-* @param string $title
-* @param string $subtitle
+* @param string :$title
+* @param string :$subtitle
 * @param string $btnSubmitText
+* @param string $action
+* @param string $method
 */
 @endphp
 <div class="px-2 mb-36">
@@ -20,7 +22,9 @@
       @endif
     </div>
     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9 bg-white">
-      <form action="#" method="POST">
+      <form action="{{ $action }}" method="POST">
+        @csrf
+        @method('{{ $method }}')
         <div class=" py-6 px-4 space-y-6 sm:p-6">
           <div class="grid grid-cols-6 gap-6">
             {{-- /* ---------------------------------- Slot ---------------------------------- */ --}}

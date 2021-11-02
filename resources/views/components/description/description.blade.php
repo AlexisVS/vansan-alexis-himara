@@ -1,0 +1,47 @@
+@php
+/*
+* @pram string $title
+* @pram string $subtitle
+* @pram model or collection $dataTables
+* @pram array $columns
+*/
+@endphp
+@foreach($dataTables as $row)
+<div class="mb-28 mt-8 bg-himaraGold-500 shadow overflow-hidden sm:rounded-lg">
+  <div class="flex items-center justify-between w-full pr-5">
+    <div class="px-4 py-5 sm:px-6 ">
+      <h3 class="text-2xl leading-6 font-display font-semibold text-gray-100">
+        {{ $title }}
+      </h3>
+      <p class="mt-1 max-w-2xl text-md text-gray-50">
+        {{ $subtitle }}
+      </p>
+    </div>
+    <a href="{{ $editUri . $row->id . '/edit' }}">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-100 hover:text-gray-200"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+      </svg>
+    </a>
+  </div>
+  <div class="border-t border-gray-200">
+    {{-- {{ dd($dataTables, $dataTables->count(), $columns) }} --}}
+    <dl class="">
+      @foreach($columns as $column)
+      <div
+        class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-400">
+          @php
+          echo str_replace('_', ' ', $column ?? '')
+          @endphp
+        </dt>
+        <dd class="mt-1 text-sm text-gray-400 sm:mt-0 sm:col-span-2">
+          {{ $row->$column }}
+        </dd>
+      </div>
+      @endforeach
+    </dl>
+  </div>
+</div>
+@endforeach
