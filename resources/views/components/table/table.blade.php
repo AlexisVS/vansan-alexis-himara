@@ -5,7 +5,7 @@
   * @param attribute collection :data-tables = une collection de table ou les colonnes = :columns
   */
 @endphp
-<div class="flex flex-col mt-8">
+<div class="flex flex-col mt-8 mb-36">
   <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-6 lg:px-8">
     <div
       class="inline-block min-w-full mr-8 overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
