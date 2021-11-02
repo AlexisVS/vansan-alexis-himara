@@ -11,7 +11,7 @@
       <div class="item">
         <div class="testimonial-item">
           <div class="author-img">
-            <img alt="Image" class="img-fluid" src="{{ asset('images/users/' . $review->userImage) }}">
+            <img alt="Image" class="img-fluid" src="{{ asset('images/users/' . $review->userImage_img) }}">
           </div>
           <div class="author">
             <h4 class="name">{{ $review->review_info }}</h4>
@@ -19,11 +19,11 @@
           </div>
           <div class="rating">
             @for ($i = 0; $i < $review->rating; $i++)
-            <i class="fa {{ $review->rating_i_class }} voted" aria-hidden="true"></i>
-            @endfor
-            @for ($j = 0; $j < 5 - $review->rating; $j++)
-            <i class="fa {{ $review->rating_i_class }}" aria-hidden="true"></i>
-            @endfor
+              <i class="fa {{ $review->rating_i_class }} voted" aria-hidden="true"></i>
+              @endfor
+              @for ($j = 0; $j < 5 - $review->rating; $j++)
+                <i class="fa {{ $review->rating_i_class }}" aria-hidden="true"></i>
+                @endfor
           </div>
           <p>{{ $review->review_text }}</p>
         </div>

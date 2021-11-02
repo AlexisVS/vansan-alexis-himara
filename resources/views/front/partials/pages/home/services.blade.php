@@ -24,7 +24,7 @@
           @foreach ($services as $service)
           <div class="owl-thumb-item">
             <span class="media-left">
-              <i class="{{ $service->slider_i_class }}"></i>
+              <i class="{{ $service->slider_i_flaticon }}"></i>
             </span>
             <div class="media-body">
               <h5>{{ $service->slider_title }}</h5>

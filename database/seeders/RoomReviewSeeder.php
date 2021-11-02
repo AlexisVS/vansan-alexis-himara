@@ -16,7 +16,7 @@ class RoomReviewSeeder extends Seeder
     {
         DB::table('room_reviews')->insert([
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Marlene Simpson',
@@ -26,7 +26,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 1,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Brad Knight',
@@ -36,7 +36,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 1,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Daryl Phillips',
@@ -46,7 +46,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 1,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '3',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Maaaaaaaaarlene Simpson',
@@ -56,7 +56,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 2,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '4',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Braaaaaaaaaaad Knight',
@@ -66,7 +66,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 2,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '1',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Daaaaaaaaaaaryl Phillips',
@@ -76,7 +76,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 2,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '3',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Maaaaaaaaarlene Simpson',
@@ -86,7 +86,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 2,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Braaaaaaaaaaad Knight',
@@ -96,7 +96,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 2,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '1',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Daaaaaaaaaaaryl Phillips',
@@ -106,7 +106,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 2,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '3',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Maaaaaaaaarlene Simpson',
@@ -116,7 +116,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 3,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Braaaaaaaaaaad Knight',
@@ -126,7 +126,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '1',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Daaaaaaaaaaaryl Phillips',
@@ -136,7 +136,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '3',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Maaaaaaaaarlene Simpson',
@@ -146,7 +146,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Braaaaaaaaaaad Knight',
@@ -156,7 +156,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '1',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Daaaaaaaaaaaryl Phillips',
@@ -166,7 +166,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '3',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Maaaaaaaaarlene Simpson',
@@ -176,7 +176,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Braaaaaaaaaaad Knight',
@@ -186,7 +186,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '1',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Daaaaaaaaaaaryl Phillips',
@@ -196,7 +196,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '3',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Maaaaaaaaarlene Simpson',
@@ -206,7 +206,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '5',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Braaaaaaaaaaad Knight',
@@ -216,7 +216,7 @@ class RoomReviewSeeder extends Seeder
                 'room_id' => 4,
             ],
             [
-                'userImage' => 'admin.jpg',
+                'userImage_img' => 'admin.jpg',
                 'rating' => '3',
                 'rating_i_class' => 'fa-star',
                 'review_info' => 'Daaaaaaaaaaaryl Phillips',

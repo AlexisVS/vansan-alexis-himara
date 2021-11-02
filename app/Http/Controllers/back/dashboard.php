@@ -17,6 +17,8 @@ class dashboard extends Controller
     {
         // $rooms = Room::all();
         // dd(collect($rooms->first())->keys());
+        $rooms = Room::all();
+        // dd($rooms->shuffle());
         return view('dashboard');
     }
 }

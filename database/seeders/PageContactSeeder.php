@@ -15,7 +15,7 @@ class PageContactSeeder extends Seeder
     public function run()
     {
         DB::table('page_contacts')->insert([
-            'page_title_bg' => 'breadcrumb.jpg',
+            'page_title_bg_img' => 'breadcrumb.jpg',
             'page_title_title' => 'CONTACT',
             'page_title_a_href' => '/',
             'page_title_a_text' => 'Home',

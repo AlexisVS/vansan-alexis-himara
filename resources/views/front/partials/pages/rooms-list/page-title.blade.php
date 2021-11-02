@@ -1,4 +1,4 @@
-<div class="page-title gradient-overlay op6" style="background: url('{{ asset('images/' . $static_roomList->page_title_bg) }}'); background-repeat: no-repeat;
+<div class="page-title gradient-overlay op6" style="background: url('{{ asset('images/' . $static_roomList->page_title_bg_img) }}'); background-repeat: no-repeat;
     background-size: cover;">
   <div class="container">
     <div class="inner">

@@ -1,7 +1,7 @@
 @if ($restaurants->count() > 0)
 <section class="restaurant image-bg parallax gradient-overlay op5"
-  data-src="{{ asset('images/' . $static_restaurant->section_title_data_src) }}" data-parallax="scroll" data-speed="0.3"
-  data-mirror-selector=".wrapper" data-z-index="0">
+  data-src="{{ asset('images/' . $static_restaurant->section_title_data_src_img) }}" data-parallax="scroll"
+  data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0">
   <div class="container">
     <div class="section-title">
       <h4>{{ $static_restaurant->section_title_h4 }}</h4>

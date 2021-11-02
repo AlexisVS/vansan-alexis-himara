@@ -21,7 +21,7 @@ class CreatePageHomeAboutsTable extends Migration
             $table->text('info_branding_p');
             $table->string('providers_text');
             $table->string('content_img');
-            $table->string('content_star');
+            $table->string('content_star_i_class');
             $table->string('content_title');
             $table->string('content_text');
             $table->timestamps();

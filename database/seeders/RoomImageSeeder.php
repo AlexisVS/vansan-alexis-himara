@@ -16,35 +16,35 @@ class RoomImageSeeder extends Seeder
     {
         DB::table('room_images')->insert([
             [
-                'image' => 'single1.jpg',
+                'image_img' => 'single1.jpg',
                 'room_id' => 1
             ],
             [
-                'image' => 'single2.jpg',
+                'image_img' => 'single2.jpg',
                 'room_id' => 1
             ],
             [
-                'image' => 'single3.jpg',
+                'image_img' => 'single3.jpg',
                 'room_id' => 1
             ],
             [
-                'image' => 'single4.jpg',
+                'image_img' => 'single4.jpg',
                 'room_id' => 1
             ],
             [
-                'image' => 'single5.jpg',
+                'image_img' => 'single5.jpg',
                 'room_id' => 1
             ],
             [
-                'image' => 'single6.jpg',
+                'image_img' => 'single6.jpg',
                 'room_id' => 1
             ],
             [
-                'image' => 'single7.jpg',
+                'image_img' => 'single7.jpg',
                 'room_id' => 1
             ],
             [
-                'image' => 'single8.jpg',
+                'image_img' => 'single8.jpg',
                 'room_id' => 1
             ],
 
@@ -52,35 +52,35 @@ class RoomImageSeeder extends Seeder
 
 
             [
-                'image' => 'single1.jpg',
+                'image_img' => 'single1.jpg',
                 'room_id' => 2
             ],
             [
-                'image' => 'single2.jpg',
+                'image_img' => 'single2.jpg',
                 'room_id' => 2
             ],
             [
-                'image' => 'single3.jpg',
+                'image_img' => 'single3.jpg',
                 'room_id' => 2
             ],
             [
-                'image' => 'single4.jpg',
+                'image_img' => 'single4.jpg',
                 'room_id' => 2
             ],
             [
-                'image' => 'single5.jpg',
+                'image_img' => 'single5.jpg',
                 'room_id' => 2
             ],
             [
-                'image' => 'single6.jpg',
+                'image_img' => 'single6.jpg',
                 'room_id' => 2
             ],
             [
-                'image' => 'single7.jpg',
+                'image_img' => 'single7.jpg',
                 'room_id' => 2
             ],
             [
-                'image' => 'single8.jpg',
+                'image_img' => 'single8.jpg',
                 'room_id' => 2
             ],
 
@@ -88,35 +88,35 @@ class RoomImageSeeder extends Seeder
 
 
             [
-                'image' => 'single1.jpg',
+                'image_img' => 'single1.jpg',
                 'room_id' => 3
             ],
             [
-                'image' => 'single2.jpg',
+                'image_img' => 'single2.jpg',
                 'room_id' => 3
             ],
             [
-                'image' => 'single3.jpg',
+                'image_img' => 'single3.jpg',
                 'room_id' => 3
             ],
             [
-                'image' => 'single4.jpg',
+                'image_img' => 'single4.jpg',
                 'room_id' => 3
             ],
             [
-                'image' => 'single5.jpg',
+                'image_img' => 'single5.jpg',
                 'room_id' => 3
             ],
             [
-                'image' => 'single6.jpg',
+                'image_img' => 'single6.jpg',
                 'room_id' => 3
             ],
             [
-                'image' => 'single7.jpg',
+                'image_img' => 'single7.jpg',
                 'room_id' => 3
             ],
             [
-                'image' => 'single8.jpg',
+                'image_img' => 'single8.jpg',
                 'room_id' => 3
             ],
 
@@ -124,35 +124,35 @@ class RoomImageSeeder extends Seeder
 
 
             [
-                'image' => 'single1.jpg',
+                'image_img' => 'single1.jpg',
                 'room_id' => 4
             ],
             [
-                'image' => 'single2.jpg',
+                'image_img' => 'single2.jpg',
                 'room_id' => 4
             ],
             [
-                'image' => 'single3.jpg',
+                'image_img' => 'single3.jpg',
                 'room_id' => 4
             ],
             [
-                'image' => 'single8.jpg',
+                'image_img' => 'single8.jpg',
                 'room_id' => 4
             ],
             [
-                'image' => 'single5.jpg',
+                'image_img' => 'single5.jpg',
                 'room_id' => 4
             ],
             [
-                'image' => 'single6.jpg',
+                'image_img' => 'single6.jpg',
                 'room_id' => 4
             ],
             [
-                'image' => 'single7.jpg',
+                'image_img' => 'single7.jpg',
                 'room_id' => 4
             ],
             [
-                'image' => 'single4.jpg',
+                'image_img' => 'single4.jpg',
                 'room_id' => 4
             ],
         ]);

@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="section-title">
-          <h4 class="text-uppercase">{{ $static_about->section_title_title }}<span
-              class="text-himara">{{ $static_about->section_title_title2 }}</span></h4>
+          <h4 class="text-uppercase">{{ $static_about->section_title_title }}<span class="text-himara">{{
+              $static_about->section_title_title2 }}</span></h4>
           <p class="section-subtitle">{{ $static_about->section_title_section_subtitle }}</p>
         </div>
         <div class="info-branding">
@@ -12,12 +12,12 @@
           <div class="providers">
             <span>{{ $static_about->providers_text }}</span>
             @foreach ($aboutProviders as $aboutProvider)
-              <!-- ITEM -->
-              <div class="item">
-                <a href="{{ $aboutProvider->provider_href }}">
-                  <img src={{ asset('images/providers/' . $aboutProvider->provider_img) }} alt="Image">
-                </a>
-              </div>
+            <!-- ITEM -->
+            <div class="item">
+              <a href="{{ $aboutProvider->provider_href }}">
+                <img src={{ asset('images/providers/' . $aboutProvider->provider_img) }} alt="Image">
+              </a>
+            </div>
             @endforeach
           </div>
         </div>
@@ -28,11 +28,11 @@
             <div class="content">
               <img src="{{ asset('images/' . $static_about->content_img) }}" width="100" alt="Image">
               <div class="stars">
-                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
-                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
-                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
-                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
-                <i class="fa {{ $static_about->content_star }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star_i_class }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star_i_class }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star_i_class }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star_i_class }}" aria-hidden="true"></i>
+                <i class="fa {{ $static_about->content_star_i_class }}" aria-hidden="true"></i>
               </div>
               <h5 class="title">{{ $static_about->content_title }}</h5>
               <p class="mt20">{{ $static_about->content_text }}</p>

@@ -15,7 +15,7 @@ class CreatePageHomeVideosTable extends Migration
     {
         Schema::create('page_home_videos', function (Blueprint $table) {
             $table->id();
-            $table->string('video_src');
+            $table->string('video_src_img');
             $table->string('video_href');
             $table->string('video_i_class');
             $table->timestamps();

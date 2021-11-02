@@ -6,7 +6,7 @@
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <x-table.table :columns="collect($rooms->first())->keys()" :data-tables="$rooms" />
+            <x-table.table :columns="collect($rooms->first())->keys()" crud-uri="/dashboard/room/" :data-tables="$rooms" />
         </div>
     </div>
 </x-app-layout>

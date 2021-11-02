@@ -16,7 +16,7 @@ class PageHomeRevolutionSliderSeeder extends Seeder
     {
         DB::table('page_home_revolution_sliders')->insert([
             [
-                'mainImage' => 'slider1.jpg',
+                'mainImage_img' => 'slider1.jpg',
                 'layer1_text' => 'TOUCH THE DREAM',
                 'layer2_text' => 'Live Your Myth In Hotel Himara',
                 'layer3_href' => '/booking-form',
@@ -29,7 +29,7 @@ class PageHomeRevolutionSliderSeeder extends Seeder
                 'layer6_text' => 'Star Luxury Hotel',
             ],
             [
-                'mainImage' => 'slider3.jpg',
+                'mainImage_img' => 'slider3.jpg',
                 'layer1_text' => 'WHERE DREAMS COME TRUE',
                 'layer2_text' => "You'll Never Forget Your Stay",
                 'layer3_href' => '',
@@ -42,7 +42,7 @@ class PageHomeRevolutionSliderSeeder extends Seeder
                 'layer6_text' => '',
             ],
             [
-                'mainImage' => 'slider13.jpg',
+                'mainImage_img' => 'slider13.jpg',
                 'layer1_text' => 'ENJOY YOUR HOLIDAYS',
                 'layer2_text' => 'Family Room from €89 per night',
                 'layer3_href' => '',

@@ -28,10 +28,10 @@ class CreateLayoutHeadersTable extends Migration
             $table->string('menu_li5_href');
             $table->string('menu_li5_text');
             $table->string('menu_li6a_href');
-            $table->string('menu_li6a_class');
+            $table->string('menu_li6a_i_class');
             $table->string('menu_li6a_text');
             $table->string('menu_li6b_href');
-            $table->string('menu_li6b_class');
+            $table->string('menu_li6b_i_class');
             $table->string('menu_li6b_text');
             $table->timestamps();
         });

@@ -28,10 +28,10 @@ class LayoutHeaderSeeder extends Seeder
             'menu_li5_href' => '/contact',
             'menu_li5_text' => 'CONTACT US',
             'menu_li6a_href' => '/booking-form',
-            'menu_li6a_class' => 'fa-user',
+            'menu_li6a_i_class' => 'fa-user',
             'menu_li6a_text' => 'Reservation',
             'menu_li6b_href' => '/login',
-            'menu_li6b_class' => 'fa-user',
+            'menu_li6b_i_class' => 'fa-user',
             'menu_li6b_text' => 'LOG IN',
         ]);
     }

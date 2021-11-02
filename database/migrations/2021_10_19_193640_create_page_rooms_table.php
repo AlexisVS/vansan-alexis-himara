@@ -15,7 +15,7 @@ class CreatePageRoomsTable extends Migration
     {
         Schema::create('page_rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('page_title_bg');
+            $table->string('page_title_bg_img');
             $table->string('page_title_room_details_price');
             $table->string('page_titleli1_href');
             $table->string('page_titleli1_text');

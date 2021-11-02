@@ -15,7 +15,7 @@ class CreatePageHomeRevolutionSlidersTable extends Migration
     {
         Schema::create('page_home_revolution_sliders', function (Blueprint $table) {
             $table->id();
-            $table->string('mainImage');
+            $table->string('mainImage_img');
             $table->string('layer1_text');
             $table->string('layer2_text');
             $table->string('layer3_href');

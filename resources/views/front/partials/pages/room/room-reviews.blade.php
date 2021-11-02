@@ -131,16 +131,16 @@
 
   <div class="review-box {{ $loop->iteration > 1 ? 'clearfix' : '' }}">
     <figure class="review-author">
-      <img src={{ asset("images/users/" . $review->userImage) }} alt="Image">
+      <img src={{ asset("images/users/" . $review->userImage_img) }} alt="Image">
     </figure>
     <div class="review-contentt">
       <div class="rating">
         @for ($i = 0; $i < $review->rating; $i++)
           <i class="fa {{ $review->rating_i_class }} voted" aria-hidden="true"></i>
-        @endfor
-        @for ($j = 0; $j < 5 - $review->rating; $j++)
-          <i class="fa {{ $review->rating_i_class }}" aria-hidden="true"></i>
-        @endfor
+          @endfor
+          @for ($j = 0; $j < 5 - $review->rating; $j++)
+            <i class="fa {{ $review->rating_i_class }}" aria-hidden="true"></i>
+            @endfor
       </div>
       <div class="review-info">
         {{ $review->review_info . ' – ' . $review->review_date }}

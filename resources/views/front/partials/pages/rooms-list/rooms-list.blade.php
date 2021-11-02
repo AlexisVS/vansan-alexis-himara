@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-lg-5">
       <figure class="gradient-overlay-hover link-icon">
-        <a href="/room/{{ $room->id }}"><img src="{{ asset('images/rooms/single/' . $room->images[0]->image) }}"
+        <a href="/room/{{ $room->id }}"><img src="{{ asset('images/rooms/single/' . $room->images[0]->image_img) }}"
             class="img-fluid" alt="Image"></a>
       </figure>
     </div>

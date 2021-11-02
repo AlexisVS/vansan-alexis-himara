@@ -34,13 +34,13 @@
         </li>
         <li class="menu-item menu-btn">
           @if (Auth::user() !== null)
-            <a href="{{ $header->menu_li6a_href }}" class="btn">
-              <i class="fa {{ $header->menu_li6a_class }}"></i>
-              {{ $header->menu_li6a_text }}</a>
+          <a href="{{ $header->menu_li6a_href }}" class="btn">
+            <i class="fa {{ $header->menu_li6a_i_class }}"></i>
+            {{ $header->menu_li6a_text }}</a>
           @else
-            <a href="{{ $header->menu_li6b_href }}" class="btn">
-              <i class="fa {{ $header->menu_li6b_class }}"></i>
-              {{ $header->menu_li6b_text }}</a>
+          <a href="{{ $header->menu_li6b_href }}" class="btn">
+            <i class="fa {{ $header->menu_li6b_i_class }}"></i>
+            {{ $header->menu_li6b_text }}</a>
           @endif
         </li>
       </ul>

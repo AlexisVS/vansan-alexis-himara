@@ -15,7 +15,7 @@ class PageRoomSeeder extends Seeder
     public function run()
     {
         DB::table('page_rooms')->insert([
-            'page_title_bg' => 'breadcrumb.jpg',
+            'page_title_bg_img' => 'breadcrumb.jpg',
             'page_title_room_details_price' => '/ NIGHT',
             'page_titleli1_href' => '/',
             'page_titleli1_text' => 'Home',

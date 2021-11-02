@@ -1,5 +1,5 @@
-@if ($static_video->video_href !== '' && $static_video->video_src !== '')
-<section class="video np parallax gradient-overlay op6" data-src="{{ asset('images/' . $static_video->video_src) }}"
+@if ($static_video->video_href !== '' && $static_video->video_src_img !== '')
+<section class="video np parallax gradient-overlay op6" data-src="{{ asset('images/' . $static_video->video_src_img) }}"
   data-parallax="scroll" data-speed="0.3" data-mirror-selector=".wrapper" data-z-index="0">
   <div class="inner gradient-overlay">
     <div class="container">

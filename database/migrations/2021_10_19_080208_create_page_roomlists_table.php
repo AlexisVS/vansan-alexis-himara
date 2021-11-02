@@ -15,7 +15,7 @@ class CreatePageRoomlistsTable extends Migration
     {
         Schema::create('page_roomlists', function (Blueprint $table) {
             $table->id();
-            $table->string('page_title_bg');
+            $table->string('page_title_bg_img');
             $table->string('page_title_title');
             $table->string('page_title_a_href');
             $table->string('page_title_a_text');

@@ -15,7 +15,7 @@ class PageHomeVideoSeeder extends Seeder
     public function run()
     {
         DB::table('page_home_videos')->insert([
-            'video_src' => 'video.jpg',
+            'video_src_img' => 'video.jpg',
             'video_href' => 'https://www.youtube.com/watch?v=BDDfopejpwk',
             'video_i_class' => 'fa-play'
         ]);

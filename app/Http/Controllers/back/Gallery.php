@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery as ModelsGallery;
+use App\Models\Page_gallery;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class Gallery extends Controller
@@ -14,7 +17,15 @@ class Gallery extends Controller
      */
     public function index()
     {
-        return view('pages.gallery.index');
+        $data = [
+            'static_galleries' => Page_gallery::find(1),
+            'galleries' => ModelsGallery::all(),
+        ];
+
+        $gallery = Room::all();
+        // dd(gettype($gallery->first()->available));
+
+        return view('pages.gallery.index', $data);
     }
 
     /**
