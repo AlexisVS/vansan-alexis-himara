@@ -53,11 +53,6 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section>
-                {{-- {{ dd(collect($static_gallery->take(1))) }} --}}
-
-                <x-form.form action='' method='' title='' subtitle="">
-                    <x-form.fa-select :icons="$icons"  title="" name="sdf" selected />
-                </x-form.form>
 
                 <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
                     Static Gallery
@@ -68,7 +63,8 @@
                     title='Le titre de mon composant description' 
                     subtitle='Le sous titre mon composant description' 
                     :data-tables="collect($static_gallery->take(1))" 
-                    edit-uri="/dashboard/gallery/" 
+                    edit-uri="/dashboard/gallery/edit-static" 
+                    uri-static='true'
                 />
                 
             </section>

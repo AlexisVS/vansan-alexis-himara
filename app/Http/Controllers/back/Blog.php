@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\fontawesomeiconlist;
+use App\Models\Page_gallery;
 use Illuminate\Http\Request;
 
 class Blog extends Controller
@@ -59,6 +61,9 @@ class Blog extends Controller
     {
         //
     }
+
+
+
 
     /**
      * Update the specified resource in storage.

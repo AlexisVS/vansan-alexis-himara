@@ -58,6 +58,8 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            backgroundColor: ['active', 'group-hover', 'group-focus', 'focus-within', 'checked'],
+            textColor: ['active', 'group-hover', 'group-focus', 'focus-within', 'checked'],
         },
     },
 

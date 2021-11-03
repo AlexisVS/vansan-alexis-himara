@@ -1,15 +1,17 @@
 @php
-  /*
-  * @param string $label
-  * @param string $name
-  * @param string $placeholder
-  * @param string $text
-  * @param string $description
-  */
+/*
+* @param string $title
+* @param string $name
+* @param string $placeholder
+* @param string $text
+* @param string $description
+*/
 @endphp
 <div class="col-start-1 col-span-full md:col-start-2 md:col-span-4">
   <label for="about" class="block text-sm font-medium text-gray-500">
-    {{ $label }}
+    @php
+    echo str_replace('_', ' ', $title ?? $name)
+    @endphp
   </label>
   <div class="mt-1">
     <textarea id="about" name="{{ $name }}" rows="6"
@@ -18,7 +20,7 @@
       {{ $text }}
     </textarea>
   </div>
-  @if ($description ?? false)      
+  @if ($description ?? false)
   <p class="mt-2 text-sm text-gray-300">
     {{ $description }}
   </p>

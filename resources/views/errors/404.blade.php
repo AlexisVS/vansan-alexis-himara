@@ -45,6 +45,7 @@
         <a href="/" class="btn btn-dark btn-sm">
           <i class="fa fa-angle-left"></i>
           GO BACK TO HOME PAGE</a>
+
         <div class="social-media aligncenter mt80">
           <a class="facebook" href="#">
             <i class="fa fa-facebook"></i>

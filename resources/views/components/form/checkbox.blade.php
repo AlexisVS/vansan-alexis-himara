@@ -1,14 +1,16 @@
 @php
-  /*
-  * @param string $title
-  * @param string $name
-  * @param string $label
-  * @param string $labelSubtitle
-  */
+/*
+* @param string $title
+* @param string $name
+* @param string $label
+* @param string $labelSubtitle
+*/
 @endphp
 <div class="col-start-1 col-span-full md:col-start-2 md:col-span-4">
   <p class="mb-2 text-sm font-medium text-gray-500">
-    {{ $title }}
+    @php
+    echo str_replace('_', ' ', $title ?? $name)
+    @endphp
   </p>
   <div class="flex items-start">
     <div class="h-5 flex items-center">

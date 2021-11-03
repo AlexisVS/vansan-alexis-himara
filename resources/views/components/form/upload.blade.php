@@ -1,12 +1,14 @@
 @php
-  /*
-  * @param string $label
-  * @param string $name
-  */
+/*
+* @param string $label
+* @param string $name
+*/
 @endphp
 <div class="col-start-1 col-span-full md:col-start-2 md:col-span-4">
   <label class="block text-sm font-medium text-gray-500">
-    {{ $label }}
+    @php
+    echo str_replace('_', ' ', $title ?? $name)
+    @endphp
   </label>
   <div class="mt-1 border-2 border-gray-300 border-dashed rounded-md px-6 pt-5 pb-6 flex justify-center">
     <div class="space-y-1 text-center">
