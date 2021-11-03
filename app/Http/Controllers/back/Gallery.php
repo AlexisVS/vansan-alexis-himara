@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\fontawesomeiconlist;
 use App\Models\Gallery as ModelsGallery;
 use App\Models\Page_gallery;
 use App\Models\Room;
@@ -20,6 +21,7 @@ class Gallery extends Controller
         $data = [
             'static_gallery' => Page_gallery::all(),
             'galleries' => ModelsGallery::all(),
+            'icons' => fontawesomeiconlist::all(),
         ];
 
 

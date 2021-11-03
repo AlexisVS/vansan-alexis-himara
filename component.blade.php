@@ -19,6 +19,8 @@
 
   <x-form.select label="" selected="" :options="" />
 
+  <x-form.fa-select label="" selected="" :options="" />
+
   <x-form.text label="" name="" placeholder="" text="" />
 
   <x-form.textarea label="" name="" placeholder="" text="" description="" />

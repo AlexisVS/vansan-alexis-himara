@@ -53,6 +53,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section>
+                {{-- {{ dd(collect($static_gallery->take(1))) }} --}}
+
+                <x-form.form action='' method='' title='' subtitle="">
+                    <x-form.fa-select :icons="$icons"  title="" name="sdf" selected />
+                </x-form.form>
 
                 <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
                     Static Gallery
@@ -60,11 +65,12 @@
 
                 <x-description.description 
                     :columns="collect($static_gallery->first())->keys()" 
-                    title='Le titre de mon composant description'
+                    title='Le titre de mon composant description' 
                     subtitle='Le sous titre mon composant description' 
-                    :data-tables="collect($static_gallery->take(1))"
+                    :data-tables="collect($static_gallery->take(1))" 
                     edit-uri="/dashboard/gallery/" 
                 />
+                
             </section>
 
             <section>
@@ -78,10 +84,11 @@
 
                 <x-table.table 
                     :columns="collect($galleries->first())->keys()" 
-                    crud-uri="/dashboard/gallery/"
-                    :data-tables="$galleries"
-                    numberHeadActions=""
+                    crud-uri="/dashboard/gallery/" 
+                    :data-tables="$galleries" 
+                    numberHeadActions="" 
                 />
+
             </section>
 
         </div>

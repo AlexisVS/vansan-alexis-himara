@@ -16,6 +16,7 @@ class CreateFontawesomeiconlistsTable extends Migration
         Schema::create('fontawesomeiconlists', function (Blueprint $table) {
             $table->id();
             $table->string('class' ,40);
+            $table->string('content' ,15);
             $table->timestamps();
         });
     }
