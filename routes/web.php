@@ -103,6 +103,8 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
 
     Route::get('/list-room/edit-static', [RoomList::class, 'editStatic']);
     Route::put('/list-room/edit-static', [RoomList::class, 'updateStatic']);
+    Route::get('/list-room/edit-category', [RoomList::class, 'editCategory']);
+    Route::put('/list-room/edit-category', [RoomList::class, 'updateCategory']);
     Route::resource('/list-room', RoomList::class);
 });
 Route::get('/dashboard/mailbox/sos/send', function () {

@@ -83,6 +83,7 @@ class DatabaseSeeder extends Seeder
             // TEAM
             PageTeamSeeder::class,
             PageTeamTeamSeeder::class,
+            PageTeamTeamCategorySeeder::class,
 
             /* -------------------------------------------------------------------------- */
             /*                                   Backend                                  */

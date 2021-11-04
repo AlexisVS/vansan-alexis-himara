@@ -57,8 +57,9 @@
         <x-form.form action='/dashboard/team/{{ $edit->id }}' method='PUT' enctype title='Edition team member {{ $edit->details_name }}'
           subtitle="All text in your page">
           <x-form.upload name="figure_img" />
-          <x-form.select name="figure_text" :options="$teams->pluck('figure_text')->unique()->toArray()"
-            selected="{{ $edit->figure_text }}" />
+
+            <x-form.select name="figure_text" :options="$team_categories->pluck('name')"
+              selected="{{ $edit->figure_text }}" />
           <x-form.text name="details_name" :text="$edit->details_name" />
           <x-form.text name="details_text" :text="$edit->details_text" />
         </x-form.form>

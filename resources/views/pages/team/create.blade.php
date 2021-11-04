@@ -55,7 +55,7 @@
       <section>
         <x-form.form action='/dashboard/team' method='POST' enctype title='Add member'>
           <x-form.upload name="figure_img" />
-          <x-form.select name="figure_text" :options="$teams->pluck('figure_text')->unique()->toArray()" />
+          <x-form.select name="figure_text" :options="$team_categories->pluck('name')" />
           <x-form.text name="details_name" placeholder="Name of member" />
           <x-form.text name="details_text" placeholder="description of member" />
         </x-form.form>

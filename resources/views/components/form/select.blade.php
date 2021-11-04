@@ -5,7 +5,6 @@
 * @param string $multiple
 * @param string $selected
 * @param model or collection $options PS: utiliser pluck()
-* @param string $column
 */
 @endphp
 <div class="col-start-1 col-span-full md:col-start-2 md:col-span-4">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\back;
 use App\Http\Controllers\Controller;
 use App\Models\Page_team;
 use App\Models\Page_team_team;
+use App\Models\PageTeamTeamCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -34,6 +35,8 @@ class Team extends Controller
     {
         $data = [
             'teams' => Page_team_team::all(),
+            'team_categories' => PageTeamTeamCategory::all(),
+
         ];
 
         return view('pages.team.create', $data);
@@ -95,6 +98,8 @@ class Team extends Controller
         $data = [
             'edit' => Page_team_team::find($id),
             'teams' => Page_team_team::all(),
+            'team_categories' => PageTeamTeamCategory::all(),
+
         ];
 
         return view('pages.team.edit', $data);

@@ -23,7 +23,10 @@
     <div class="flex items-center justify-center">
       <div class="h-5 flex items-center">
         <input class="checkbox-fa opacity-0" id="{{ $name .'-' . $icon->class }}" name="{{ $name }}" type="radio"
-          value="1" {{ $icon->class == $selected ? 'selected' : '' }}
+          value="1" 
+          @if($icon->class == $selected)
+          checked
+          @endif
         class="h-4 w-4 text-himaraGold-400 border-gray-300 rounded">
         <label for="{{ $name .'-' . $icon->class }}" class="font-medium text-gray-400 relative right-5">
           <i fill="currentColor" class="font-fontawesome text-3xl fill-current hover:text-himaraGold-400">{!!
