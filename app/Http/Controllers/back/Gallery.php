@@ -5,6 +5,7 @@ namespace App\Http\Controllers\back;
 use App\Http\Controllers\Controller;
 use App\Models\fontawesomeiconlist;
 use App\Models\Gallery as ModelsGallery;
+use App\Models\GalleryFilter;
 use App\Models\Page_gallery;
 use App\Models\Room;
 use Illuminate\Http\Request;
@@ -38,12 +39,10 @@ class Gallery extends Controller
     public function create()
     {
         $data = [
-            'static_gallery' => Page_gallery::all(),
-            'galleries' => ModelsGallery::all(),
-            'icons' => fontawesomeiconlist::all(),
+            'gallery_filters' => GalleryFilter::all(),
         ];
 
-        return view('pages.gallery.store', $data);
+        return view('pages.gallery.create', $data);
     }
 
     /**
@@ -54,7 +53,27 @@ class Gallery extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "class_filter" => "required",
+            "img" => "",
+            "figcaption" => "required",
+        ]);
+
+        $store = new ModelsGallery;
+
+        if ($request->file('img')) {
+            Storage::disk('public')->put('images/gallery', $request->file('img'));
+            $store->img = $request->file('img')->hashName();
+        }
+        if ($request->class_filer == []) {
+            $store->class_filter = implode(' ', $request->class_filter);
+        } else {
+            $store->class_filter = $request->class_filter;
+        }
+        $store->figcaption = $request->figcaption;
+        $store->save();
+
+        return redirect('/dashboard/gallery')->with('success', 'Gallery element created');
     }
 
     /**
@@ -65,7 +84,12 @@ class Gallery extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'show' => ModelsGallery::find($id),
+            // 'icons' => fontawesomeiconlist::all(),
+        ];
+
+        return view('pages.gallery.show', $data);
     }
 
     /**
@@ -76,7 +100,12 @@ class Gallery extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'edit' => ModelsGallery::find($id),
+            'gallery_filters' => GalleryFilter::all(),
+        ];
+
+        return view('pages.gallery.edit', $data);
     }
 
 
@@ -89,7 +118,27 @@ class Gallery extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "class_filter" => "required",
+            "img" => "",
+            "figcaption" => "required",
+        ]);
+
+        $update = ModelsGallery::find($id);
+
+        if ($request->file('img')) {
+            Storage::disk('public')->put('images/gallery', $request->file('img'));
+            $update->img = $request->file('img')->hashName();
+        }
+        if ($request->class_filer == []) {
+            $update->class_filter = implode(' ', $request->class_filter);
+        } else {
+            $update->class_filter = $request->class_filter;
+        }
+        $update->figcaption = $request->figcaption;
+        $update->save();
+
+        return redirect('/dashboard/gallery')->with('success', 'Gallery element updated');
     }
 
     /**
@@ -113,7 +162,7 @@ class Gallery extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function updateStatic(Request $request )
+    public function updateStatic(Request $request)
     {
 
         $request->validate([
@@ -132,7 +181,7 @@ class Gallery extends Controller
         $update->page_title_li = $request->page_title_li;
         $update->save();
 
-        return redirect()->back()->with('success', 'Static gallery updated');
+        return redirect('/dashboard/gallery')->with('success', 'Static gallery updated');
     }
 
     /**
@@ -143,6 +192,8 @@ class Gallery extends Controller
      */
     public function destroy($id)
     {
-        //
+        $destroy  = ModelsGallery::find($id);
+        $destroy->delete();
+        return redirect('/dashboard/gallery')->with('success', 'Gallery element deleted');
     }
 }

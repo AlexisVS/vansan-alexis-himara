@@ -4,6 +4,7 @@
 * @param attribute string crud-uri = chemin du crud index. EX: model Room in backend = /dashboard/room
 * @param attribute collection :data-tables = une collection de table ou les colonnes = :columns
 * @param attribute numberHeadActions = bollean pour desactiver un table.head
+* @param string $imagePath
 */
 @endphp
 <div class="flex flex-col mt-8 mb-28">
@@ -14,7 +15,7 @@
         <thead>
           <tr>
             @foreach($columns as $column)
-            @if ($loop->iteration < $columns->count() - 2)
+            @if ($loop->iteration <= $columns->count() - 2)
               <x-table.head :name="$column" />
               @endif
               @endforeach
@@ -34,15 +35,48 @@
           @foreach ($dataTables as $row)
           <tr class="hover:bg-himaraGold-400">
             @foreach ($columns as $column)
-            @if ($loop->iteration < $columns->count() - 2)
+            @if ($loop->iteration <= $columns->count() - 2)
+              @if (Str::contains($column, ['img']) == true && isset($imagePath) )
               <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
                 <div class="text-sm leading-5 text-gray-400 truncate">
-                  {{ substr($row->$column, 0 , 45) }}
-                  <br>
-                  {{ substr($row->$column, 45 , 45) }}
-
+                  <img class="max-w-xs max-h-32"
+                    src="{{ asset($imagePath . (substr($imagePath, -1) != '/' ? '/' : '') . $row->$column)}}" alt="">
                 </div>
               </td>
+              @else
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
+                <div class="text-sm leading-5 break-words text-gray-400 truncate">
+                  {{ substr($row->$column, 0 , 25) }}
+                  @if(strlen($row->$column) > 25)
+                  <br>
+                  {{ substr($row->$column, 25 , 25) }}
+
+                  @if(strlen($row->$column) > 50)
+                  <br>
+                  {{ substr($row->$column, 50 , 25) }}
+                  @endif
+
+                  @if(strlen($row->$column) > 75)
+                  <br>
+                  {{ substr($row->$column, 75 , 25) }}
+                  @endif
+
+                  @if(strlen($row->$column) > 100 )
+                  <br>
+                  {{ substr($row->$column, 100 , 25) }}
+                  @endif
+
+                  @if(strlen($row->$column) > 125)
+                  <br>
+                  {{ substr($row->$column, 125 , 25) }}
+                  @endif
+                  @if(strlen($row->$column) > 125)
+                  ...
+                  @endif
+                  @endif
+                </div>
+              </td>
+              @endif
               @endif
               @endforeach
               {{-- SHOW --}}

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\GalleryFilter;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
             LayoutFooterSeeder::class,
             
             // UNIVERSAL
+            GalleryFilterSeeder::class, // ? no relation
             GallerySeeder::class, // ! home gallery | gallery
 
             PostCategorySeeder::class,

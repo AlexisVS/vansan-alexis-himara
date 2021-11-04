@@ -54,41 +54,21 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section>
 
-                <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
-                    Static Gallery
-                </h3>
-
-                <x-description.description 
-                    image-path="/images/"
-                    :columns="collect($static_gallery->first())->keys()" 
-                    title='Le titre de mon composant description' 
-                    subtitle='Le sous titre mon composant description' 
-                    :data-tables="collect($static_gallery->take(1))" 
-                    edit-uri="/dashboard/gallery/edit-static" 
-                    uri-static='true'
-                />
-                
-            </section>
-
-            <section>
-
                 <div class="flex justify-between items-center">
                     <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
                         Gallery Elements
                     </h3>
-                    <a href="/dashboard/gallery/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add items</a>
+                    <a href="/dashboard/gallery/create"
+                        class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add
+                        items</a>
                 </div>
-                
-                <x-table.table 
-                    image-path="/images/gallery"
-                    :columns="collect($galleries->first())->keys()" 
-                    crud-uri="/dashboard/gallery/" 
-                    :data-tables="$galleries" 
-                    numberHeadActions="" 
-                />
+
+                <x-description.description image-path="/images/gallery/" :columns="collect($show)->keys()"
+                    title='Le titre de mon composant description' subtitle='Le sous titre mon composant description'
+                    :data-tables="collect([$show])" edit-uri="/dashboard/gallery/{{ $show->id }}/edit"
+                    uri-static='true' />
 
             </section>
-
         </div>
     </div>
 
