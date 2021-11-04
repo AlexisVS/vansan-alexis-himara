@@ -54,41 +54,21 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section>
 
-                <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
-                    Static Team
-                </h3>
-
-                <x-description.description 
-                    image-path="/images/"
-                    :columns="collect($static->first())->keys()" 
-                    title='Static page team' 
-                    {{-- subtitle='Le sous titre mon composant description'  --}}
-                    :data-tables="collect($static->take(1))" 
-                    edit-uri="/dashboard/team/edit-static" 
-                    uri-static='true'
-                />
-                
-            </section>
-
-            <section>
-
                 <div class="flex justify-between items-center">
                     <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
                         Team members
                     </h3>
-                    <a href="/dashboard/team/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add items</a>
+                    <a href="/dashboard/team/create"
+                        class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add
+                        member</a>
                 </div>
-                
-                <x-table.table 
-                    image-path="/images/staff"
-                    :columns="collect($index->first())->keys()" 
-                    crud-uri="/dashboard/team/" 
-                    :data-tables="$index" 
-                    numberHeadActions="" 
-                />
+
+                <x-description.description image-path="/images/staff/" :columns="collect($show)->keys()"
+                    title='Team members' subtitle='All description about member'
+                    :data-tables="collect([$show])" edit-uri="/dashboard/team/{{ $show->id }}/edit"
+                    uri-static='true' />
 
             </section>
-
         </div>
     </div>
 

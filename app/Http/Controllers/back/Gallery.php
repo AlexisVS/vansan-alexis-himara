@@ -73,7 +73,7 @@ class Gallery extends Controller
         $store->figcaption = $request->figcaption;
         $store->save();
 
-        return redirect('/dashboard/gallery')->with('success', 'Gallery element created');
+        return redirect('/dashboard/gallery')->with('success', 'Gallery element created.');
     }
 
     /**
@@ -138,7 +138,7 @@ class Gallery extends Controller
         $update->figcaption = $request->figcaption;
         $update->save();
 
-        return redirect('/dashboard/gallery')->with('success', 'Gallery element updated');
+        return redirect('/dashboard/gallery')->with('success', 'Gallery element updated.');
     }
 
     /**
@@ -181,7 +181,7 @@ class Gallery extends Controller
         $update->page_title_li = $request->page_title_li;
         $update->save();
 
-        return redirect('/dashboard/gallery')->with('success', 'Static gallery updated');
+        return redirect('/dashboard/gallery')->with('success', 'Static gallery page updated.');
     }
 
     /**
@@ -194,6 +194,6 @@ class Gallery extends Controller
     {
         $destroy  = ModelsGallery::find($id);
         $destroy->delete();
-        return redirect('/dashboard/gallery')->with('success', 'Gallery element deleted');
+        return redirect('/dashboard/gallery')->with('success', 'Gallery element deleted.');
     }
 }

@@ -44,7 +44,7 @@
                 </svg>
             </a>
             <h2 class="font-semibold font-display text-xl text-himaraGold-500 leading-tight">
-                Team
+                Static Team
             </h2>
         </div>
 
@@ -54,39 +54,28 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section>
 
-                <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
-                    Static Team
-                </h3>
 
-                <x-description.description 
-                    image-path="/images/"
-                    :columns="collect($static->first())->keys()" 
-                    title='Static page team' 
-                    {{-- subtitle='Le sous titre mon composant description'  --}}
-                    :data-tables="collect($static->take(1))" 
-                    edit-uri="/dashboard/team/edit-static" 
-                    uri-static='true'
-                />
-                
-            </section>
+                <x-form.form  action='/dashboard/team/edit-static' method='PUT' enctype title='Edition static team'
+                    subtitle="All text in your page">
+                    <x-form.upload name="page_title_bg_img" />
+                    <x-form.text name="page_title_title" :text="$edit->page_title_title" />
+                    <x-form.text name="page_title_li" :text="$edit->page_title_li" />
 
-            <section>
 
-                <div class="flex justify-between items-center">
-                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
-                        Team members
-                    </h3>
-                    <a href="/dashboard/team/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add items</a>
-                </div>
-                
-                <x-table.table 
-                    image-path="/images/staff"
-                    :columns="collect($index->first())->keys()" 
-                    crud-uri="/dashboard/team/" 
-                    :data-tables="$index" 
-                    numberHeadActions="" 
-                />
+                </x-form.form>
+                {{--
+                <x-form.checkbox name="" title="" label="" label-subtitle="" />
 
+                <x-form.select title="" selected="" :options="" />
+
+                <x-form.fa-select name="" title="" :icons="$icons" selected />
+
+                <x-form.text name="" title="" placeholder="" :text="" />
+
+                <x-form.textarea name="" title="" placeholder="" :text="" description="" />
+
+                <x-form.upload name="" title="" />
+                --}}
             </section>
 
         </div>

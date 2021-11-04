@@ -12,10 +12,14 @@
   <div class="flex items-center justify-between w-full pr-5">
     <div class="px-4 py-5 sm:px-6 ">
       <h3 class="text-2xl leading-6 font-display font-semibold text-gray-100">
+        @if ($title ?? false)
         {{ $title }}
+        @endif
       </h3>
       <p class="mt-1 max-w-2xl text-md text-gray-50">
+        @if ($subtitle ?? false)
         {{ $subtitle }}
+        @endif
       </p>
     </div>
     <a href="
@@ -38,15 +42,15 @@
       @foreach($columns as $column)
       @if (Str::contains($column, ['img']) == true && isset($imagePath) )
       <div
-      class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-      <dt class="text-sm font-medium text-gray-400">
-        @php
+        class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-400">
+          @php
           echo str_replace('_', ' ', $column ?? '')
           @endphp
         </dt>
         <dd class="mt-1 text-sm text-gray-400 sm:mt-0 sm:col-span-2">
           <img class="max-w-xs max-h-32"
-          src="{{ asset($imagePath . (substr($imagePath, -1) != '/' ? '/' : '') . $row->$column)}}" alt="">
+            src="{{ asset($imagePath . (substr($imagePath, -1) != '/' ? '/' : '') . $row->$column)}}" alt="">
         </dd>
       </div>
 
