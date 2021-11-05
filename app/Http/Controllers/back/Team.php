@@ -21,6 +21,7 @@ class Team extends Controller
         $data = [
             'static' => Page_team::all(),
             'index' => Page_team_team::all(),
+            'categories' => PageTeamTeamCategory::all(),
             // 'icons' => fontawesomeiconlist::all(),
         ];
         return view('pages.team.index', $data);

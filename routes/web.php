@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\back\Blog as BackBlog;
 use App\Http\Controllers\back\BookingForm as BackBookingForm;
+use App\Http\Controllers\back\BookingFormOffers;
 use App\Http\Controllers\back\Contact as BackContact;
 use App\Http\Controllers\back\dashboard;
 use App\Http\Controllers\back\Gallery as BackGallery;
@@ -18,6 +19,7 @@ use App\Http\Controllers\back\StaticRoom;
 use App\Http\Controllers\back\StaticRoomList;
 use App\Http\Controllers\back\StaticTeam;
 use App\Http\Controllers\back\Team as BackTeam;
+use App\Http\Controllers\back\TeamCategory;
 use App\Http\Controllers\front\Blog;
 use App\Http\Controllers\front\BookingForm;
 use App\Http\Controllers\front\Contact;
@@ -100,11 +102,10 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::get('/team/edit-static', [BackTeam::class, 'editStatic']);
     Route::put('/team/edit-static', [BackTeam::class, 'updateStatic']);
     Route::resource('/team', BackTeam::class);
+    Route::resource('/team/category', TeamCategory::class);
 
     Route::get('/list-room/edit-static', [RoomList::class, 'editStatic']);
     Route::put('/list-room/edit-static', [RoomList::class, 'updateStatic']);
-    Route::get('/list-room/edit-category', [RoomList::class, 'editCategory']);
-    Route::put('/list-room/edit-category', [RoomList::class, 'updateCategory']);
     Route::resource('/list-room', RoomList::class);
 });
 Route::get('/dashboard/mailbox/sos/send', function () {

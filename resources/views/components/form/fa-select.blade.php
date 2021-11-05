@@ -23,7 +23,7 @@
     <div class="flex items-center justify-center">
       <div class="h-5 flex items-center">
         <input class="checkbox-fa opacity-0" id="{{ $name .'-' . $icon->class }}" name="{{ $name }}" type="radio"
-          value="1" 
+          value="{{ $icon->class }}" 
           @if($icon->class == $selected)
           checked
           @endif

@@ -5,6 +5,7 @@
 * @pram model or collection $dataTables
 * @pram array $columns
 * @pram string $imagePath
+* @pram string $editUri
 */
 @endphp
 @foreach($dataTables as $row)

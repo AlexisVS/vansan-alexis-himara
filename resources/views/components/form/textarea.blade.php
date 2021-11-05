@@ -16,7 +16,7 @@
   <div class="mt-1">
     <textarea id="about" name="{{ $name }}" rows="6"
       class="shadow-sm text-gray-400 focus:ring-himaraGold-500 focus:border-himaraGold-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-      placeholder="{{ $placeholder }}">
+      placeholder="{{ $placeholder ?? null }}">
       {{ $text }}
     </textarea>
   </div>

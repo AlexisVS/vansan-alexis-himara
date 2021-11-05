@@ -33,4 +33,5 @@ class Room extends Model
     {
         return $this->hasMany(Room_review::class);
     }
+
 }

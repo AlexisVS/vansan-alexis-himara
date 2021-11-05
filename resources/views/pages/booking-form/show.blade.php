@@ -44,7 +44,7 @@
                 </svg>
             </a>
             <h2 class="font-semibold font-display text-xl text-himaraGold-500 leading-tight">
-                Booking Form
+                Booking Form Offers
             </h2>
         </div>
 
@@ -54,41 +54,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section>
 
-                <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
-                    Static Booking Form
-                </h3>
-
-                <x-description.description 
-                    image-path="/images/"
-                    :columns="collect($static->first())->keys()" 
-                    title='Static page booking form' 
-                    {{-- subtitle='Le sous titre mon composant description'  --}}
-                    :data-tables="collect($static->take(1))" 
-                    edit-uri="/dashboard/booking-form/edit-static" 
-                    uri-static='true'
-                />
-                
-            </section>
-
-            <section>
-
-                <div class="flex justify-between items-center">
-                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
-                        Booking form offers
-                    </h3>
-                </div>
-                
-                <x-table.table 
-                    image-path="/images/offers"
-                    :columns="collect($index->first())->keys()" 
-                    crud-uri="/dashboard/booking-form/" 
-                    :data-tables="$index" 
-                    numberHeadActions="2"
-                    delete=""
-                />
+                <x-description.description image-path="/images/offers/" :columns="collect($show)->keys()"
+                    title='offer' subtitle='All description about offer'
+                    :data-tables="collect([$show])" edit-uri="/dashboard/booking-form/{{ $show->id }}/edit"
+                    uri-static='true' />
 
             </section>
-
         </div>
     </div>
 
