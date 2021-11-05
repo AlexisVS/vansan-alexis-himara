@@ -41,7 +41,19 @@
     {{-- {{ dd($dataTables, $dataTables->count(), $columns) }} --}}
     <dl class="">
       @foreach($columns as $column)
-      @if (Str::contains($column, ['img']) == true && isset($imagePath) )
+      @if (Str::contains($column, ['i_class']) == true )
+      <div
+        class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <dt class="text-sm font-medium text-gray-400">
+          @php
+          echo str_replace('_', ' ', $column ?? '')
+          @endphp
+        </dt>
+        <dd class="mt-1 text-sm text-gray-400 sm:mt-0 sm:col-span-2">
+          <i class="fa fa-2x {{ $row->$column }}"></i>
+        </dd>
+      </div>
+      @elseif (Str::contains($column, ['img']) == true && isset($imagePath) )
       <div
         class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-400">
@@ -54,7 +66,6 @@
             src="{{ asset($imagePath . (substr($imagePath, -1) != '/' ? '/' : '') . $row->$column)}}" alt="">
         </dd>
       </div>
-
       @else
 
       <div

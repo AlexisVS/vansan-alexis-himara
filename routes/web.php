@@ -94,9 +94,11 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::get('/gallery/edit-static', [BackGallery::class, 'editStatic']);
     Route::put('/gallery/edit-static', [BackGallery::class, 'updateStatic']);
     Route::resource('/gallery', BackGallery::class);
-
+    
     Route::get('/room/edit-static', [BackRoom::class, 'editStatic']);
     Route::put('/room/edit-static', [BackRoom::class, 'updateStatic']);
+    Route::get('/room/edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
+    Route::put('/room/edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
     Route::resource('/room', BackRoom::class);
 
     Route::get('/team/edit-static', [BackTeam::class, 'editStatic']);

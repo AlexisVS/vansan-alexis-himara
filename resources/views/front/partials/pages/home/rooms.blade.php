@@ -14,7 +14,7 @@
         <div class="room-grid-item">
           <figure class="gradient-overlay-hover link-icon">
             <a href="/room/{{ $room->id }}">
-              <img src="{{ asset('images/rooms/single/' . $room->images[0]->image_img) }}" class="img-fluid"
+              <img src="{{ asset('images/rooms/' . strtolower($room->categories->value) . '/' . $room->images[0]->image_img) }}" class="img-fluid"
                 alt="Image">
             </a>
             <div class="room-services">

@@ -20,139 +20,139 @@ class RoomImageSeeder extends Seeder
                 'room_id' => 1
             ],
             [
-                'image_img' => 'single2.jpg',
+                'image_img' => 'single1.jpg',
                 'room_id' => 1
             ],
-            [
-                'image_img' => 'single3.jpg',
-                'room_id' => 1
-            ],
-            [
-                'image_img' => 'single4.jpg',
-                'room_id' => 1
-            ],
-            [
-                'image_img' => 'single5.jpg',
-                'room_id' => 1
-            ],
-            [
-                'image_img' => 'single6.jpg',
-                'room_id' => 1
-            ],
-            [
-                'image_img' => 'single7.jpg',
-                'room_id' => 1
-            ],
-            [
-                'image_img' => 'single8.jpg',
-                'room_id' => 1
-            ],
-
-
-
-
             [
                 'image_img' => 'single1.jpg',
-                'room_id' => 2
+                'room_id' => 1
             ],
-            [
-                'image_img' => 'single2.jpg',
-                'room_id' => 2
-            ],
-            [
-                'image_img' => 'single3.jpg',
-                'room_id' => 2
-            ],
-            [
-                'image_img' => 'single4.jpg',
-                'room_id' => 2
-            ],
-            [
-                'image_img' => 'single5.jpg',
-                'room_id' => 2
-            ],
-            [
-                'image_img' => 'single6.jpg',
-                'room_id' => 2
-            ],
-            [
-                'image_img' => 'single7.jpg',
-                'room_id' => 2
-            ],
-            [
-                'image_img' => 'single8.jpg',
-                'room_id' => 2
-            ],
-
-
-
-
             [
                 'image_img' => 'single1.jpg',
-                'room_id' => 3
+                'room_id' => 1
             ],
-            [
-                'image_img' => 'single2.jpg',
-                'room_id' => 3
-            ],
-            [
-                'image_img' => 'single3.jpg',
-                'room_id' => 3
-            ],
-            [
-                'image_img' => 'single4.jpg',
-                'room_id' => 3
-            ],
-            [
-                'image_img' => 'single5.jpg',
-                'room_id' => 3
-            ],
-            [
-                'image_img' => 'single6.jpg',
-                'room_id' => 3
-            ],
-            [
-                'image_img' => 'single7.jpg',
-                'room_id' => 3
-            ],
-            [
-                'image_img' => 'single8.jpg',
-                'room_id' => 3
-            ],
-
-
-
-
             [
                 'image_img' => 'single1.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image_img' => 'single1.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image_img' => 'single1.jpg',
+                'room_id' => 1
+            ],
+            [
+                'image_img' => 'single1.jpg',
+                'room_id' => 1
+            ],
+
+
+
+
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 2
+            ],
+
+
+
+
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+            [
+                'image_img' => 'family.jpg',
+                'room_id' => 3
+            ],
+
+
+
+
+            [
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
             [
-                'image_img' => 'single2.jpg',
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
             [
-                'image_img' => 'single3.jpg',
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
             [
-                'image_img' => 'single8.jpg',
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
             [
-                'image_img' => 'single5.jpg',
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
             [
-                'image_img' => 'single6.jpg',
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
             [
-                'image_img' => 'single7.jpg',
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
             [
-                'image_img' => 'single4.jpg',
+                'image_img' => 'deluxe.jpg',
                 'room_id' => 4
             ],
         ]);
