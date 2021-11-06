@@ -2,22 +2,16 @@
 
 use App\Http\Controllers\back\Blog as BackBlog;
 use App\Http\Controllers\back\BookingForm as BackBookingForm;
-use App\Http\Controllers\back\BookingFormOffers;
 use App\Http\Controllers\back\Contact as BackContact;
 use App\Http\Controllers\back\dashboard;
 use App\Http\Controllers\back\Gallery as BackGallery;
 use App\Http\Controllers\back\Home as BackHome;
 use App\Http\Controllers\back\Mailbox;
 use App\Http\Controllers\back\Room as BackRoom;
+use App\Http\Controllers\back\RoomCategory;
 use App\Http\Controllers\back\RoomList;
-use App\Http\Controllers\back\StaticBlog;
-use App\Http\Controllers\back\StaticBookingForm;
-use App\Http\Controllers\back\StaticContact;
-use App\Http\Controllers\back\StaticGallery;
-use App\Http\Controllers\back\StaticHome;
-use App\Http\Controllers\back\StaticRoom;
-use App\Http\Controllers\back\StaticRoomList;
-use App\Http\Controllers\back\StaticTeam;
+use App\Http\Controllers\back\RoomReview;
+use App\Http\Controllers\back\RoomService;
 use App\Http\Controllers\back\Team as BackTeam;
 use App\Http\Controllers\back\TeamCategory;
 use App\Http\Controllers\front\Blog;
@@ -27,9 +21,6 @@ use App\Http\Controllers\front\Gallery;
 use App\Http\Controllers\front\Home;
 use App\Http\Controllers\front\room;
 use App\Http\Controllers\front\Team;
-use App\Models\Page_page;
-use App\Models\Post_category;
-use App\Models\Post_tag;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,12 +85,6 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::get('/gallery/edit-static', [BackGallery::class, 'editStatic']);
     Route::put('/gallery/edit-static', [BackGallery::class, 'updateStatic']);
     Route::resource('/gallery', BackGallery::class);
-    
-    Route::get('/room/edit-static', [BackRoom::class, 'editStatic']);
-    Route::put('/room/edit-static', [BackRoom::class, 'updateStatic']);
-    Route::get('/room/edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
-    Route::put('/room/edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
-    Route::resource('/room', BackRoom::class);
 
     Route::get('/team/edit-static', [BackTeam::class, 'editStatic']);
     Route::put('/team/edit-static', [BackTeam::class, 'updateStatic']);
@@ -109,7 +94,9 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::get('/list-room/edit-static', [RoomList::class, 'editStatic']);
     Route::put('/list-room/edit-static', [RoomList::class, 'updateStatic']);
     Route::resource('/list-room', RoomList::class);
+
 });
+
 Route::get('/dashboard/mailbox/sos/send', function () {
     return view('dashboard');
 });
