@@ -4,7 +4,7 @@
     <p class="section-subtitle">{{ $static_room->similar_rooms_subtitle }}</p>
   </div>
   <div class="row">
-    @foreach ($rooms->where('available', true)->where('id', '!=', $show->id)->random(3) as $room)
+    @foreach ($rooms->where('available', true)->where('id', '!=', $show->id)->shuffle()->take(3) as $room)
     <div class="col-lg-4">
       <div class="room-grid-item">
         <figure class="gradient-overlay-hover link-icon">

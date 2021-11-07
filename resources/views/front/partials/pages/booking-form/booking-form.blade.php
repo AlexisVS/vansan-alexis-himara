@@ -1,7 +1,7 @@
 <form class="booking-form-advanced" id="booking-form">
   {{-- Rajouter les informations aussi par les AUTH --}}
   <div class="row">
-
+{{-- {{ dd($dataForm) }} --}}
     <div class="col-md-6">
       <div class="form-group">
         <label>{{ $static_bookingForm->form_name_text }}</label>
@@ -415,7 +415,7 @@
         <label>{{ $static_bookingForm->room_type_title }}</label>
         <select name="booking-roomtype" class="form-control" 
         @if ($dataForm['form_categoryId'] ?? false && $rooms->where('room_category_id', '=', $dataForm['form_categoryId']) )
-          title="{{$rooms->where('room_category_id', $dataForm['form_categoryId'])[0]->categories->text }}" disabled 
+          title="{{$rooms->where('room_category_id', $dataForm['form_categoryId'])->first()->categories->text }}" disabled 
           @else
           title="{{ $static_bookingForm->room_type_select_title }}"
           @endif
@@ -424,8 +424,8 @@
           ? 'disabled' : null }}>
 
           @if ($dataForm['form_categoryId'] ?? false && $rooms->where('room_category_id', $dataForm['form_categoryId']))
-          <option value="{{ $rooms->where('room_category_id', $dataForm['form_categoryId'])[0]->categories->value }}">
-            {{$rooms->where('room_category_id', $dataForm['form_categoryId'])[0]->categories->text }}
+          <option value="{{ $rooms->where('room_category_id', $dataForm['form_categoryId'])->first()->categories->value }}">
+            {{$rooms->where('room_category_id', $dataForm['form_categoryId'])->first()->categories->text }}
           </option>
           @else
           @foreach ($categories as $category )
@@ -443,7 +443,7 @@
         <label>{{ $static_bookingForm->room_name_title }}</label>
         <select name="booking-roomtype" class="form-control" @if ($dataForm['form_roomId'] ?? false &&
           $rooms->where('id', '=', $dataForm['form_roomId']) )
-          title="{{$rooms->where('id', $dataForm['form_roomId'])[0]->name }}" disabled 
+          title="{{$rooms->where('id', $dataForm['form_roomId'])->first()->name }}" disabled 
           @else
           title="{{ $static_bookingForm->room_name_select_title }}"
           @endif
@@ -458,9 +458,9 @@
           </option>
           @endforeach
           @elseif ($dataForm['form_roomId'] ?? false && $rooms->where('id', $dataForm['form_roomId']))
-          <option value="{{ $rooms->where('id', $dataForm['form_roomId'])[0]->id }}"
-            data-subtext="<span class='badge badge-info'>€{{ $rooms->where('id', $dataForm['form_roomId'])[0]->price }} / night</span>">
-            {{$rooms->where('id', $dataForm['form_roomId'])[0]->name }}
+          <option value="{{ $rooms->where('id', $dataForm['form_roomId'])->first()->id }}"
+            data-subtext="<span class='badge badge-info'>€{{ $rooms->where('id', $dataForm['form_roomId'])->first()->price }} / night</span>">
+            {{$rooms->where('id', $dataForm['form_roomId'])->first()->name }}
           </option>
           @else
           @foreach ($rooms->where('available', '=', true) as $room )

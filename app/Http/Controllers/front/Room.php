@@ -62,6 +62,7 @@ class Room extends Controller
 
         // ? c'est oké
         $roomLists = QueryBuilder::for(ModelsRoom::class)
+            ->where('room_category_id', '!=', null)
             ->allowedFilters(['name', 'room_category_id', AllowedFilter::exact('services.id')])
             ->allowedIncludes(['services'])
             ->paginate(2);

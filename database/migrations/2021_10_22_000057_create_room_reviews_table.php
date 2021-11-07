@@ -21,7 +21,7 @@ class CreateRoomReviewsTable extends Migration
             $table->string('review_info');
             $table->string('review_date');
             $table->string('review_location');
-            $table->string('review_text');
+            $table->text('review_text');
             $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

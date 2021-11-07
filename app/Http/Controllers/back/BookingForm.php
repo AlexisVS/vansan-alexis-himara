@@ -113,6 +113,7 @@ class BookingForm extends Controller
             "ribbon" => "required",
             "offer_price" => "required",
             "offer_title" => "required",
+            "room_id" => "required"
         ]);
 
         $update = Page_booking_form_offer::find($id);
@@ -124,6 +125,7 @@ class BookingForm extends Controller
         $update->ribbon = $request->ribbon;
         $update->offer_price = $request->offer_price;
         $update->offer_title = $request->offer_title;
+        $update->room_id = $request->room_id;
         $update->save();
 
         return redirect('/dashboard/booking-form')->with('success',  'Offer edited');

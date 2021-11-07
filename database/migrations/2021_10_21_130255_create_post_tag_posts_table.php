@@ -15,8 +15,8 @@ class CreatePostTagPostsTable extends Migration
     {
         Schema::create('post_tag_post', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained();
-            $table->foreignId('post_tag_id')->constrained();
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
+            $table->foreignId('post_tag_id')->constrained()->onUpdate('cascade');
             $table->timestamps();
         });
     }

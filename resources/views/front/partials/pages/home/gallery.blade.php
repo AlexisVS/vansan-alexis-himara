@@ -9,7 +9,7 @@
         }}</a>
     </div>
     <div class="gallery-owl owl-carousel image-gallery">
-      @foreach ($galleries as $gallery)
+      @foreach ($galleries->shuffle() as $gallery)
       <!-- ITEM -->
       <div class="gallery-item">
         <figure class="gradient-overlay image-icon">

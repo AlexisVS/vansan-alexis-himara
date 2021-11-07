@@ -15,7 +15,7 @@ class CreateRoomServiceRoomsTable extends Migration
     {
         Schema::create('room_service_rooms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('room_service_id')->constrained();
+            $table->foreignId('room_service_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->boolean('available');
             $table->timestamps();

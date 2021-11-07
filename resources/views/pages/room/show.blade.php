@@ -115,7 +115,7 @@
                 </dd>
               </div>
               @endif
-              @if($loop->last == true)
+              @if($loop->last == true && $show->room_category_id != null)
               <div class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-400">
                   categories : value
@@ -133,22 +133,6 @@
                   {{ $show->categories->text }}
                 </dd>
               </div>
-
-              <div class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-400">
-                  images
-                </dt>
-                <dd class="mt-1 text-sm text-gray-400 sm:mt-0 sm:col-span-2">
-                  <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-6">
-                    @foreach ($show->images as $image)
-                    <div>
-                      <img class="max-w-xs max-h-32 mx-auto px-3" src="{{ asset("/images/rooms/" .
-                        strtolower($show->categories->value) . '/' . $image->image_img )}}" alt="">
-                    </div>
-                    @endforeach
-                  </div>
-                </dd>
-              </div>
               @endif
               @endforeach
 
@@ -156,47 +140,159 @@
           </div>
         </div>
 
+        <section>
+
+          <div class="flex justify-between items-center {{ $show->images->count() == null ?  'mb-28' : null }}">
+
+            <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+              Images
+            </h3>
+
+            <a href="/dashboard/room/{{ $show->id }}/edit" class="px-6 py-3 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add image</a>
+
+          </div>
+
+          @if($show->images->count())
+
+          <div class="flex flex-col mt-8 mb-28">
+            <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-6 lg:px-8">
+              <div class="inline-block min-w-full mr-8 overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                <table class="min-w-full">
+                  <thead>
+                    <tr>
+                      @foreach(collect($show->images->first())->keys() as $column)
+                      @if ($loop->iteration <= collect($show->images->first())->keys()->count() - 2)
+                        <x-table.head :name="$column" />
+                        @endif
+                        @endforeach
+                        <x-table.head />
+
+                    </tr>
+                  </thead>
+
+                  <tbody class="bg-white">
+                    @foreach ($show->images as $row)
+                    <tr class="hover:bg-himaraGold-400">
+                      @foreach (collect($show->images->first())->keys() as $column)
+                      @if (Str::contains($column, ['i_class']) == true )
+                      <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
+                        <div class="text-sm leading-5 text-gray-400 truncate flex justify-start items-center">
+                          <i class="ml-2 fa fa-2x {{ $row->$column }}"></i>
+                        </div>
+                      </td>
+                      @elseif ($loop->iteration <= 3) @if (Str::contains($column, ['img'])==true) <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
+                        <div class="text-sm leading-5 text-gray-400 truncate">
+                          <img class="max-w-xs max-h-32" src="{{ asset("/images/rooms/" . strtolower($show->categories->value). '/' . $row->$column)}}" alt="">
+                          <figcaption> {{ substr($row->$column, 0 , 20) }}</figcaption>
+                        </div>
+                        </td>
+                        @else
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
+                          <div class="text-sm leading-5 break-words text-gray-400 truncate">
+
+                            {{ substr($row->$column, 0 , 25) }}
+                            @if(strlen($row->$column) > 25)
+                            <br>
+                            {{ substr($row->$column, 25 , 25) }}
+
+                            @if(strlen($row->$column) > 50)
+                            <br>
+                            {{ substr($row->$column, 50 , 25) }}
+                            @endif
+
+                            @if(strlen($row->$column) > 75)
+                            <br>
+                            {{ substr($row->$column, 75 , 25) }}
+                            @endif
+
+                            @if(strlen($row->$column) > 100 )
+                            <br>
+                            {{ substr($row->$column, 100 , 25) }}
+                            @endif
+
+                            @if(strlen($row->$column) > 125)
+                            <br>
+                            {{ substr($row->$column, 125 , 25) }}
+                            @endif
+                            @if(strlen($row->$column) > 125)
+                            ...
+                            @endif
+                            @endif
+                          </div>
+                        </td>
+                        @endif
+                        @endif
+                        @endforeach
+
+                        {{-- DELETE --}}
+
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
+                          <form action="{{ "/dashboard/room/". $show->id ."/destroy-image/" . $row->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-himaraGold-600 hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                            </button>
+                          </form>
+                        </td>
+
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          @endif
+
+        </section>
+
       </section>
 
       @if($show->services->count() > 0)
-      
+
       <section>
-        
+
         <div class="flex justify-between items-center">
-          
+
           <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
             Services
           </h3>
-          
+
           <a href="/dashboard/room/service/create" class="px-6 py-3 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add service</a>
-          
+
         </div>
-        
+
         <x-table.table :columns="collect($show->services->first())->keys()" crud-uri="/dashboard/room/service/" :data-tables="$show->services" numberHeadActions="" />
-          
-        </section>
-        
+
+      </section>
+
+      @endif
+
+
+      <section>
+
+        <div class="flex justify-between items-center">
+
+          <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+            reviews
+          </h3>
+
+          <a href="/dashboard/room/{{ $show->id }}/review/create" class="px-6 py-3 mr-2 mt-2 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add review</a>
+
+        </div>
+
+        @if($show->reviews->count())
+
+        <x-table.table image-path="/images/users" :columns="collect($show->reviews->first())->keys()" crud-uri="/dashboard/room/{{ $show->id }}/review/" :data-tables="$show->reviews" numberHeadActions="" />
+
         @endif
-        
-        @if($show->reviews->count() > 0)
 
-        <section>
-          
-          <div class="flex justify-between items-center">
+      </section>
 
-            <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
-              reviews
-            </h3>
-
-            <a href="/dashboard/room/{{ $show->id }}/review/create" class="px-6 py-3 mr-2 mt-2 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add review</a>
-          
-          </div>
-          
-          <x-table.table image-path="/images/users" :columns="collect($show->reviews->first())->keys()" crud-uri="/dashboard/room/{{ $show->id }}/review/" :data-tables="$show->reviews" numberHeadActions="" />
-            
-          </section>
-          
-          @endif
 
     </div>
 

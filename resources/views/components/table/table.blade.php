@@ -37,8 +37,8 @@
             @foreach ($columns as $column)
             @if (Str::contains($column, ['i_class']) == true )
             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 ">
-              <div class="text-sm leading-5 text-gray-400 truncate flex justify-center items-center">
-                <i class="fa fa-2x {{ $row->$column }}"></i>
+              <div class="text-sm leading-5 text-gray-400 truncate flex justify-start items-center">
+                <i class="ml-2 fa fa-2x {{ $row->$column }}"></i>
               </div>
             </td>
             @elseif ($loop->iteration <= $columns->count() - 2)

@@ -78,8 +78,8 @@ class Room extends Controller
             "number_persons" => "required",
             "sq_mt" => "required",
             "room_category_id" => "required",
-            "favorite_roomList" => "required",
-            "images" => "required|file",
+            "favorite_roomList" => "",
+            "images" => "required",
         ]);
 
         $store = new ModelsRoom();
@@ -102,7 +102,7 @@ class Room extends Controller
         $store->number_persons = $request->number_persons;
         $store->sq_mt = $request->sq_mt;
         $store->room_category_id = $request->room_category_id;
-        $store->favorite_roomList = $request->favorite_roomList;
+        $request->favorite_roomList == 1 ? $store->favorite_roomList = $request->favorite_roomList :  $store->favorite_roomList = 0;
         $store->available = 1;
         $store->save();
         $store->refresh();
@@ -188,7 +188,8 @@ class Room extends Controller
             "number_persons" => "required",
             "sq_mt" => "required",
             "room_category_id" => "required",
-            "favorite_roomList" => "required",
+            "favorite_roomList" => "",
+            "images" => "required",
         ]);
 
         $update = ModelsRoom::find($id);
@@ -211,7 +212,7 @@ class Room extends Controller
         $update->number_persons = $request->number_persons;
         $update->sq_mt = $request->sq_mt;
         $update->room_category_id = $request->room_category_id;
-        $update->favorite_roomList = $request->favorite_roomList;
+        $request->favorite_roomList == 1 ? $update->favorite_roomList = $request->favorite_roomList :  $update->favorite_roomList = 0;
         $update->available = 1;
         $update->save();
         $update->refresh();
@@ -375,5 +376,24 @@ class Room extends Controller
         ModelsRoom::destroy($id);
 
         return redirect('/dashboard/room')->with('success', 'room has been successfully deleted.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyImg($room, $image)
+    {
+        $category = ModelsRoom::find($room)->categories->value;
+
+        $path = '/images/rooms/' . strtolower($category) . '/' . Room_image::find($image)->image_img;
+
+        Room_image::destroy($image);
+
+        Storage::disk('public')->delete($path);
+
+        return redirect()->back()->with('success', 'room has been successfully deleted.');
     }
 }

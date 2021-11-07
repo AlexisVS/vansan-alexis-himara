@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-lg-5">
       <figure class="gradient-overlay-hover link-icon">
-        <a href="/room/{{ $room->id }}"><img src="{{ asset('images/rooms/single/' . $room->images[0]->image_img) }}"
+        <a href="/room/{{ $room->id }}"><img src="{{ asset('images/rooms/'. strtolower($room->categories->value) . '/' . $room->images[0]->image_img) }}"
             class="img-fluid" alt="Image"></a>
       </figure>
     </div>
@@ -20,14 +20,17 @@
           <a href="/room/{{ $room->id }}">{{ $room->name }}</a>
         </h3>
         <span class="room-rates">
-          @for ($i = 0; $i < $room->rating; $i++)
+          {{-- {{ dd($room->reviews->avg('rating')) }} --}}
+          @for ($i = 0; $i < $room->reviews->avg('rating'); $i++)
             <i class="fa {{ $room->rating_i_class }}" aria-hidden="true"></i>
             @endfor
             <a href="/room/{{ $room->id }}#room-reviews">
               {{-- 5.00 Based on 3 Ratings --}}
               @php
               $review = $room->reviews->pluck('rating')->flatten();
-              echo number_format($review->sum() / $review->count(), 2) . ' Based on ' . $review->count() . ' ratings';
+              if ($review->count()) {
+                echo number_format($review->sum() / $review->count(), 2) . ' Based on ' . $review->count() . ' ratings';
+              }
               @endphp
             </a>
         </span>

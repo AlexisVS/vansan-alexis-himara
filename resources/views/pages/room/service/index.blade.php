@@ -63,10 +63,12 @@
         <x-description.description 
           :columns="collect($index->first())->keys()" 
           title='Service' 
+          subtitleColumn="room_service_text"
           {{-- subtitle='Le sous titre mon composant description' --}} 
           :data-tables="$index" 
           edit-uri="/dashboard/room/service/" 
           {{-- uri-static='true'  --}}
+          destroy="1"
         />
 
       </section>

@@ -51,11 +51,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-                </div>
-            </div>
+            <x-description.description 
+            image-path="/images/"
+            :columns="collect($static->first())->keys()" 
+            title='Static page team' 
+            {{-- subtitle='Le sous titre mon composant description'  --}}
+            :data-tables="collect($static->take(1))" 
+            edit-uri="/dashboard/list-room/edit-static" 
+            uri-static='true'
+        />
         </div>
     </div>
 </x-app-layout>

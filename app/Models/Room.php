@@ -9,6 +9,8 @@ class Room extends Model
 {
     use HasFactory;
 
+    public $fillable = ['room_category_id'];
+
     public function getTableColumns() {
         return $this->getConnection()->getSchemaBuilder()->getColumnListing($this->getTable());
     }

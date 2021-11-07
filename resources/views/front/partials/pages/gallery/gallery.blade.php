@@ -17,7 +17,7 @@
   <!-- GALLERY -->
   <div class="container">
     <div class="grid image-gallery row">
-      @foreach ($galleries as $gallery)
+      @foreach ($galleries->shuffle() as $gallery)
         <div class="gallery-item {{ $gallery->class_filter }} col-md-3">
           <figure class="gradient-overlay image-icon">
             <a href="images/gallery/{{ $gallery->img }}">

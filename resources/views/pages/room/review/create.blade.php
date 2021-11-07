@@ -59,7 +59,7 @@
         <x-form.form action='/dashboard/room/{{ $roomId }}/review' method='POST' enctype title='Add room review'>
           <x-form.upload name="userImage_img" />
           <x-form.select name="rating" :options="collect([1,2,3,4,5])" />
-          <x-form.fa-select name="rating_i_class" :icons="$icons" />
+          <x-form.fa-select name="rating_i_class" :icons="$icons" selected="fa-star" />
           <x-form.text name="review_info" placeholder="Name of member" />
           <x-form.text name="review_date" placeholder="February 03, 2018" />
           <x-form.text name="review_location" placeholder="Madrid / Spain" />

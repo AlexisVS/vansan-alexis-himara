@@ -65,7 +65,7 @@
 
                 <x-description.description :columns="collect($show)->keys()"
                     title='Review' subtitle=''
-                    :data-tables="collect([$show])" edit-uri="/dashboard/room/review/{{ $show->id }}/edit"
+                    :data-tables="collect([$show])" edit-uri="/dashboard/room/{{ request()->route()->parameter('room') }}/review/{{ $show->id }}/edit"
                     uri-static='true' />
 
             </section>

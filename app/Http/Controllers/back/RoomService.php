@@ -62,9 +62,7 @@ class RoomService extends Controller
         $store->similar_rooms_room_services_i_data_title = $request->similar_rooms_room_services_i_data_title;
         $store->save();
 
-        $roomId = request()->route()->parameter('room');
-
-        return redirect("/dashboard/room/" . $roomId)->with('success', 'Room service has been successfully created.');
+        return redirect("/dashboard/room/service")->with('success', 'Room service has been successfully created.');
     }
 
     /**
@@ -136,6 +134,6 @@ class RoomService extends Controller
     {
         Room_service::destroy($id);
 
-        return redirect('/dashboard/room')->with('success', 'Room service has been successfully deleted.');
+        return redirect('/dashboard/room/service')->with('success', 'Room service has been successfully deleted.');
     }
 }

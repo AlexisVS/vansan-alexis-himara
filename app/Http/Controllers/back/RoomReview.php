@@ -146,8 +146,14 @@ class RoomReview extends Controller
      */
     public function destroy($id)
     {
-        Room_review::destroy($id);
 
-        return redirect('success', 'The review has been successfully deleted.');
+        $reviewId = intval(request()->route()->parameter('review'));
+        $roomId = intval(request()->route()->parameter('room'));
+
+
+        $destroy = Room_review::find($reviewId);
+        $destroy->delete();
+
+        return redirect('/dashboard/room/' . $roomId)->with('success', 'The review has been successfully deleted.');
     }
 }

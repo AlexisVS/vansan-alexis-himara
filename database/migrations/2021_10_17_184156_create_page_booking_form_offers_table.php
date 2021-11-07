@@ -19,6 +19,7 @@ class CreatePageBookingFormOffersTable extends Migration
             $table->string('ribbon');
             $table->string('offer_price');
             $table->string('offer_title');
+            $table->string('room_id')->nullable();
             $table->timestamps();
         });
     }

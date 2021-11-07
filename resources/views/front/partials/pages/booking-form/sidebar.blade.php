@@ -8,7 +8,7 @@
       @foreach ($bookingFormOffers as $bookingFormOffer)
       <div class="offer-item sm mb50">
         <figure class="gradient-overlay-hover link-icon">
-          <a href="#">
+          <a href="/room/{{ $bookingFormOffer->room_id ?? '' }}">
             <img src="{{ asset('images/offers/' . $bookingFormOffer->img) }}" class="img-fluid" alt="Image">
           </a>
         </figure>
@@ -19,7 +19,7 @@
           {{ $bookingFormOffer->offer_price }}
         </div>
         <h3 class="offer-title">
-          <a href="#">{{ $bookingFormOffer->offer_title }}</a>
+          <a href="/room/{{ $bookingFormOffer->room_id ?? '' }}">{{ $bookingFormOffer->offer_title }}</a>
         </h3>
       </div>
       @endforeach

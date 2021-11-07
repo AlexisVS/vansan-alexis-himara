@@ -70,8 +70,10 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::put('/home/edit-static', [BackHome::class, 'updateStatic']);
     Route::resource('/home', BackHome::class);
 
-    Route::get('/blog/edit-static', [BackBlog::class, 'editStatic']);
-    Route::put('/blog/edit-static', [BackBlog::class, 'updateStatic']);
+    Route::get('/blog/edit-static-title', [BackBlog::class, 'editStaticTitle']);
+    Route::put('/blog/edit-static-title', [BackBlog::class, 'updateStaticTitle']);
+    Route::get('/blog/edit-static-sidebar', [BackBlog::class, 'editStaticSidebar']);
+    Route::put('/blog/edit-static-sidebar', [BackBlog::class, 'updateStaticSidebar']);
     Route::resource('/blog', BackBlog::class);
 
     Route::get('/booking-form/edit-static', [BackBookingForm::class, 'editStatic']);
@@ -91,6 +93,7 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
         Route::put('edit-static', [BackRoom::class, 'updateStatic']);
         Route::get('edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
         Route::put('edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
+        Route::delete('/{room}/destroy-image/{image}', [BackRoom::class, 'destroyImg']);
         Route::resource('category', RoomCategory::class);
         Route::resource('service', RoomService::class);
         Route::resource('.review', RoomReview::class)->scoped(['review' => 'slug'])->parameter('', 'room');

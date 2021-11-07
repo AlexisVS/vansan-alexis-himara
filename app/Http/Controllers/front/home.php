@@ -29,7 +29,7 @@ class Home extends Controller
     public function index () {
         $categories = Room_categories::all()->filter(function ($item) {
             foreach ($item->rooms as $room) {
-                if ($room->available == true) {
+                if ($room->available == true && $room->category_id != null) {
                     return true;
                 }
                 return false;
@@ -52,7 +52,7 @@ class Home extends Controller
             // * dynamic
             'revolutionSliders' => Page_home_revolution_slider::all(),
             'aboutProviders' => Page_home_about_providers::all(),
-            'rooms' => Room::all(),
+            'rooms' => Room::where('room_category_id', '!=', null)->get(),
             'services' => Page_home_services_service::all(),
             'categories' => $categories,
             'galleries' => Gallery::all(),

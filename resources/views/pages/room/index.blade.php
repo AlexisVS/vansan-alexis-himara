@@ -92,8 +92,7 @@
           </h3>
 
         </div>
-
-        <x-table.table :columns="collect(['id', 'room_service_text ', 'i_class', 'id', 'id'])" crud-uri="/dashboard/room/service/" :data-tables="$services" numberHeadActions="" />
+        <x-table.table :columns="collect(['id', 'room_service_text', 'i_class', 'id', 'id'])" crud-uri="/dashboard/room/service/" :data-tables="$services" numberHeadActions="" />
 
       </section>
 
