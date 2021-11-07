@@ -87,20 +87,20 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::resource('/gallery', BackGallery::class);
 
     Route::prefix('room')->name('room.')->group(function () {
-        Route::get('/edit-static', [BackRoom::class, 'editStatic']);
-        Route::put('/edit-static', [BackRoom::class, 'updateStatic']);
-        Route::get('/edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
-        Route::put('/edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
-        Route::resource('/', BackRoom::class)->parameter('', 'room');
-        Route::resource('/category', RoomCategory::class);
-        Route::resource('/review', RoomReview::class);
-        Route::resource('/service', RoomService::class);
+        Route::get('edit-static', [BackRoom::class, 'editStatic']);
+        Route::put('edit-static', [BackRoom::class, 'updateStatic']);
+        Route::get('edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
+        Route::put('edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
+        Route::resource('category', RoomCategory::class);
+        Route::resource('service', RoomService::class);
+        Route::resource('.review', RoomReview::class)->scoped(['review' => 'slug'])->parameter('', 'room');
+        Route::resource('', BackRoom::class)->parameter('', 'room');
     });
 
     Route::get('/team/edit-static', [BackTeam::class, 'editStatic']);
     Route::put('/team/edit-static', [BackTeam::class, 'updateStatic']);
-    Route::resource('/team', BackTeam::class);
     Route::resource('/team/category', TeamCategory::class);
+    Route::resource('/team', BackTeam::class);
 
     Route::get('/list-room/edit-static', [RoomList::class, 'editStatic']);
     Route::put('/list-room/edit-static', [RoomList::class, 'updateStatic']);

@@ -24,7 +24,7 @@
       <div class="h-5 flex items-center">
         <input class="checkbox-fa opacity-0" id="{{ $name .'-' . $icon->class }}" name="{{ $name }}" type="radio"
           value="{{ $icon->class }}" 
-          @if($icon->class == $selected)
+          @if($selected ?? false && $icon->class == $selected)
           checked
           @endif
         class="h-4 w-4 text-himaraGold-400 border-gray-300 rounded">

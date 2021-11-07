@@ -4,7 +4,7 @@
 * @param attribute string crud-uri = chemin du crud index. EX: model Room in backend = /dashboard/room
 * @param attribute collection :data-tables = une collection de table ou les colonnes = :columns
 * @param attribute numberHeadActions = bollean pour desactiver un table.head
-* @param string $imagePath
+* @param string $imagePath = chemin vers 
 */
 @endphp
 <div class="flex flex-col mt-8 mb-28">

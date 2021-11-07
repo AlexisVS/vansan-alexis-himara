@@ -14,10 +14,10 @@
     @endphp
   </label>
   <div class="mt-1">
-    <textarea id="about" name="{{ $name }}" rows="6"
-      class="shadow-sm text-gray-400 focus:ring-himaraGold-500 focus:border-himaraGold-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-      placeholder="{{ $placeholder ?? null }}">
+    <textarea id="about" name="{{ $name }}" rows="6" class="shadow-sm text-gray-400 focus:ring-himaraGold-500 focus:border-himaraGold-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md placeholder-gray-300" placeholder="{{ $placeholder ?? '' }}">
+      @if($text ?? false)
       {{ $text }}
+      @endif
     </textarea>
   </div>
   @if ($description ?? false)

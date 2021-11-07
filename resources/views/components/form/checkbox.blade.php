@@ -15,7 +15,11 @@
   <div class="flex items-start">
     <div class="h-5 flex items-center">
       <input id="comments" name="{{ $name }}" type="checkbox" value="1"
-        class="focus:ring-himaraGold-500 h-4 w-4 text-himaraGold-400 border-gray-300 rounded">
+        class="focus:ring-himaraGold-500 h-4 w-4 text-himaraGold-400 border-gray-300 rounded"
+        @if($checked ?? false)
+          checked="checked" 
+        @endif
+        >
     </div>
     <div class="ml-3 text-sm">
       <label for="comments" class="font-medium text-gray-400">{{ $label }}</label>

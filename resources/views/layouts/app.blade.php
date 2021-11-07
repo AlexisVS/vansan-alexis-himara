@@ -27,6 +27,10 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
+
+        {{-- Flash messages --}}
+        @include('layouts.flash-message')
+
         @include('layouts.navigation')
 
         <!-- Page Heading -->
@@ -41,6 +45,15 @@
             {{ $slot }}
         </main>
     </div>
+    <script>
+        // Close button notification
+        let notifications = document.querySelectorAll('#flashMessageNotification');
+        [...notifications].map(e => {
+            e.addEventListener('click', eventClick => {
+                eventClick.target.parentElement.parentElement.parentElement.style.display = 'none';
+            })
+        });
+    </script>
 </body>
 
 </html>

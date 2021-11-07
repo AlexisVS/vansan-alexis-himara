@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\fontawesomeiconlist;
+use App\Models\Room_service;
 use Illuminate\Http\Request;
 
 class RoomService extends Controller
@@ -14,7 +16,12 @@ class RoomService extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'index' => Room_service::all(),
+            'icons' => fontawesomeiconlist::all(),
+        ];
+
+        return view('pages.room.service.index', $data);
     }
 
     /**
@@ -24,7 +31,11 @@ class RoomService extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'icons' => fontawesomeiconlist::all(),
+        ];
+
+        return view('pages.room.service.create', $data);
     }
 
     /**
@@ -35,7 +46,25 @@ class RoomService extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "room_service_text" => "required",
+            "span_card" => "",
+            "i_class" => "",
+            "similar_rooms_room_services_i_data_content" => "",
+            "similar_rooms_room_services_i_data_title" => "",
+        ]);
+
+        $store = new Room_service();
+        $store->room_service_text = $request->room_service_text;
+        $store->span_card = $request->span_card;
+        $store->i_class = $request->i_class;
+        $store->similar_rooms_room_services_i_data_content = $request->similar_rooms_room_services_i_data_content;
+        $store->similar_rooms_room_services_i_data_title = $request->similar_rooms_room_services_i_data_title;
+        $store->save();
+
+        $roomId = request()->route()->parameter('room');
+
+        return redirect("/dashboard/room/" . $roomId)->with('success', 'Room service has been successfully created.');
     }
 
     /**
@@ -46,7 +75,11 @@ class RoomService extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'show' => Room_service::find($id),
+        ];
+
+        return view('pages.room.service.show', $data);
     }
 
     /**
@@ -57,7 +90,12 @@ class RoomService extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'edit' => Room_service::find($id),
+            'icons' => fontawesomeiconlist::all(),
+        ];
+
+        return view('pages.room.service.edit', $data);
     }
 
     /**
@@ -69,7 +107,23 @@ class RoomService extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "room_service_text" => "required",
+            "span_card" => "",
+            "i_class" => "",
+            "similar_rooms_room_services_i_data_content" => "",
+            "similar_rooms_room_services_i_data_title" => "",
+        ]);
+
+        $update = Room_service::find($id);
+        $update->room_service_text = $request->room_service_text;
+        $update->span_card = $request->span_card;
+        $update->i_class = $request->i_class;
+        $update->similar_rooms_room_services_i_data_content = $request->similar_rooms_room_services_i_data_content;
+        $update->similar_rooms_room_services_i_data_title = $request->similar_rooms_room_services_i_data_title;
+        $update->save();
+
+        return redirect("/dashboard/room/service")->with('success', 'Room service has been successfully created.');
     }
 
     /**
@@ -80,6 +134,8 @@ class RoomService extends Controller
      */
     public function destroy($id)
     {
-        //
+        Room_service::destroy($id);
+
+        return redirect('/dashboard/room')->with('success', 'Room service has been successfully deleted.');
     }
 }

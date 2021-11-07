@@ -23,7 +23,7 @@
       @endif
     </div>
     <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9 bg-white">
-      <form action="{{ $action }}" method="POST"
+      <form action="{{ $action }}" method="POST" 
       @if ($enctype ?? false && $enctype == true)
           enctype="multipart/form-data"
       @endif 

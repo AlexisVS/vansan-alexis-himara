@@ -7,6 +7,9 @@ use App\Models\fontawesomeiconlist;
 use App\Models\Page_room;
 use App\Models\Page_room_sidebar;
 use App\Models\Room as ModelsRoom;
+use App\Models\Room_categories;
+use App\Models\Room_image;
+use App\Models\Room_service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,7 +25,8 @@ class Room extends Controller
         $data = [
             'static_room' => Page_room::all(),
             'static_room_sidebar' => Page_room_sidebar::all(),
-            'rooms' => ModelsRoom::withCount(['images', 'services'])->get(),
+            'rooms' => ModelsRoom::all(),
+            'services' => Room_service::all(),
         ];
 
         return view('pages.room.index', $data);
@@ -35,7 +39,13 @@ class Room extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'icons' => fontawesomeiconlist::all(),
+            'categories' => Room_categories::all(),
+            'services' => Room_service::all(),
+        ];
+
+        return view('pages.room.create', $data);
     }
 
     /**
@@ -46,7 +56,72 @@ class Room extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categories = Room_categories::all();
+
+        $request->validate([
+            "dropcap_before" => "required",
+            "dropcap_u" => "required",
+            "dropcap_after" => "required",
+            "text1" => "required",
+            "text2_before" => "required",
+            "text2_u" => "required",
+            "text2_after" => "required",
+            "text3_before" => "required",
+            "text3_u" => "required",
+            "text3_after" => "required",
+            "rating_i_class" => "required",
+            "rating_text" => "",
+            "price" => "required",
+            "name" => "required",
+            "slogan" => "required",
+            "number_bed" => "required",
+            "number_persons" => "required",
+            "sq_mt" => "required",
+            "room_category_id" => "required",
+            "favorite_roomList" => "required",
+            "images" => "required|file",
+        ]);
+
+        $store = new ModelsRoom();
+        $store->dropcap_before = $request->dropcap_before;
+        $store->dropcap_u = $request->dropcap_u;
+        $store->dropcap_after = $request->dropcap_after;
+        $store->text1 = $request->text1;
+        $store->text2_before = $request->text2_before;
+        $store->text2_u = $request->text2_u;
+        $store->text2_after = $request->text2_after;
+        $store->text3_before = $request->text3_before;
+        $store->text3_u = $request->text3_u;
+        $store->text3_after = $request->text3_after;
+        $store->rating_i_class = $request->rating_i_class;
+        $store->rating_text = $request->rating_text;
+        $store->price = $request->price;
+        $store->name = $request->name;
+        $store->slogan = $request->slogan;
+        $store->number_bed = $request->number_bed;
+        $store->number_persons = $request->number_persons;
+        $store->sq_mt = $request->sq_mt;
+        $store->room_category_id = $request->room_category_id;
+        $store->favorite_roomList = $request->favorite_roomList;
+        $store->available = 1;
+        $store->save();
+        $store->refresh();
+        $filePath = '/images/rooms/' . strtolower($categories->where('id', $request->room_category_id)->first()->value);
+
+        // dd($request->file('images'), $filePath);
+        foreach ($request->file('images') as $file) {
+            Storage::disk('public')->put($filePath, $file);
+            $store->images()->create([
+                'image_img' => $file->hashName(),
+            ]);
+            $store->refresh();
+        }
+
+        foreach ($request->services as $service) {
+            $store->services()->attach($service, ['available' => 1]);
+        }
+
+        return redirect('/dashboard/room')->with('success', 'Room has been successfully created.');
     }
 
     /**
@@ -57,7 +132,11 @@ class Room extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'show' => ModelsRoom::find($id),
+        ];
+
+        return view('pages.room.show', $data);
     }
 
     /**
@@ -68,7 +147,14 @@ class Room extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'edit' => ModelsRoom::find($id),
+            'icons' => fontawesomeiconlist::all(),
+            'categories' => Room_categories::all(),
+            'services' => Room_service::all(),
+        ];
+
+        return view('pages.room.edit', $data);
     }
 
     /**
@@ -80,7 +166,71 @@ class Room extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categories = Room_categories::all();
+
+        $request->validate([
+            "dropcap_before" => "required",
+            "dropcap_u" => "required",
+            "dropcap_after" => "required",
+            "text1" => "required",
+            "text2_before" => "required",
+            "text2_u" => "required",
+            "text2_after" => "required",
+            "text3_before" => "required",
+            "text3_u" => "required",
+            "text3_after" => "required",
+            "rating_i_class" => "required",
+            "rating_text" => "",
+            "price" => "required",
+            "name" => "required",
+            "slogan" => "required",
+            "number_bed" => "required",
+            "number_persons" => "required",
+            "sq_mt" => "required",
+            "room_category_id" => "required",
+            "favorite_roomList" => "required",
+        ]);
+
+        $update = ModelsRoom::find($id);
+        $update->dropcap_before = $request->dropcap_before;
+        $update->dropcap_u = $request->dropcap_u;
+        $update->dropcap_after = $request->dropcap_after;
+        $update->text1 = $request->text1;
+        $update->text2_before = $request->text2_before;
+        $update->text2_u = $request->text2_u;
+        $update->text2_after = $request->text2_after;
+        $update->text3_before = $request->text3_before;
+        $update->text3_u = $request->text3_u;
+        $update->text3_after = $request->text3_after;
+        $update->rating_i_class = $request->rating_i_class;
+        $update->rating_text = $request->rating_text;
+        $update->price = $request->price;
+        $update->name = $request->name;
+        $update->slogan = $request->slogan;
+        $update->number_bed = $request->number_bed;
+        $update->number_persons = $request->number_persons;
+        $update->sq_mt = $request->sq_mt;
+        $update->room_category_id = $request->room_category_id;
+        $update->favorite_roomList = $request->favorite_roomList;
+        $update->available = 1;
+        $update->save();
+        $update->refresh();
+        $filePath = '/images/rooms/' . strtolower($categories->where('id', $request->room_category_id)->first()->value);
+
+        // dd($request->file('images'), $filePath);
+        foreach ($request->file('images') as $file) {
+            Storage::disk('public')->put($filePath, $file);
+            $update->images()->create([
+                'image_img' => $file->hashName(),
+            ]);
+            $update->refresh();
+        }
+
+        foreach ($request->services as $service) {
+            $update->services()->attach($service, ['available' => 1]);
+        }
+
+        return redirect('/dashboard/room')->with('success', 'Room has been successfully created.');
     }
 
     /**
@@ -122,7 +272,7 @@ class Room extends Controller
             "service_list_i_class_refused" => "required",
             "similar_rooms_title" => "required",
             "similar_rooms_subtitle" => "required",
-            
+
 
         ]);
 
@@ -189,7 +339,7 @@ class Room extends Controller
             "sidebar_form_label2_data_title" => "required",
             "sidebar_form_label2_i_class" => "required",
             "sidebar_form_submit" => "required",
-            
+
 
         ]);
 
@@ -222,6 +372,8 @@ class Room extends Controller
      */
     public function destroy($id)
     {
-        //
+        ModelsRoom::destroy($id);
+
+        return redirect('/dashboard/room')->with('success', 'room has been successfully deleted.');
     }
 }

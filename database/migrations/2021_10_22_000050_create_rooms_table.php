@@ -27,7 +27,7 @@ class CreateRoomsTable extends Migration
             $table->text('text3_after');
             // $table->string('rating');
             $table->string('rating_i_class');
-            $table->string('rating_text');
+            $table->string('rating_text')->nullable();
             $table->string('price');
             $table->string('name');
             $table->string('slogan');

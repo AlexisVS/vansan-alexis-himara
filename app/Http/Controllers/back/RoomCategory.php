@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\fontawesomeiconlist;
+use App\Models\Room_categories;
 use Illuminate\Http\Request;
 
 class RoomCategory extends Controller
@@ -14,7 +16,11 @@ class RoomCategory extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'index' => Room_categories::all(),
+        ];
+
+        return view('pages.room.category.index', $data);
     }
 
     /**
@@ -24,7 +30,7 @@ class RoomCategory extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.room.category.create');
     }
 
     /**
@@ -35,7 +41,12 @@ class RoomCategory extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Room_categories();
+        $store->value = $request->value;
+        $store->text = $request->value;
+        $store->save();
+
+        return redirect('/dashbaord/room/category')->with('success', 'Room category successfully created.');
     }
 
     /**
@@ -57,7 +68,12 @@ class RoomCategory extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'edit' => Room_categories::find($id),
+            'icons' => fontawesomeiconlist::all(),
+        ];
+
+        return view('pages.room.category.edit', $data);
     }
 
     /**
@@ -69,7 +85,12 @@ class RoomCategory extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $store = Room_categories::find($id);
+        $store->value = $request->value;
+        $store->text = $request->value;
+        $store->save();
+
+        return redirect('/dashbaord/room')->with('success', 'Room category successfully updated.');
     }
 
     /**
@@ -80,6 +101,8 @@ class RoomCategory extends Controller
      */
     public function destroy($id)
     {
-        //
+        Room_categories::destroy($id);
+
+        return redirect('/dashboard/room/category')->with('success', 'The category has been successfully deleted.');
     }
 }
