@@ -15,8 +15,9 @@ class CreatePageHomeOurRoomsTable extends Migration
     {
         Schema::create('page_home_our_rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('section_title_title');
-            $table->string('section_title_title_span');
+            $table->string('section_title_title')->nullable();
+            $table->string('section_title_title_span')->nullable();
+            $table->string('section_title_title_after')->nullable();
             $table->string('section_title_subtitle');
             $table->string('section_title_a_href');
             $table->string('section_title_a_text');

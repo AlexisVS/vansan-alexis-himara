@@ -17,6 +17,7 @@ class CreatePageHomeServicesTable extends Migration
             $table->id();
             $table->string('section_title_h4');
             $table->string('section_title_span');
+            $table->string('section_title_h4_after');
             $table->string('section_title_text');
             $table->timestamps();
         });

@@ -27,6 +27,7 @@ class PageHomeRevolutionSliderSeeder extends Seeder
                 'layer4_text' => 'CONTACT US NOW',
                 'layer5_i_class' => 'fa-star-o',
                 'layer6_text' => 'Star Luxury Hotel',
+                'order' => 1,
             ],
             [
                 'mainImage_img' => 'slider3.jpg',
@@ -40,6 +41,7 @@ class PageHomeRevolutionSliderSeeder extends Seeder
                 'layer4_text' => '',
                 'layer5_i_class' => '',
                 'layer6_text' => '',
+                'order' => 2,
             ],
             [
                 'mainImage_img' => 'slider13.jpg',
@@ -53,6 +55,7 @@ class PageHomeRevolutionSliderSeeder extends Seeder
                 'layer4_text' => '',
                 'layer5_i_class' => '',
                 'layer6_text' => '',
+                'order' => 3,
             ],
         ]);
     }

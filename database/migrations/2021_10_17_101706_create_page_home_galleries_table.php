@@ -15,8 +15,9 @@ class CreatePageHomeGalleriesTable extends Migration
     {
         Schema::create('page_home_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('section_title_h4');
-            $table->string('section_title_span');
+            $table->string('section_title_h4')->nullable();
+            $table->string('section_title_span')->nullable();
+            $table->string('section_title_h4_after')->nullable();
             $table->string('section_title_subtitle');
             $table->string('section_title_a_href');
             $table->string('section_title_a_text');

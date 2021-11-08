@@ -16,6 +16,8 @@ class PageHomeTestimonialSeeder extends Seeder
     {
         DB::table('page_home_testimonials')->insert([
             'section_title_h4' => 'OUR GUESTS LOVE US',
+            'section_title_span' => '',
+            'section_title_h4_after' => '',
             'section_title_p' => 'What our guests are saying about us',
         ]);
     }

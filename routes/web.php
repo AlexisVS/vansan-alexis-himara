@@ -6,6 +6,7 @@ use App\Http\Controllers\back\Contact as BackContact;
 use App\Http\Controllers\back\dashboard;
 use App\Http\Controllers\back\Gallery as BackGallery;
 use App\Http\Controllers\back\Home as BackHome;
+use App\Http\Controllers\back\homeStatic;
 use App\Http\Controllers\back\Mailbox;
 use App\Http\Controllers\back\Room as BackRoom;
 use App\Http\Controllers\back\RoomCategory;
@@ -66,8 +67,18 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
 
     Route::resource('/mailbox', Mailbox::class);
 
+    Route::get('/home/index-static', [BackHome::class, 'indexStatic']);
     Route::get('/home/edit-static', [BackHome::class, 'editStatic']);
-    Route::put('/home/edit-static', [BackHome::class, 'updateStatic']);
+    Route::put('/home/edit-static-booking-form', [homeStatic::class, 'updateBookingForm']);
+    Route::put('/home/edit-static-about', [homeStatic::class, 'updateAbout']);
+    Route::put('/home/edit-static-room', [homeStatic::class, 'updateRoom']);
+    Route::put('/home/edit-static-service', [homeStatic::class, 'updateService']);
+    Route::put('/home/edit-static-gallery', [homeStatic::class, 'updateGallery']);
+    Route::put('/home/edit-static-testimonial', [homeStatic::class, 'updateTestimonial']);
+    Route::put('/home/edit-static-restaurant', [homeStatic::class, 'updateRestaurant']);
+    Route::put('/home/edit-static-new', [homeStatic::class, 'updateNew']);
+    Route::put('/home/edit-static-video', [homeStatic::class, 'updateVideo']);
+    Route::put('/home/edit-static-contact', [homeStatic::class, 'updateContact']);
     Route::resource('/home', BackHome::class);
 
     Route::get('/blog/edit-static-title', [BackBlog::class, 'editStaticTitle']);

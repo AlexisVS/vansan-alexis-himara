@@ -2,7 +2,8 @@
 <section class="news">
   <div class="container">
     <div class="section-title">
-      <h4 class="title">{{ $static_new->section_title_h4 }}</h4>
+      <h4 class="title">{{ $static_new->section_title_h4 ?? '' }} <span class="text-himara">{{ $static_new->section_title_span ?? ''
+      }}</span> {{ $static_new->section_title_h4_after ?? '' }}</h4>
       <p class="section-subtitle">{{ $static_new->section_title_p }}</p>
     </div>
     <div class="row">

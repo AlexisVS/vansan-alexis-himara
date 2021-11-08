@@ -17,6 +17,7 @@ class PageHomeGallerySeeder extends Seeder
         DB::table('page_home_galleries')->insert([
             'section_title_h4' => 'HIMARA. ',
             'section_title_span' => 'GALLERY',
+            'section_title_h4_after' => '',
             'section_title_subtitle' => 'Check out our image gallery',
             'section_title_a_href' => '/gallery',
             'section_title_a_text' => 'View gallery images',

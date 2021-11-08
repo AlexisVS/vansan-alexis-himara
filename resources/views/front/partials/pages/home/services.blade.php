@@ -2,8 +2,8 @@
 <section class="services">
   <div class="container">
     <div class="section-title">
-      <h4>{{ $static_service->section_title_h4 }}<span class="text-himara">{{ $static_service->section_title_span
-          }}</span></h4>
+      <h4>{{ $static_service->section_title_h4 ?? '' }} <span class="text-himara">{{ $static_service->section_title_span ?? ''
+          }}</span> {{ $static_service->section_title_h4_after ?? '' }}</h4>
       <p class="section-subtitle">{{ $static_service->section_title_text }}</p>
     </div>
     <div class="row">

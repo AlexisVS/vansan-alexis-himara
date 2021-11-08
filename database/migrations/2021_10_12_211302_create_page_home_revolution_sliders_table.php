@@ -26,6 +26,7 @@ class CreatePageHomeRevolutionSlidersTable extends Migration
             $table->string('layer4_text');
             $table->string('layer5_i_class');
             $table->string('layer6_text');
+            $table->integer('order', false, true)->nullable();
             $table->timestamps();
         });
     }

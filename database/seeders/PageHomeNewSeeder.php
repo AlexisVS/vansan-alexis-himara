@@ -16,6 +16,8 @@ class PageHomeNewSeeder extends Seeder
     {
         DB::table('page_home_news')->insert([
             'section_title_h4' => 'LATEST NEWS',
+            'section_title_span' => '',
+            'section_title_h4_after' => '',
             'section_title_p' => 'Check out our latest news'
         ]);
     }

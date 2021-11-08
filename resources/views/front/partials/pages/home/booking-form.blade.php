@@ -59,7 +59,7 @@
               <label>{{ $static_bookingForm->date_text }}
                 <a href="#" title="{{ $static_bookingForm->date_a_title }}" data-toggle="popover"
                   data-placement="top" data-trigger="hover"
-                  data-content="{{ $static_bookingForm->date_a_data_content }}">
+                  data-content="{!! $static_bookingForm->date_a_data_content !!}">
                   <i class="fa {{ $static_bookingForm->date_i_class }}"></i>
                 </a>
               </label>

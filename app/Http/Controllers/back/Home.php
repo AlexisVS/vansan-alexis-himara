@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\fontawesomeiconlist;
 use App\Models\Gallery;
 use App\Models\page_home_about;
 use App\Models\page_home_about_providers;
@@ -32,6 +33,25 @@ class Home extends Controller
     public function index()
     {
         $data = [
+            // * dynamic
+            'revolutionSliders' => Page_home_revolution_slider::all(),
+            'aboutProviders' => page_home_about_providers::all(),
+            'rooms' => Room::all(),
+            'services' => Page_home_services_service::all(),
+            'galleries' => Gallery::all(),
+            'restaurants' => Page_home_restaurant_restaurant::all(),
+        ];
+
+        return view('pages.home.index', $data);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexStatic()
+    {
+        $data = [
             // * static
             'static_bookingForm' => Page_home_booking_form::find(1),
             'static_about' => page_home_about::find(1),
@@ -43,17 +63,33 @@ class Home extends Controller
             'static_new' => Page_home_new::find(1),
             'static_video' => page_home_video::find(1),
             'static_contact' => Page_home_contact_v2::find(1),
-            
-            // * dynamic
-            'revolutionSliders' => Page_home_revolution_slider::all(),
-            'aboutProviders' => page_home_about_providers::all(),
-            'rooms' => Room::all(),
-            'services' => Page_home_services_service::all(),
-            'galleries' => Gallery::all(),
-            'restaurants' => Page_home_restaurant_restaurant::all(),
         ];
 
-        return view('pages.home.index');
+        return view('pages.home.static.index', $data);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function editStatic()
+    {
+        $data = [
+            // * static
+            'static_bookingForm' => Page_home_booking_form::find(1),
+            'static_about' => page_home_about::find(1),
+            'static_room' => Page_home_our_rooms::find(1),
+            'static_service' => Page_home_services::find(1),
+            'static_gallery' => Page_home_gallery::find(1),
+            'static_testimonial' => Page_home_testimonial::find(1),
+            'static_restaurant' => Page_home_restaurant::find(1),
+            'static_new' => Page_home_new::find(1),
+            'static_video' => page_home_video::find(1),
+            'static_contact' => Page_home_contact_v2::find(1),
+            'icons' => fontawesomeiconlist::all(),
+        ];
+
+        return view('pages.home.static.edit', $data);
     }
 
     /**

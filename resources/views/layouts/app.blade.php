@@ -26,7 +26,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+    <div id="appLaravelTop" class="min-h-screen bg-gray-100">
 
         {{-- Flash messages --}}
         @include('layouts.flash-message')

@@ -15,7 +15,9 @@ class CreatePageHomeNewsTable extends Migration
     {
         Schema::create('page_home_news', function (Blueprint $table) {
             $table->id();
-            $table->string('section_title_h4');
+            $table->string('section_title_h4')->nullable();
+            $table->string('section_title_span')->nullable();
+            $table->string('section_title_h4_after')->nullable();
             $table->string('section_title_p');
             $table->timestamps();
         });

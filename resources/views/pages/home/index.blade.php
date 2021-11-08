@@ -1,9 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center space-x-12">
 
-            <a href="{{ url()->previous() }}" class="px-6 py-1 bg-himaraGold-500 hover:bg-himaraGold-400 shadow">
-                <svg version="1.1" id="Layer_1" class="fill-current text-white w-7" xmlns="http://www.w3.org/2000/svg"
+        <div class="flex w-full items-center justify-between">
+
+            
+            <div class="flex items-center space-x-12">
+                <a href="{{ url()->previous() }}" class="px-6 py-1 bg-himaraGold-500 hover:bg-himaraGold-400 shadow">
+                    <svg version="1.1" id="Layer_1" class="fill-current text-white w-7" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492 492"
                     style="enable-background:new 0 0 550 492;" xml:space="preserve">
                     <g>
@@ -47,6 +50,12 @@
                 Home
             </h2>
         </div>
+
+        <div class="flex items-center space-x-4">
+            <a href="/dashboard/home/index-static" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Static content</a>
+        </div>
+
+    </div>
     </x-slot>
 
     <div class="py-12">
