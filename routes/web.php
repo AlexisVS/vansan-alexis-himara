@@ -47,6 +47,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Home::class, 'index']);
 Route::post('/send-form', [Home::class, 'sendForm']);
+Route::post('/send-contact', [Home::class, 'sendContact']);
 
 Route::resource('/blog', Blog::class);
 Route::get('/blog-post', [Blog::class, 'customShow']);

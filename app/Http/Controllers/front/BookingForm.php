@@ -62,4 +62,12 @@ class BookingForm extends Controller
 
         return view('front.pages.booking-form', $data);
     }
+
+    /* -------------------------------------------------------------------------- */
+    /*                       Send mail and new model Mailbox                      */
+    /* -------------------------------------------------------------------------- */
+
+    public function send () {
+
+    }
 }

@@ -77,4 +77,12 @@ class Home extends Controller
 
         return redirect("/booking-form")->with('dataForm', $dataForm);
     }
+
+    /* -------------------------------------------------------------------------- */
+    /*                    Send function for section CONTACT V2                    */
+    /* -------------------------------------------------------------------------- */
+    
+    public function sendContact() {
+        //
+    }
 }
