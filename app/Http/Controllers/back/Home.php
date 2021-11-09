@@ -18,6 +18,7 @@ use App\Models\Page_home_revolution_slider;
 use App\Models\Page_home_services;
 use App\Models\Page_home_services_service;
 use App\Models\Page_home_testimonial;
+use App\Models\Page_home_testimonial_testimonial;
 use App\Models\page_home_video;
 use App\Models\Room;
 use App\Models\Room_review;
@@ -34,11 +35,10 @@ class Home extends Controller
     {
         $data = [
             // * dynamic
-            'revolutionSliders' => Page_home_revolution_slider::all(),
-            'aboutProviders' => page_home_about_providers::all(),
-            'rooms' => Room::all(),
+            'sliders' => Page_home_revolution_slider::all(),
+            'providers' => page_home_about_providers::all(),
             'services' => Page_home_services_service::all(),
-            'galleries' => Gallery::all(),
+            'testimonials' => Page_home_testimonial_testimonial::all(),
             'restaurants' => Page_home_restaurant_restaurant::all(),
         ];
 

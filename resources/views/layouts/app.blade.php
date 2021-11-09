@@ -33,6 +33,11 @@
 
         @include('layouts.navigation')
 
+        {{-- Back To Top --}}
+        <a href="#appLaravelTop" class="flex fixed bottom-3 right-3 items-center justify-center w-14 h-14 bg-himaraGold-400 hover:bg-himaraGold-500 rounded-md">
+            <i class="fa fa-arrow-up fa-2x fill-current text-white"></i>
+        </a>
+
         <!-- Page Heading -->
         <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">

@@ -92,6 +92,8 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
             'testimonial' => HomeTestimonials::class,
             'restaurant' => HomeRestaurant::class,
         ]);
+        Route::get('slider/edit-principale-slide', [HomeSlider::class, 'editPrincipalSlide']);
+        Route::put('slider/edit-principale-slide', [HomeSlider::class, 'updatePrincipalSlide']);
         Route::resource('', BackHome::class);
     });
 

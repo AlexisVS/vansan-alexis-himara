@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Page_home_revolution_slider extends Model
 {
     use HasFactory;
+
+    public $fillable = ["order"];
 }

@@ -95,11 +95,6 @@
     </div>
   </x-slot>
 
-  <a href="#appLaravelTop" class="flex fixed bottom-3 right-3 items-center justify-center w-14 h-14 bg-himaraGold-400 hover:bg-himaraGold-500 rounded-md">
-    <i class="fa fa-arrow-up fa-2x fill-current text-white"></i>
-  </a>
-
-
   <div id="homeStaticIndexTop" class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 

@@ -6,7 +6,7 @@
             
             <div class="flex items-center space-x-12">
                 <a href="{{ url()->previous() }}" class="px-6 py-1 bg-himaraGold-500 hover:bg-himaraGold-400 shadow">
-                    <svg version="1.1" id="Layer_1" class="fill-current text-white w-7" xmlns="http://www.w3.org/2000/svg"
+                  <svg version="1.1" id="Layer_1" class="fill-current text-white w-7" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492 492"
                     style="enable-background:new 0 0 550 492;" xml:space="preserve">
                     <g>
@@ -51,8 +51,32 @@
             </h2>
         </div>
 
+        <div class="hidden lg:flex items-center space-x-4">
+
+          <a href="#homeSlider" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
+            Sliders
+          </a>
+  
+          <a href="#homeProviders" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
+            Providers
+          </a>
+  
+          <a href="#homeServices" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
+            Services
+          </a>
+  
+          <a href="#homeTestimonial" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
+            Testimonial
+          </a>
+  
+          <a href="#homeRestaurant" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
+            Restaurant
+          </a>
+  
+        </div>
+
         <div class="flex items-center space-x-4">
-            <a href="/dashboard/home/index-static" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Static content</a>
+            <a href="/dashboard/home/index-static" class="px-6 py-3 mr-2 ml-3 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Static content</a>
         </div>
 
     </div>
@@ -60,11 +84,131 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+
+            <section id="homeSlider">
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+                        Revolution Slider Elements
+                    </h3>
+                    <a href="/dashboard/home/slider/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add slide</a>
                 </div>
-            </div>
+
+                <x-description.description 
+                  image-path="/images/slider/"
+                  :columns="collect($sliders->first())->keys()" 
+                  title='First Slide' 
+                  subtitle='Description' 
+                  :data-tables="collect($sliders->take(1))" 
+                  edit-uri="/dashboard/home/slider/" 
+                />
+
+                <x-description.description 
+                  image-path="/images/slider/"
+                  :columns="collect(['id', 'mainImage_img', 'layer1_text', 'layer2_text', 'order'])" 
+                  title='Second Slide'  
+                  subtitle='Description'  
+                  :data-tables="collect($sliders->skip(1)->take(1))" 
+                  edit-uri="/dashboard/home/slider/" 
+                />
+
+                <x-description.description 
+                  image-path="/images/slider/"
+                  :columns="collect(['id', 'mainImage_img', 'layer1_text', 'layer2_text', 'order'])" 
+                  title='third Slide' 
+                  subtitle='Description'  
+                  :data-tables="collect($sliders->skip(2)->take(1))" 
+                  edit-uri="/dashboard/home/slider/" 
+                />
+
+                @if($sliders->count() > 3)
+                  <x-table.table 
+                  image-path="/images/slider/"
+                  :columns="collect(['mainImage_img', 'layer1_text', 'layer2_text', 'order', '', ''])" 
+                  crud-uri="/dashboard/home/slider/" 
+                  :data-tables="collect($sliders->skip(3)) " 
+                  numberHeadActions="" 
+                  />
+                
+                @endif
+
+            </section>
+
+            <section id="homeProviders">
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+                        About Provider Elements
+                    </h3>
+                    <a href="/dashboard/home/provider/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add provider</a>
+                </div>
+                
+                <x-table.table 
+                    image-path="/images/providers"
+                    :columns="collect($providers->first())->keys()" 
+                    crud-uri="/dashboard/home/provider" 
+                    :data-tables="$providers" 
+                    numberHeadActions="" 
+                />
+
+            </section>
+
+            <section id="homeServices">
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+                        Service Elements
+                    </h3>
+                    <a href="/dashboard/home/gallery/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add Gallery image</a>
+                </div>
+                
+                <x-table.table 
+                    image-path="/images/services"
+                    :columns="collect($services->first())->keys()" 
+                    crud-uri="/dashboard/home/service" 
+                    :data-tables="$services" 
+                    numberHeadActions="" 
+                />
+
+            </section>
+
+            <section id="homeTestimonial">
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+                        Testimonial Elements
+                    </h3>
+                    <a href="/dashboard/gallery/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add testimonial</a>
+                </div>
+                
+                <x-table.table 
+                    image-path="/images/users"
+                    :columns="collect($testimonials->first())->keys()" 
+                    crud-uri="/dashboard/home/testimonial"  
+                    :data-tables="$testimonials" 
+                    numberHeadActions="" 
+                />
+
+            </section>
+
+            <section id="homeRestaurant">
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+                        Restaurant Elements
+                    </h3>
+                    <a href="/dashboard/gallery/create" class="px-6 py-3 mr-2 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Add meal</a>
+                </div>
+                
+                <x-table.table 
+                    image-path="/images/restaurant"
+                    :columns="collect($restaurants->first())->keys()" 
+                    crud-uri="/dashboard/home/restaurant" 
+                    :data-tables="$restaurants"  
+                    numberHeadActions="" 
+                />
+
+            </section>
         </div>
     </div>
 </x-app-layout>
