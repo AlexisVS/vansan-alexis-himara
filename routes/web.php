@@ -12,6 +12,7 @@ use App\Http\Controllers\back\HomeServices;
 use App\Http\Controllers\back\HomeSlider;
 use App\Http\Controllers\back\homeStatic;
 use App\Http\Controllers\back\HomeTestimonials;
+use App\Http\Controllers\back\Layout;
 use App\Http\Controllers\back\Mailbox;
 use App\Http\Controllers\back\Room as BackRoom;
 use App\Http\Controllers\back\RoomCategory;
@@ -71,6 +72,11 @@ Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth'])->nam
 Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
 
     Route::resource('/mailbox', Mailbox::class);
+    route::get('/layout/edit', [Layout::class, 'edit']);
+    Route::put('/layout/edit-top-menu', [Layout::class, 'updateTopMenu']);
+    Route::put('/layout/edit-header', [Layout::class, 'updateHeader']);
+    Route::put('/layout/edit-footer', [Layout::class, 'updateFooter']);
+    route::get('/layout', [Layout::class, 'index'])->name('layout.index');
 
     Route::prefix('home')->name('home.')->group(function () {
         Route::get('index-static', [BackHome::class, 'indexStatic']);
@@ -86,7 +92,7 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
         Route::put('edit-static-video', [homeStatic::class, 'updateVideo']);
         Route::put('edit-static-contact', [homeStatic::class, 'updateContact']);
         Route::resources([
-            'slider' => HomeSlider::class, 
+            'slider' => HomeSlider::class,
             'provider' => HomeProviders::class,
             'service' => HomeServices::class,
             'testimonial' => HomeTestimonials::class,
