@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\GalleryFilter;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -90,6 +89,7 @@ class DatabaseSeeder extends Seeder
             /* -------------------------------------------------------------------------- */
 
             FontawesomeiconlistSeeder::class,
+            FlaticonSeeder::class
         ]);
     }
 }

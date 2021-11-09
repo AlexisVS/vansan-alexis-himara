@@ -41,7 +41,7 @@
         </svg>
       </a>
       <h2 class="font-semibold font-display text-xl text-himaraGold-500 leading-tight">
-        Edition Slide
+        Edition testimonial
       </h2>
     </div>
 
@@ -52,24 +52,26 @@
       <section>
 
 
-        <x-form.form action='/dashboard/home/slider/{{ $edit->id }}' method='PUT' enctype title='Edition slide' subtitle="">
-          <x-form.upload name="mainImage_img" />
-          <x-form.text name="layer1_text" :text="$edit->layer1_text" />
-          <x-form.text name="layer2_text" :text="$edit->layer2_text" />
-          <x-form.select name="order" title="" selected="{{ $edit->order ?? '' }}" :options="collect(['','4', '5', '6', '7', '8', '9', '10'])" />
+        <x-form.form action='/dashboard/home/testimonial/{{ $edit->id }}' method='PUT' enctype title='Edition comment' subtitle="">
+          <x-form.upload name="img" />
+          <x-form.text name="author_name" :text="$edit->author_name" />
+          <x-form.text name="author_location" :text="$edit->author_location" />
+          <x-form.select name="rating" :options="collect([1,2,3,4,5])" selected="{{ $edit->rating }}" />
+          <x-form.fa-select name="rating_i_class" title="" :icons="$icons" :selected="$edit->rating_i_class" />
+          <x-form.textarea name="text" :text="$edit->text" />
         </x-form.form>
-        {{--
-                        <x-form.checkbox name="" title="" label="" label-subtitle="" />
-                        
-                        <x-form.select title="" selected="" :options="" />
 
-              <x-form.fa-select name="" title="" :icons="$icons" selected />
+        {{--
+              <x-form.checkbox name="" title="" label="" label-subtitle="" />
+              
+              <x-form.select title="" selected="" :options="" />
 
               <x-form.text name="" title="" placeholder="" :text="" />
 
               <x-form.textarea name="" title="" placeholder="" :text="" description="" />
 
               <x-form.upload name="" title="" />
+
               --}}
       </section>
 

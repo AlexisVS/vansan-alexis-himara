@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\Flaticon;
 use App\Models\fontawesomeiconlist;
 use App\Models\Gallery;
 use App\Models\page_home_about;
@@ -33,13 +34,17 @@ class Home extends Controller
      */
     public function index()
     {
+        $slideOrder = Page_home_revolution_slider::all()->where('order', '>', 0);
+        $slideOther = Page_home_revolution_slider::all()->where('order', null);
+        $sliders = collect([$slideOrder, $slideOther])->collapse();
         $data = [
             // * dynamic
-            'sliders' => Page_home_revolution_slider::all(),
+            'sliders' => $sliders,
             'providers' => page_home_about_providers::all(),
             'services' => Page_home_services_service::all(),
             'testimonials' => Page_home_testimonial_testimonial::all(),
             'restaurants' => Page_home_restaurant_restaurant::all(),
+            'flaticons' => Flaticon::all(),
         ];
 
         return view('pages.home.index', $data);

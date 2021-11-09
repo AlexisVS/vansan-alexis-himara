@@ -55,7 +55,7 @@
           Static Blog title
         </h3>
 
-        <x-form.form action='/dashboard/blog/edit-static-sidebar' method='PUT' enctype title='Edition static blog sidebar' subtitle="All text in your page">
+        <x-form.form action='/dashboard/blog/edit-static-sidebar' method='PUT' title='Edition static blog sidebar' subtitle="All text in your page">
           <x-form.text name="search_placeholder" :text="$edit->search_placeholder" />
           <x-form.fa-select name="search_btn_i_class" title="" :icons="$icons" selected="{{ $edit->search_btn_i_class }}" />
           <x-form.text name="categories_title" :text="$edit->categories_title" />

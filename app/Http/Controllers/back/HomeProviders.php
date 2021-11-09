@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\page_home_about_providers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeProviders extends Controller
 {
@@ -24,7 +26,7 @@ class HomeProviders extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.home.providers.create');
     }
 
     /**
@@ -35,7 +37,20 @@ class HomeProviders extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'provider_href' => 'required',
+            'provider_img' => 'required|file',
+        ]);
+
+        $store = new page_home_about_providers();
+        $store->provider_href = $request->provider_href;
+
+        if ($request->file('provider_img')) {
+            Storage::disk('public')->put('images/providers', $request->file('provider_img'));
+            $store->provider_img = $request->file('provider_img')->hashName();
+        }
+        $store->save();
+        return redirect('/dashboard/home')->with('success', 'Your provider has been successfully created.');
     }
 
     /**
@@ -57,7 +72,11 @@ class HomeProviders extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'edit' => page_home_about_providers::find($id),
+        ];
+
+        return view('pages.home.providers.edit', $data);
     }
 
     /**
@@ -69,7 +88,20 @@ class HomeProviders extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'provider_href' => 'required',
+            'provider_img' => 'file',
+        ]);
+
+        $store = page_home_about_providers::find($id);
+        $store->provider_href = $request->provider_href;
+
+        if ($request->file('provider_img')) {
+            Storage::disk('public')->put('images/slider', $request->file('provider_img'));
+            $store->provider_img = $request->file('provider_img')->hashName();
+        }
+        $store->save();
+        return redirect('/dashboard/home')->with('success', 'Your provider has been successfully updated.');
     }
 
     /**
@@ -80,6 +112,8 @@ class HomeProviders extends Controller
      */
     public function destroy($id)
     {
-        //
+        page_home_about_providers::destroy($id);
+
+        return redirect('/dashboard/home')->with('success', 'Your provider has been successfully removed.');
     }
 }

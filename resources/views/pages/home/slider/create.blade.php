@@ -62,7 +62,7 @@
           <x-form.upload name="mainImage_img" />
           <x-form.text name="layer1_text" placeholder="Layer 1 text" text="" />
           <x-form.text name="layer2_text" placeholder="Layer 2 text" text="" />
-          <x-form.select name="order" title="" selected="" :options="collect(['','2' ,'3', '4', '5', '6', '7', '8', '9', '10'])" />
+          <x-form.select name="order" title="" selected="" :options="collect(['','4', '5', '6', '7', '8', '9', '10'])" />
         </x-form.form>
 
       </section>

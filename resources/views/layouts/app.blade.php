@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Oswald:wght@600&family=Roboto&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('fonts/flaticon.css') }}">
     {{-- <link rel="stylesheet" href="{{ public_path('fonts/font-awesome/fonts/fontawesome-webfont.ttf') }}"> --}}
 
     {{--

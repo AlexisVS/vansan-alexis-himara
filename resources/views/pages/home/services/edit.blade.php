@@ -41,7 +41,7 @@
         </svg>
       </a>
       <h2 class="font-semibold font-display text-xl text-himaraGold-500 leading-tight">
-        Edition Slide
+        Edition Provider
       </h2>
     </div>
 
@@ -52,11 +52,12 @@
       <section>
 
 
-        <x-form.form action='/dashboard/home/slider/{{ $edit->id }}' method='PUT' enctype title='Edition slide' subtitle="">
-          <x-form.upload name="mainImage_img" />
-          <x-form.text name="layer1_text" :text="$edit->layer1_text" />
-          <x-form.text name="layer2_text" :text="$edit->layer2_text" />
-          <x-form.select name="order" title="" selected="{{ $edit->order ?? '' }}" :options="collect(['','4', '5', '6', '7', '8', '9', '10'])" />
+        <x-form.form action='/dashboard/home/service/{{ $edit->id }}' method='PUT' enctype title='Edition service' subtitle="">
+          <x-form.upload name="fig_img" />
+          <x-form.text name="fig_title" placeholder="Titile of the service" text="{{ $edit->fig_title }}" />
+          <x-form.flaticon-select name="slider_i_flaticon" :icons="$flaticons" :selected="$edit->slider_i_flaticon" />
+          <x-form.text name="slider_title" placeholder="Title of the slide" text="{{ $edit->slider_title }}" />
+          <x-form.textarea name="slider_text" placeholder="Text of the slide" text="{{ $edit->slider_text }}" />
         </x-form.form>
         {{--
                         <x-form.checkbox name="" title="" label="" label-subtitle="" />

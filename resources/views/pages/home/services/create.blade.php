@@ -1,6 +1,9 @@
 <x-app-layout>
+
   <x-slot name="header">
+
     <div class="flex items-center space-x-12">
+
       <a href="{{ url()->previous() }}" class="px-6 py-1 bg-himaraGold-500 hover:bg-himaraGold-400 shadow">
         <svg version="1.1" id="Layer_1" class="fill-current text-white w-7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 492 492" style="enable-background:new 0 0 550 492;" xml:space="preserve">
           <g>
@@ -40,40 +43,33 @@
           </g>
         </svg>
       </a>
+
       <h2 class="font-semibold font-display text-xl text-himaraGold-500 leading-tight">
-        Edition Slide
+        Add a service
       </h2>
+
     </div>
 
   </x-slot>
 
   <div class="py-12">
+
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
       <section>
 
-
-        <x-form.form action='/dashboard/home/slider/{{ $edit->id }}' method='PUT' enctype title='Edition slide' subtitle="">
-          <x-form.upload name="mainImage_img" />
-          <x-form.text name="layer1_text" :text="$edit->layer1_text" />
-          <x-form.text name="layer2_text" :text="$edit->layer2_text" />
-          <x-form.select name="order" title="" selected="{{ $edit->order ?? '' }}" :options="collect(['','4', '5', '6', '7', '8', '9', '10'])" />
+        <x-form.form action="/dashboard/home/service" method='POST' enctype title="Create a service" subtitle="">
+          <x-form.upload name="fig_img" />
+          <x-form.text name="fig_title" placeholder="Titile of the service" text="" />
+          <x-form.flaticon-select name="slider_i_flaticon" :icons="$flaticons" selected="" />
+          <x-form.text name="slider_title" placeholder="Title of the slide" text="" />
+          <x-form.textarea name="slider_text" placeholder="Text of the slide" text="" />
         </x-form.form>
-        {{--
-                        <x-form.checkbox name="" title="" label="" label-subtitle="" />
-                        
-                        <x-form.select title="" selected="" :options="" />
 
-              <x-form.fa-select name="" title="" :icons="$icons" selected />
-
-              <x-form.text name="" title="" placeholder="" :text="" />
-
-              <x-form.textarea name="" title="" placeholder="" :text="" description="" />
-
-              <x-form.upload name="" title="" />
-              --}}
       </section>
 
     </div>
+
   </div>
 
 </x-app-layout>
