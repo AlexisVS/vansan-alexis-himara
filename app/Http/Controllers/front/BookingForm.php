@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AdminReservation;
+use App\Mail\ReservationDetails;
+use App\Models\Booking;
 use App\Models\Page_booking_form;
 use App\Models\Page_booking_form_land;
 use App\Models\Page_booking_form_land2;
@@ -10,6 +13,8 @@ use App\Models\Page_booking_form_offer;
 use App\Models\Room_categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BookingForm extends Controller
 {
@@ -67,7 +72,42 @@ class BookingForm extends Controller
     /*                       Send mail and new model Mailbox                      */
     /* -------------------------------------------------------------------------- */
 
-    public function send () {
+    public function store () {
+        request()->validate([
+            'booking_country' => "required",
+            'booking_date' => "required",
+            'booking_adults' => "required",
+            'booking_children' => "required",
+            'booking_room' => "required",
+            'booking_comments' => "required",
+        ]);
 
+        $store = new Booking();
+        $store->country = request('booking_country');
+        $store->date = request('booking_date');
+        $store->adults = request('booking_adults');
+        $store->children = request('booking_children');
+        $store->room = request('booking_room');
+        $store->comments = request('booking_comments');
+        $store->name = Auth::user()->name;
+        $store->email = Auth::user()->email;
+        $store->phone = Auth::user()->phone;
+        $store->save();
+        $store->refresh();
+        
+        $store->mails->title = "Reservation from " . $store->name . 'for ' . $store->room . '.' ;
+        $store->mails->read = false;
+        $store->mails->archived =false;
+        $store->mails->save();
+
+        Booking::all()->fresh();
+
+        Mail::to(Auth::user()->email)
+        ->send(new ReservationDetails);
+
+        Mail::to('alexis.vansan1440@gmail.com')
+        ->send(new AdminReservation);
+
+        return redirect("/");
     }
 }

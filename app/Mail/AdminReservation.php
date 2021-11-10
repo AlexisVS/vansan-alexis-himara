@@ -2,10 +2,12 @@
 
 namespace App\Mail;
 
+use App\Models\Booking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class AdminReservation extends Mailable
 {
@@ -28,6 +30,14 @@ class AdminReservation extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $mail = [
+            'site_title' => env('APP_NAME'),
+            'booking' => Booking::all()->reverse()->first(),
+        ];
+
+        return $this->from(env('MAIL_USERNAME'))
+            ->subject('Client Reservation ' . Auth::user()->name)
+            ->view('mail.admin-template')->with($mail);
+            
     }
 }

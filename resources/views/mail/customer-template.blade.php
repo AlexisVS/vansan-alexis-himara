@@ -140,7 +140,7 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td class="title" style="padding: 5px 0 0 0;">
-                          <a href="%site_url%">%site_title%</a>
+                          <a href="{{ env("APP_URL") }}">{{ $site_title }}</a>
                         </td>
                       </tr>
 
@@ -162,10 +162,10 @@
             <td class="innerpadding borderbottom">
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td class="h2">Hello %customer_name%,</td>
+                  <td class="h2">Hello {{ $booking->name }},</td>
                 </tr>
                 <tr>
-                  <td class="bodycopy">your reservation has been submitted to us and we'll contact you as quickly as possible to complete your booking. If you have any question please don't hesitate to contact us via email %admin_email% or via phone number %admin_phone%</td>
+                  <td class="bodycopy">your reservation has been submitted to us and we'll contact you as quickly as possible to complete your booking. If you have any question please don't hesitate to contact us via email <strong>alexisHimara@gmail.com</strong>  or via phone number 065465456540</td>
                 </tr>
               </table>
             </td>
@@ -185,53 +185,48 @@
 
                       <tr>
                         <td>Booking ID</td>
-                        <td>%booking_id%</td>
+                        <td>{{ $booking->id }}</td>
                       </tr>
 
                       <tr>
                         <td>Name</td>
-                        <td>%customer_name%</td>
+                        <td>{{ $booking->name }}</td>
                       </tr>
 
                       <tr>
                         <td>Email</td>
-                        <td>%customer_email%</td>
+                        <td>{{ $booking->email }}</td>
                       </tr>
 
                       <tr>
-                        <td>Room Type</td>
-                        <td>%roomtype%</td>
+                        <td>Room</td>
+                        <td>{{ $booking->room }}</td>
                       </tr>
 
                       <tr>
                         <td>Adults</td>
-                        <td>%adults%</td>
+                        <td>{{ $booking->adults }}</td>
                       </tr>
 
                       <tr>
                         <td>Children</td>
-                        <td>%children%</td>
+                        <td>{{ $booking->children }}</td>
                       </tr>
 
-                      {{-- <tr>
-                                                <td>Arrival</td>
-                                                <td>%checkin%</td>
-                                            </tr>
+                      <tr>
+                        <td>Date</td>
+                        <td>{{ $booking->date }}</td>
+                      </tr>
 
-                                            <tr>
-                                                <td>Departure</td>
-                                                <td>%checkout%</td>
-                                            </tr>
+                      <tr>
+                        <td>Country</td>
+                        <td>{{ $booking->country }}</td>
+                      </tr>
 
-                                            <tr>
-                                                <td>Country</td>
-                                                <td>%country%</td>
-                                            </tr> --}}
-                      {{--
-                                            <tr>
-                                                <td>Comments</td>
-                                                <td>%comments%</td>
-                                            </tr> --}}
+                      <tr>
+                        <td>Comments</td>
+                        <td>{{ $booking->comments }}</td>
+                      </tr>
 
                     </table>
 
@@ -247,14 +242,14 @@
           <tr>
             <td class="innerpadding bodycopy mssg">
               Thank You,
-              <br> %site_title% </td>
+              <br> {{ env('APP_NAME') }} </td>
           </tr>
           <tr>
             <td class="footer" bgcolor="#f7f8f9">
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                   <td align="center" class="footercopy">
-                    &#169; 2018 <a href="%site_url%">%site_title%</a> All Rights Reserved.
+                    &#169; 2018 <a href="%site_url%">{{ env('APP_NAME') }}</a> All Rights Reserved.
                   </td>
                 </tr>
                 <tr>

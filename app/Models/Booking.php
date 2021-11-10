@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mailbox extends Model
+class Booking extends Model
 {
     use HasFactory;
 
-    public function mailable()
+    public function mails()
     {
-        return $this->morphTo();
+        return $this->morphMany(Mailbox::class, 'mailable');
     }
 }

@@ -168,7 +168,8 @@
                     :columns="collect($services->first())->keys()" 
                     crud-uri="/dashboard/home/service" 
                     :data-tables="$services" 
-                    numberHeadActions=""
+                    numberHeadActions="2"
+                    show=""
                 />
 
             </section>

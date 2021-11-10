@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactForm;
 use App\Models\gallery;
 use App\Models\page_home_about;
 use App\Models\page_home_about_providers;
@@ -83,6 +84,24 @@ class Home extends Controller
     /* -------------------------------------------------------------------------- */
     
     public function sendContact() {
-        //
+        
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+
+        $store = new ContactForm();
+        $store->name = request('name');
+        $store->email = request('email');
+        $store->message = request('message');
+        $store->save();
+        $store->mails->title = $store->name . ' has post a contact form.';
+        $store->mails->read = 0;
+        $store->mails->archived = 0;
+        $store->mails->save();
+
+
+        return redirect('/');
     }
 }

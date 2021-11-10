@@ -2,10 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\Booking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class ReservationDetails extends Mailable
 {
@@ -28,7 +31,15 @@ class ReservationDetails extends Mailable
      */
     public function build()
     {
+
+        $mail = [
+            'site_title' => env('APP_NAME'),
+            'booking' => Booking::all()->reverse()->first(),
+        ];
+
         return $this->from(env('MAIL_USERNAME'))
-            ->view('mail.customer-template');
+            ->subject('Client Reservation ' . Auth::user()->name)
+            ->view('mail.customer-template')->with($mail);
+            
     }
 }

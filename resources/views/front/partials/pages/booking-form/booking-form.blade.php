@@ -1,11 +1,13 @@
-<form class="booking-form-advanced" id="booking-form">
+<form class="booking-form-advanced" action="/booking-form" method="POST" id="booking-form">
   {{-- Rajouter les informations aussi par les AUTH --}}
+  @csrf
+  @method('POST')
   <div class="row">
 {{-- {{ dd($dataForm) }} --}}
     <div class="col-md-6">
       <div class="form-group">
         <label>{{ $static_bookingForm->form_name_text }}</label>
-        <input name="booking-name" type="text" class="form-control"
+        <input name="booking_name" type="text" class="form-control"
           placeholder="{{ $static_bookingForm->form_name_placeholder }}" {{ auth()->check() ? 'disabled' : null }}
         value="{{ auth()->user()->name ?? null }}">
       </div>
@@ -14,7 +16,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label>{{ $static_bookingForm->form_email_text }}</label>
-        <input class="form-control" name="booking-email" type="email"
+        <input class="form-control" name="booking_email" type="email"
           placeholder="{{ $static_bookingForm->form_email_placeholder }}" {{ auth()->check() ? 'disabled' : null }}
         value="{{ auth()->user()->email ?? null }}">
       </div>
@@ -23,7 +25,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label>{{ $static_bookingForm->form_phone_text }}</label>
-        <input name="booking-phone" type="text" class="form-control" {{ auth()->check() ? 'disabled' : null }}
+        <input name="booking_phone" type="text" class="form-control" {{ auth()->check() ? 'disabled' : null }}
         placeholder="{{ $static_bookingForm->form_phone_placeholder }}" value="{{ auth()->user()->phone ?? null }}">
       </div>
     </div>
@@ -31,7 +33,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label>{{ $static_bookingForm->select_label }}</label>
-        <select name="booking-country" class="form-control" title="{{ $static_bookingForm->select_title }}"
+        <select name="booking_country" class="form-control" title="{{ $static_bookingForm->select_title }}"
           data-header="{{ $static_bookingForm->select_data_header }}" data-live-search="true" data-size="5">
           <option value="{{ $static_bookingFormLand->Afganistan }}">{{ $static_bookingFormLand->Afganistan }}</option>
           <option value="{{ $static_bookingFormLand->Albania }}">{{ $static_bookingFormLand->Albania }}</option>
@@ -352,7 +354,7 @@
             <i class="fa {{ $static_bookingForm->form_check_i_class }}"></i>
           </a>
         </label>
-        <input type="text" class="datepicker form-control " name="booking-date" readonly="readonly"
+        <input type="text" class="datepicker form-control " name="booking_date" readonly="readonly"
           value="{{ $dataForm['form_booking_roomType'] ?? false ? $dataForm['form_booking_roomType'] : '' }}" 
           {{ $dataForm['form_booking_roomType'] ?? false ? 'disabled' : null }}>
       </div>
@@ -386,7 +388,7 @@
               </label>
               <div class="guests-button">
                 <div class="minus"></div>
-                <input type="text" name="booking-adults" class="booking-guests" value="0">
+                <input type="text" name="booking_adults" class="booking-guests" value="0">
                 <div class="plus"></div>
               </div>
             </div>
@@ -400,7 +402,7 @@
               </label>
               <div class="guests-button">
                 <div class="minus"></div>
-                <input type="text" name="booking-children" class="booking-guests" value="0">
+                <input type="text" name="booking_children" class="booking-guests" value="0">
                 <div class="plus"></div>
               </div>
             </div>
@@ -410,10 +412,10 @@
     </div>
 
     {{-- room type --}}
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
       <div class="form-group">
         <label>{{ $static_bookingForm->room_type_title }}</label>
-        <select name="booking-roomtype" class="form-control" 
+        <select name="booking_roomtype" class="form-control" 
         @if ($dataForm['form_categoryId'] ?? false && $rooms->where('room_category_id', '=', $dataForm['form_categoryId']) )
           title="{{$rooms->where('room_category_id', $dataForm['form_categoryId'])->first()->categories->text }}" disabled 
           @else
@@ -436,12 +438,12 @@
           @endif
         </select>
       </div>
-    </div>
+    </div> --}}
     {{-- room Name --}}
     <div class="col-md-6">
       <div class="form-group">
         <label>{{ $static_bookingForm->room_name_title }}</label>
-        <select name="booking-roomtype" class="form-control" @if ($dataForm['form_roomId'] ?? false &&
+        <select name="booking_room" class="form-control" @if ($dataForm['form_roomId'] ?? false &&
           $rooms->where('id', '=', $dataForm['form_roomId']) )
           title="{{$rooms->where('id', $dataForm['form_roomId'])->first()->name }}" disabled 
           @else
@@ -476,7 +478,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <label>{{ $static_bookingForm->comment_title }}</label>
-        <textarea class="form-control" name="booking-comments"
+        <textarea class="form-control" name="booking_comments"
           placeholder="{{ $static_bookingForm->comment_placeholder }}"></textarea>
       </div>
     </div>
