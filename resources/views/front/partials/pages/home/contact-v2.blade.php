@@ -35,7 +35,7 @@
           <h4>{{ $static_contact->section_title2_h4 }}</h4>
           <p class="section-subtitle">{{ $static_contact->section_title2_p }}</p>
         </div>
-        <form id="contact-form" action="/send-contact" method="POST" name="contact-form">
+        <form id="contact-form" action="/send-contact" method="POST">
           @csrf
           @method('POST')
           <div class="form-group">

@@ -9,6 +9,8 @@ class Mailbox extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function mailable()
     {
         return $this->morphTo();

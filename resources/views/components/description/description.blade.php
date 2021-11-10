@@ -32,7 +32,9 @@
       @if ($uriStatic ?? false)
       {{ $editUri }}
       @else
+      @if($editUri ?? false)
       {{ $editUri . $row->id . '/edit' }}
+      @endif
       @endif
       ">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-100 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">

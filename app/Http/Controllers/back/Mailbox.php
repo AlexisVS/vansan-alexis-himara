@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Models\ContactForm;
+use App\Models\Mailbox as ModelsMailbox;
 use Illuminate\Http\Request;
 
 class Mailbox extends Controller
@@ -14,7 +17,26 @@ class Mailbox extends Controller
      */
     public function index()
     {
-        return view('pages.mailbox.index');
+        $data = [
+            'mails' => ModelsMailbox::all()->where('archived', false),
+        ];
+
+        return view('pages.mailbox.index', $data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexArchive()
+    {
+        $data = [
+            'mails' => ModelsMailbox::all()->where('archived', true),
+            'archive' => 'Archive',
+        ];
+
+        return view('pages.mailbox.index', $data);
     }
 
     /**
@@ -43,10 +65,20 @@ class Mailbox extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id)  
     {
-        //
+        $show = ModelsMailbox::find($id);
+        $show->read = 1;
+        $show->save();
+
+        $data = [
+            'show' => ModelsMailbox::find($id),
+            'archive' => 'Archive',
+        ];
+
+        return view('pages.mailbox.show', $data);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -66,7 +98,12 @@ class Mailbox extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = ModelsMailbox::find($id);
+        $update->read = 1;
+        $update->archived = 1;
+        $update->save();
+
+        return redirect('/dashboard/mailbox');
     }
 
     /**
@@ -76,6 +113,21 @@ class Mailbox extends Controller
      */
     public function destroy($id)
     {
-        //
+        $target = ModelsMailbox::find($id)->mailable_type;
+        $idTarget = ModelsMailbox::find($id)->mailable_id;
+
+        switch ($target) {
+            case 'App\Models\Booking':
+                Booking::destroy($idTarget);
+                break;
+            
+            case 'App\Models\ContactForm':
+                ContactForm::destroy($idTarget);
+                break;
+        }
+
+        ModelsMailbox::destroy($id);
+
+        return redirect('/dashboard/mailbox');
     }
 }

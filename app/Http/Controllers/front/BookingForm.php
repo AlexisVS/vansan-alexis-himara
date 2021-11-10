@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Mail\AdminReservation;
 use App\Mail\ReservationDetails;
 use App\Models\Booking;
+use App\Models\Mailbox;
 use App\Models\Page_booking_form;
 use App\Models\Page_booking_form_land;
 use App\Models\Page_booking_form_land2;
 use App\Models\Page_booking_form_offer;
+use App\Models\Room;
 use App\Models\Room_categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -72,7 +74,8 @@ class BookingForm extends Controller
     /*                       Send mail and new model Mailbox                      */
     /* -------------------------------------------------------------------------- */
 
-    public function store () {
+    public function store()
+    {
         request()->validate([
             'booking_country' => "required",
             'booking_date' => "required",
@@ -93,20 +96,22 @@ class BookingForm extends Controller
         $store->email = Auth::user()->email;
         $store->phone = Auth::user()->phone;
         $store->save();
-        $store->refresh();
-        
-        $store->mails->title = "Reservation from " . $store->name . 'for ' . $store->room . '.' ;
-        $store->mails->read = false;
-        $store->mails->archived =false;
-        $store->mails->save();
 
-        Booking::all()->fresh();
+        $mail = new Mailbox([
+            'title' => 'Reservation from ' . $store->name . ' for ' . Room::find($store->room)->name . 'room.',
+            'read' => 0,
+            'archived' => 0,
+        ]);
 
-        Mail::to(Auth::user()->email)
-        ->send(new ReservationDetails);
+        $store->mails()->save($mail);
+
+        Mail::to($store->email)
+            ->send(new ReservationDetails);
 
         Mail::to('alexis.vansan1440@gmail.com')
-        ->send(new AdminReservation);
+            ->send(new AdminReservation);
+
+            
 
         return redirect("/");
     }

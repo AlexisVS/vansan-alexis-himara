@@ -401,60 +401,60 @@ Version:       1.1.0
     // =============================================
     // CONTACT FORM
     // =============================================
-    $("#contact-form").on('submit', function(e) {
-      e.preventDefault();
+    // $("#contact-form").on('submit', function(e) {
+    //   e.preventDefault();
 
-      //Get input field values from HTML form
-      var user_name = $("input[name=name]").val();
-      var user_phone = $("input[name=phone]").val();
-      var user_email = $("input[name=email]").val();
-      var user_subject = $("input[name=subject]").val();
-      var user_message = $("textarea[name=message]").val();
+    //   //Get input field values from HTML form
+    //   var user_name = $("input[name=name]").val();
+    //   var user_phone = $("input[name=phone]").val();
+    //   var user_email = $("input[name=email]").val();
+    //   var user_subject = $("input[name=subject]").val();
+    //   var user_message = $("textarea[name=message]").val();
 
-      //Data to be sent to server
-      var post_data;
-      var output;
-      post_data = {
-        'user_name': user_name,
-        'user_email': user_email,
-        'user_message': user_message,
-        'user_phone': user_phone,
-        'user_subject': user_subject
-      };
+    //   //Data to be sent to server
+    //   var post_data;
+    //   var output;
+    //   post_data = {
+    //     'user_name': user_name,
+    //     'user_email': user_email,
+    //     'user_message': user_message,
+    //     'user_phone': user_phone,
+    //     'user_subject': user_subject
+    //   };
 
-      //Ajax post data to server
-      $.post('email/email.php', post_data, function(response) {
+    //   //Ajax post data to server
+    //   $.post('email/email.php', post_data, function(response) {
 
-        var notification = $("#contact-notification");
+    //     var notification = $("#contact-notification");
 
-        //Response server message
-        output = '<p class="notification-text">' + response.text + '</div>';
+    //     //Response server message
+    //     output = '<p class="notification-text">' + response.text + '</div>';
 
-        if (response.type === 'error') {
-          notification.addClass('scale-out error');
-          notification.removeClass('success');
-        } else {
-          notification.addClass('scale-out success');
-          notification.removeClass('error');
-          //If success clear inputs
-          $("input, textarea").val('');
-          $('select').val('');
-          $('select').val('').selectpicker('refresh');
-        }
-        notification.html(output);
-        notification.delay(15000).queue(function(next) {
-          $(this).removeClass("scale-out");
-          next();
-        });
-        notification.on("click", function() {
-          $(this).removeClass("scale-out");
-        });
-        $('#contact-form .form-control').on("focus", function() {
-          notification.removeClass("scale-out");
-        });
+    //     if (response.type === 'error') {
+    //       notification.addClass('scale-out error');
+    //       notification.removeClass('success');
+    //     } else {
+    //       notification.addClass('scale-out success');
+    //       notification.removeClass('error');
+    //       //If success clear inputs
+    //       $("input, textarea").val('');
+    //       $('select').val('');
+    //       $('select').val('').selectpicker('refresh');
+    //     }
+    //     notification.html(output);
+    //     notification.delay(15000).queue(function(next) {
+    //       $(this).removeClass("scale-out");
+    //       next();
+    //     });
+    //     notification.on("click", function() {
+    //       $(this).removeClass("scale-out");
+    //     });
+    //     $('#contact-form .form-control').on("focus", function() {
+    //       notification.removeClass("scale-out");
+    //     });
 
-      }, 'json');
-    });
+    //   }, 'json');
+    // });
 
     // =============================================
     // SUBSCRIBE FORM (MAILCHIMP)

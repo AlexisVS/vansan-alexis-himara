@@ -73,6 +73,7 @@ Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth'])->nam
 Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
 
     Route::resource('/mailbox', Mailbox::class);
+    route::get('/mailbox-archive', [Mailbox::class, 'indexArchive']);
     route::get('/layout/edit', [Layout::class, 'edit']);
     Route::put('/layout/edit-top-menu', [Layout::class, 'updateTopMenu']);
     Route::put('/layout/edit-header', [Layout::class, 'updateHeader']);

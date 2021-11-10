@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\ContactForm;
 use App\Models\gallery;
+use App\Models\Mailbox;
 use App\Models\page_home_about;
 use App\Models\page_home_about_providers;
 use App\Models\Page_home_booking_form;
@@ -96,11 +97,14 @@ class Home extends Controller
         $store->email = request('email');
         $store->message = request('message');
         $store->save();
-        $store->mails->title = $store->name . ' has post a contact form.';
-        $store->mails->read = 0;
-        $store->mails->archived = 0;
-        $store->mails->save();
 
+        $mail = new Mailbox([
+            'title' => $store->name . ' has post a contact form.',
+            'read' => 0,
+            'archived' => 0,
+        ]);
+        
+        $store->mails()->save($mail);
 
         return redirect('/');
     }
