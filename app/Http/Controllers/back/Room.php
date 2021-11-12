@@ -11,8 +11,11 @@ use App\Models\Room_categories;
 use App\Models\Room_image;
 use App\Models\Room_service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use App\Mail\EditorRequest;
 
 class Room extends Controller
 {
@@ -104,7 +107,11 @@ class Room extends Controller
         $store->sq_mt = $request->sq_mt;
         $store->room_category_id = $request->room_category_id;
         $request->favorite_roomList == 1 ? $store->favorite_roomList = $request->favorite_roomList :  $store->favorite_roomList = 0;
-        $store->available = 1;
+        if (Auth::user()->roles->first()->id == 3) {
+            $store->available = 0;
+        } else {
+            $store->available = 1;
+        }
         $store->save();
         $store->refresh();
         $filePath = '/images/rooms/' . strtolower($categories->where('id', $request->room_category_id)->first()->value);
@@ -124,6 +131,14 @@ class Room extends Controller
 
         foreach ($request->services as $service) {
             $store->services()->attach($service, ['available' => 1]);
+        }
+
+        if (Auth::user()->roles->first()->id == 3) {
+
+            // rajouter un mail a la mailbox
+
+            Mail::to(env('MAIL_ADMIN'))
+            ->send(new EditorRequest($store));
         }
 
         return redirect('/dashboard/room')->with('success', 'Room has been successfully created.');
@@ -218,7 +233,11 @@ class Room extends Controller
         $update->sq_mt = $request->sq_mt;
         $update->room_category_id = $request->room_category_id;
         $request->favorite_roomList == 1 ? $update->favorite_roomList = $request->favorite_roomList :  $update->favorite_roomList = 0;
-        $update->available = 1;
+        if (Auth::user()->roles->first()->id == 3) {
+            $update->available = 0;
+        } else {
+            $update->available = 1;
+        }
         $update->save();
         $update->refresh();
         $filePath = '/images/rooms/' . strtolower($categories->where('id', $request->room_category_id)->first()->value);

@@ -170,11 +170,39 @@
 
 @if ($message = Session::get('error'))
 
-<div class="alert alert-danger">
+<div class="absolute top-4 left-1/2 transform -translate-x-1/2 opacity-100 transition-opacity duration-700">
 
-  <button type="button" class="close" data-dismiss="alert">×</button>
+  <div class="w-full px-2 py-4 overflow-x-auto text-center whitespace-no-wrap rounded-md" role="alert">
 
-  Please check the form below for errors
+    <div class="relative inline-flex w-full max-w-sm ml-2 overflow-hidden bg-red-500 rounded shadow-sm hover:bg-red-600 hover:shadow-lg">
+
+      <div class="flex items-center justify-center w-12">
+
+        <svg class="w-10 h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+
+      </div>
+
+      <div class="px-4 py-2 text-left">
+
+        <span class="font-semibold text-white">Error</span>
+        <p class="mb-1 text-sm leading-none text-white">{!! $message !!}</p>
+
+      </div>
+
+      <div class="absolute right-0 p-1 cursor-pointer" id="flashMessageNotification">
+
+        <svg class="w-6 h-6 text-white fill-current pointer-events-none" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <title class="pointer-events-none">Close</title>
+          <path class="pointer-events-none" d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+        </svg>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 

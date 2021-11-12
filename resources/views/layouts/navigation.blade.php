@@ -16,6 +16,11 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 xl:-my-px xl:ml-10 xl:flex">
+                    <x-nav-link :href="route('dashboard.user.index')" :active="request()->is('dashboard/user*')">
+                        User
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 xl:-my-px xl:ml-10 xl:flex">
                     <x-nav-link :href="route('dashboard.mailbox.index')" :active="request()->is('dashboard/mailbox*')">
                         Mailbox
                     </x-nav-link>
@@ -117,6 +122,11 @@
             </x-responsive-nav-link>
         </div>
 
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard.user.index')" :active="request()->is('dashboard/user*')">
+                User
+            </x-responsive-nav-link>
+        </div>
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard.mailbox.index')" :active="request()->is('dashboard/mailbox*')">
                 Mailbox

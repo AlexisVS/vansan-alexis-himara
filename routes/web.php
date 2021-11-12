@@ -21,6 +21,7 @@ use App\Http\Controllers\back\RoomReview;
 use App\Http\Controllers\back\RoomService;
 use App\Http\Controllers\back\Team as BackTeam;
 use App\Http\Controllers\back\TeamCategory;
+use App\Http\Controllers\back\User as BackUser;
 use App\Http\Controllers\front\Blog;
 use App\Http\Controllers\front\BookingForm;
 use App\Http\Controllers\front\Contact;
@@ -78,9 +79,22 @@ Route::post('/room/send-form', [room::class, 'saveFormSidebar'])->name('room.sen
 /* -------------------------------------------------------------------------- */
 
 
-Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth', 'accessBackend'])->name('dashboard');
 
-Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
+
+Route::middleware(['auth', 'accessBackend'])->prefix('dashboard')->name('dashboard.')->group(function () {
+    
+    Route::prefix('room')->name('room.')->group(function () {
+        Route::get('edit-static', [BackRoom::class, 'editStatic']);
+        Route::put('edit-static', [BackRoom::class, 'updateStatic']);
+        Route::get('edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
+        Route::put('edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
+        Route::delete('/{room}/destroy-image/{image}', [BackRoom::class, 'destroyImg']);
+        Route::resource('category', RoomCategory::class);
+        Route::resource('service', RoomService::class);
+        Route::resource('.review', RoomReview::class)->scoped(['review' => 'slug'])->parameter('', 'room');
+        Route::resource('', BackRoom::class)->parameter('', 'room');
+    });
 
     Route::resource('/mailbox', Mailbox::class);
     route::get('/mailbox-archive', [Mailbox::class, 'indexArchive']);
@@ -134,18 +148,6 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::put('/gallery/edit-static', [BackGallery::class, 'updateStatic']);
     Route::resource('/gallery', BackGallery::class);
 
-    Route::prefix('room')->name('room.')->group(function () {
-        Route::get('edit-static', [BackRoom::class, 'editStatic']);
-        Route::put('edit-static', [BackRoom::class, 'updateStatic']);
-        Route::get('edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
-        Route::put('edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
-        Route::delete('/{room}/destroy-image/{image}', [BackRoom::class, 'destroyImg']);
-        Route::resource('category', RoomCategory::class);
-        Route::resource('service', RoomService::class);
-        Route::resource('.review', RoomReview::class)->scoped(['review' => 'slug'])->parameter('', 'room');
-        Route::resource('', BackRoom::class)->parameter('', 'room');
-    });
-
     Route::get('/team/edit-static', [BackTeam::class, 'editStatic']);
     Route::put('/team/edit-static', [BackTeam::class, 'updateStatic']);
     Route::resource('/team/category', TeamCategory::class);
@@ -154,10 +156,8 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::get('/list-room/edit-static', [RoomList::class, 'editStatic']);
     Route::put('/list-room/edit-static', [RoomList::class, 'updateStatic']);
     Route::resource('/list-room', RoomList::class);
-});
 
-Route::get('/dashboard/mailbox/sos/send', function () {
-    return view('dashboard');
+    Route::resource('/user', BackUser::class); // protect by policy UserPolicy
 });
 
 require __DIR__ . '/auth.php';

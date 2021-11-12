@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class dashboard extends Controller
 {
@@ -19,7 +20,6 @@ class dashboard extends Controller
         // $rooms = Room::all();
         // dd(collect($rooms->first())->keys());
         $rooms = Room::all();
-        // dd($rooms->shuffle());
 
         return view('dashboard');
     }

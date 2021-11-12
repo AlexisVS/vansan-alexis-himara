@@ -180,7 +180,7 @@ class BookingForm extends Controller
             RoomAvailableAfterBookingFinish::dispatch($room)
                 ->delay(now()->addMinutes(2));
     
-            Mail::to('alexis.vansan1440@gmail.com')
+            Mail::to(env('MAIL_ADMIN'))
                 ->send(new AdminReservation);
     
             Mail::to($update->email)

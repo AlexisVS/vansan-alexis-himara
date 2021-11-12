@@ -95,6 +95,7 @@
       </div>
       @endif
       @endforeach
+      {{ $slot }}
     </dl>
   </div>
 </div>
