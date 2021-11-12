@@ -59,6 +59,7 @@
           </h3>
         </div>
 
+
         @foreach(collect([$show->mailable]) as $row)
         <div class="mb-28 mt-8 bg-himaraGold-500 shadow overflow-hidden sm:rounded-lg">
           <div class="flex items-center justify-between w-full pr-5">
@@ -116,6 +117,30 @@
                   <img class="max-w-xs max-h-32" src="{{ asset($imagePath . (substr($imagePath, -1) != '/' ? '/' : '') . $row->$column)}}" alt="">
                 </dd>
               </div>
+              @elseif($show->mailable_type == 'App\Models\Booking' && $column == 'approvement')
+              <div class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-400">
+                  Approvement
+                </dt>
+                <dd class="mt-1 text-sm text-gray-400 sm:mt-0 sm:col-span-2">
+                  @if ($row->$column !== 0 && $row->$column !== 1)
+                  <form action="/booking-form-update-booking-request/{{ $show->id }}" class="flex items-center space-x-6" method="post">
+                    @csrf
+                    @method('POST')
+                    <input type="hidden" name="room_id" value="{{ $show->id}}">
+                    <button name="approvement" value="1" class="border-0 px-6 py-3 mr-2 ml-3 mt-3 bg-green-400 text-white shadow rounded-md hover:bg-green-500" type="submit">Accept</button>
+                    <button name="approvement" value="0" class="border-0 px-6 py-3 mr-2 ml-3 mt-3 bg-red-500 text-white shadow rounded-md hover:bg-red-600" type="submit">Refused</button>
+                  </form>
+                    
+                  @else
+                  {{ $row->$column }}
+                  @endif
+                    {{-- 
+                      <a href="/dashboard/home/index-static" class="px-6 py-3 mr-2 ml-3 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Static content</a>
+                      <a href="/dashboard/home/index-static" class="px-6 py-3 mr-2 ml-3 mt-3 bg-himaraBlue-500 text-white shadow rounded-md hover:bg-himaraBlue-600">Static content</a>
+                    --}}
+                </dd>
+              </div>
               @else
 
               <div class="{{ $loop->iteration % 2 == 1 ? 'bg-gray-50' : 'bg-white' }} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -130,6 +155,7 @@
               </div>
               @endif
               @endforeach
+              
 
             </dl>
           </div>

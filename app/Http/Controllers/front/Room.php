@@ -60,12 +60,12 @@ class Room extends Controller
 
         // dd($servicesRoom);
 
-        // ? c'est oké
         $roomLists = QueryBuilder::for(ModelsRoom::class)
             ->where('room_category_id', '!=', null)
+            ->where('available', true)
             ->allowedFilters(['name', 'room_category_id', AllowedFilter::exact('services.id')])
             ->allowedIncludes(['services'])
-            ->paginate(2);
+            ->paginate(3);
 
         $data = [
             // * static
@@ -120,10 +120,10 @@ class Room extends Controller
         $dataForm = [
             'form_roomId' => $roomId,
             'form_categoryId' => $categoryId,
-            'form_email' => request('booking-email') ,
-            'form_checkin' => request('booking-checkin') ,
-            'form_adults' =>request('booking-adults') ,
-            'form_children' =>request('booking-children') ,
+            'form_email' => request('booking-email'),
+            'form_checkin' => request('booking-checkin'),
+            'form_adults' => request('booking-adults'),
+            'form_children' => request('booking-children'),
         ];
 
         return redirect('/booking-form')->with(['dataForm' => $dataForm]);

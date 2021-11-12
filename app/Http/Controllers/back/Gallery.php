@@ -10,6 +10,7 @@ use App\Models\Page_gallery;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class Gallery extends Controller
 {
@@ -64,6 +65,9 @@ class Gallery extends Controller
         if ($request->file('img')) {
             Storage::disk('public')->put('images/gallery', $request->file('img'));
             $store->img = $request->file('img')->hashName();
+            Image::make(public_path('/images/gallery') . '/' . $store->img)
+            ->fit(270, 360)
+            ->save();
         }
         if ($request->class_filer == []) {
             $store->class_filter = implode(' ', $request->class_filter);
@@ -129,6 +133,9 @@ class Gallery extends Controller
         if ($request->file('img')) {
             Storage::disk('public')->put('images/gallery', $request->file('img'));
             $update->img = $request->file('img')->hashName();
+            Image::make(public_path('/images/gallery') . '/' . $update->img)
+            ->fit(270, 360)
+            ->save();
         }
         if ($request->class_filer == []) {
             $update->class_filter = implode(' ', $request->class_filter);

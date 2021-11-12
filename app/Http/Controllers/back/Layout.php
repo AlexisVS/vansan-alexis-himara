@@ -4,11 +4,13 @@ namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
 use App\Models\fontawesomeiconlist;
+use App\Models\ImageBrand;
 use App\Models\Layout_footer;
 use App\Models\Layout_header;
 use App\Models\Layout_top_menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class Layout extends Controller
 {
@@ -51,6 +53,41 @@ class Layout extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function updateImageBrand(Request $request)
+    {
+        $request->validate([
+            'image_brand_img' => 'required',
+        ]);
+
+        $file = $request->file('image_brand_img');
+
+
+
+
+        $update = ImageBrand::find(1);
+
+        Storage::disk('public')->put('/images', $request->file('image_brand_img'));
+
+        $update->image_brand_img = $request->file('image_brand_img')->hashName();
+
+        $update->save();
+
+
+
+        Image::make(public_path() . '/images/' . $request->file('image_brand_img')->hashName())
+            ->resize(150, 20, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->save();
+        return redirect('/dashboard/layout')->with('success', 'Your image brand has been successfully updated.');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function updateTopMenu(Request $request)
     {
         $request->validate([
@@ -85,7 +122,6 @@ class Layout extends Controller
     {
         $request->validate([
             'brand_href' => 'required',
-            'brand_img' => 'file',
             'menu_li1_href' => 'required',
             'menu_li1_text' => 'required',
             'menu_li2_href' => 'required',
@@ -106,10 +142,6 @@ class Layout extends Controller
 
         $update = Layout_header::find(1);
         $update->brand_href = $request->brand_href;
-        if ($request->file('brand_img')) {
-            Storage::disk('public')->put('images', $request->file('brand_img'));
-            $update->brand_img = $request->file('brand_img')->hashName();
-        }
         $update->menu_li1_href = $request->menu_li1_href;
         $update->menu_li1_text = $request->menu_li1_text;
         $update->menu_li2_href = $request->menu_li2_href;
@@ -139,7 +171,6 @@ class Layout extends Controller
     public function updateFooter(Request $request)
     {
         $request->validate([
-            'w1_logo' => 'file',
             'w1_inner_text' => 'required',
             'w1_a_href' => 'required',
             'w1_a_span' => 'required',
@@ -203,10 +234,6 @@ class Layout extends Controller
         ]);
 
         $update = Layout_footer::find(1);
-        if ($request->file('w1_logo')) {
-            Storage::disk('public')->put('images/', $request->file('w1_logo'));
-            $update->w1_logo = $request->file('w1_logo')->hashName();
-        }
         $update->w1_inner_text = $request->w1_inner_text;
         $update->w1_a_href = $request->w1_a_href;
         $update->w1_a_span = $request->w1_a_span;

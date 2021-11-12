@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Room;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -13,14 +14,16 @@ class RoomAvailableAfterBookingFinish implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $room;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Room $room)
     {
-        //
+        $this->room = $room;
     }
 
     /**
@@ -30,6 +33,7 @@ class RoomAvailableAfterBookingFinish implements ShouldQueue
      */
     public function handle()
     {
-        //
+        $this->room->available = 1;
+        $this->room->save();
     }
 }

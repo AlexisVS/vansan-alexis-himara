@@ -58,6 +58,10 @@
 
             <div class="hidden lg:flex items-center space-x-4">
 
+                <a href="#imageBrand" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
+                    Image Brand
+                </a>
+
                 <a href="#layoutTopMenu" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
                     Top menu
                 </a>
@@ -82,6 +86,26 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+            <section id="imageBrand">
+
+                <div class="flex justify-between items-center">
+                    <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight">
+                        Image brand
+                    </h3>
+                </div>
+
+                <x-description.description 
+                    image-path="/images/"
+                    :columns="collect($image_brand)->keys()" 
+                    title='Image brand' 
+                    subtitle='Details' 
+                    :data-tables="collect([$image_brand])" 
+                    edit-uri="/dashboard/layout/edit#imageBrand" 
+                    uri-static="true"
+                />
+                
+            </section>
 
             <section id="layoutTopMenu">
 

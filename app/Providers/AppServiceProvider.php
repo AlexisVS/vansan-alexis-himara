@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\ImageBrand;
 use App\Models\Layout_Footer;
 use App\Models\Layout_Header;
 use App\Models\Layout_top_menu;
@@ -39,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
             'topMenu' => Layout_top_menu::find(1),
             'posts' => Post::all(),
             'rooms' => Room::all(),
+            'image_brand' => ImageBrand::first(),
         ]);
     }
 }

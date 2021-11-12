@@ -11,8 +11,9 @@ class Team extends Controller
 {
     public function index () {
         $housekeeper = Page_team_team::where('figure_text', 'Housekeeper' )->get()->take(1);
-        $teamRest = Page_team_team::all()->shuffle()->take(7);
-        $teams = collect([$housekeeper, Page_team_team::all()->shuffle()->take(7)])->collapse();
+        $teamRest = Page_team_team::where('id', '!=', $housekeeper->first()->id)->get()->shuffle()->take(7);
+        $teams = collect([$housekeeper, $teamRest])->collapse();
+
 
         $data = [
             'static_team' => Page_team::find(1),

@@ -12,6 +12,7 @@ use App\Models\Room_image;
 use App\Models\Room_service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class Room extends Controller
 {
@@ -115,6 +116,10 @@ class Room extends Controller
                 'image_img' => $file->hashName(),
             ]);
             $store->refresh();
+
+            Image::make(public_path($filePath) . '/' . $file->hashName())
+                ->fit(370, 230)
+                ->save();
         }
 
         foreach ($request->services as $service) {
@@ -225,6 +230,10 @@ class Room extends Controller
                 'image_img' => $file->hashName(),
             ]);
             $update->refresh();
+
+            Image::make(public_path($filePath) . '/' . $file->hashName())
+                ->fit(370, 230)
+                ->save();
         }
 
         foreach ($request->services as $service) {

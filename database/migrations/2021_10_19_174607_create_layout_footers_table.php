@@ -15,7 +15,6 @@ class CreateLayoutFootersTable extends Migration
     {
         Schema::create('layout_footers', function (Blueprint $table) {
             $table->id();
-            $table->string('w1_logo');
             $table->string('w1_inner_text');
             $table->string('w1_a_href');
             $table->string('w1_a_span');

@@ -54,7 +54,7 @@ class Home extends Controller
             // * dynamic
             'revolutionSliders' => Page_home_revolution_slider::all(),
             'aboutProviders' => Page_home_about_providers::all(),
-            'rooms' => Room::where('room_category_id', '!=', null)->get(),
+            'rooms' => collect(Room::where('room_category_id', '!=', null)->get())->where('available', true),
             'services' => Page_home_services_service::all(),
             'categories' => $categories,
             'galleries' => Gallery::all(),

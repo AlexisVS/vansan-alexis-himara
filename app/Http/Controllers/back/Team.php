@@ -8,6 +8,7 @@ use App\Models\Page_team_team;
 use App\Models\PageTeamTeamCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class Team extends Controller
 {
@@ -61,8 +62,15 @@ class Team extends Controller
         $store = new Page_team_team;
 
         if ($request->file('figure_img')) {
+
             Storage::disk('public')->put('images/staff', $request->file('figure_img'));
+
             $store->figure_img = $request->file('figure_img')->hashName();
+
+
+            Image::make(public_path() . '/images/staff/' . $request->file('figure_img')->hashName())
+                ->fit(270, 270)
+                ->save();
         }
         $store->figure_text = $request->figure_text;
         $store->details_name = $request->details_name;
@@ -127,6 +135,9 @@ class Team extends Controller
         if ($request->file('figure_img')) {
             Storage::disk('public')->put('images/staff', $request->file('figure_img'));
             $update->figure_img = $request->file('figure_img')->hashName();
+            Image::make(public_path() . '/images/staff/' . $request->file('figure_img')->hashName())
+                ->fit(270, 270)
+                ->save();
         }
         $update->figure_text = $request->figure_text;
         $update->details_name = $request->details_name;

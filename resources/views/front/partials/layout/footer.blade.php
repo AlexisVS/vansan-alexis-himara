@@ -5,7 +5,7 @@
         <!-- WIDGET -->
         <div class="col-md-3">
           <div class="footer-widget">
-            <img src="{{ asset('images/' . $footer->w1_logo) }}" class="footer-logo" alt="Hotel Himara">
+            <img src="{{ asset('images/' . $image_brand->image_brand_img ) }}" class="footer-logo" alt="Hotel Himara">
             <div class="inner">
               <p>{{ $footer->w1_inner_text }}</p>
               <a href="{{ $footer->w1_a_href }}" target="_blank">

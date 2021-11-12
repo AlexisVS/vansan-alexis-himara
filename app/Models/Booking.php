@@ -13,4 +13,8 @@ class Booking extends Model
     {
         return $this->morphMany(Mailbox::class, 'mailable');
     }
+
+    public function users () {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

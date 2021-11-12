@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            // USER
+            RoleSeeder::class,
+
             // LAYOUT
             LayoutTopMenuSeeder::class,
             LayoutHeaderSeeder::class,
@@ -35,6 +38,8 @@ class DatabaseSeeder extends Seeder
             RoomReviewSeeder::class,
             RoomServiceSeeder::class,
             RoomServiceRoomSeeder::class,
+
+            ImageBrandSeeder::class,
             
             // HOME
             PageHomeRevolutionSliderSeeder::class,

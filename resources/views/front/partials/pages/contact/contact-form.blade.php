@@ -1,4 +1,6 @@
-<form id="contact-form" class="contact-form">
+<form id="contact-form" action="/contact" method="POST" class="contact-form">
+  @csrf
+  @method('POST')
   <div class="form-group">
     <input class="form-control" name="name" placeholder="{{ $static_contact->form_name }}" type="text">
   </div>

@@ -9,6 +9,8 @@ class ContactForm extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function mails()
     {
         return $this->morphMany(Mailbox::class, 'mailable');

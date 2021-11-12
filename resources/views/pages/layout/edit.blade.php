@@ -53,6 +53,10 @@
 
       <div class="hidden lg:flex items-center space-x-4">
 
+        <a href="#imageBrand" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
+          Image Brand
+        </a>
+
         <a href="#layoutTopMenu" class="font-display tracking-wider text-himaraGold-500 hover:text-himaraGold-600">
           Top Menu
         </a>
@@ -77,6 +81,20 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
+      <section id="imageBrand">
+
+        <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight mb-6">
+          Image Brand
+        </h3>
+
+        <x-form.form action='/dashboard/layout/edit-image-brand' method='PUT' enctype title='Edition Image brand' subtitle="">
+          @csrf
+          @method('PUT')
+          <x-form.upload name="image_brand_img" title="" />
+        </x-form.form>
+
+      </section>
+
       <section id="layoutTopMenu">
 
         <h3 class="font-semibold font-display text-5xl text-himaraGold-500 leading-tight mb-6">
@@ -84,6 +102,8 @@
         </h3>
 
         <x-form.form action='/dashboard/layout/edit-top-menu' method='PUT' title='Edition top menu' subtitle="">
+          @csrf
+          @method('PUT')
           <x-form.text name="welcome_mssg" title="" placeholder="" :text="$top_menu->welcome_mssg" />
           <x-form.text name="a_tel_href" title="" placeholder="" :text="$top_menu->a_tel_href" />
           <x-form.fa-select name="a_tel_i_class" title="" :icons="$icons" :selected="$top_menu->a_tel_i_class" />
@@ -102,8 +122,9 @@
         </h3>
 
         <x-form.form action='/dashboard/layout/edit-header' method='PUT' enctype title='Edition header' subtitle="">
+          @csrf
+          @method('PUT')
           <x-form.text name="brand_href" title="" placeholder="Title before yellow" :text="$header->brand_href" />
-          <x-form.upload name="brand_img" title="" />
           <x-form.text name="menu_li1_href" title="" placeholder="Title in yellow" :text="$header->menu_li1_href" />
           <x-form.text name="menu_li1_text" title="" placeholder="Title after yellow" :text="$header->menu_li1_text" />
           <x-form.text name="menu_li2_href" title="" placeholder="" :text="$header->menu_li2_href" />
@@ -131,7 +152,8 @@
         </h3>
 
         <x-form.form action='/dashboard/layout/edit-footer' method='PUT' enctype title='Edition footer' subtitle="">
-          <x-form.upload name="w1_logo" title="" />
+          @csrf
+          @method('PUT')
           <x-form.text name="w1_inner_text" title="" placeholder="Title before yellow" :text="$footer->w1_inner_text" />
           <x-form.text name="w1_a_href" title="" placeholder="Title in yellow" :text="$footer->w1_a_href" />
           <x-form.text name="w1_a_span" title="" placeholder="Title after yellow" :text="$footer->w1_a_span" />

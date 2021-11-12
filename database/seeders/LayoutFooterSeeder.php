@@ -15,7 +15,6 @@ class LayoutFooterSeeder extends Seeder
     public function run()
     {
         DB::table('layout_footers')->insert([
-            'w1_logo' => 'logo.svg',
             'w1_inner_text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, velit placeat assumenda incidunt dolorem aliquam!',
             'w1_a_href' => 'https://www.tripadvisor.com/',
             'w1_a_span' => 'Recommended',

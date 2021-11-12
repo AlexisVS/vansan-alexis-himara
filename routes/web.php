@@ -28,6 +28,9 @@ use App\Http\Controllers\front\Gallery;
 use App\Http\Controllers\front\Home;
 use App\Http\Controllers\front\room;
 use App\Http\Controllers\front\Team;
+use App\Http\Controllers\front\User;
+use App\Mail\UserReviewAfterBooking;
+use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +48,9 @@ use Illuminate\Support\Facades\Route;
 /*                                  FRONTEND                                  */
 /* -------------------------------------------------------------------------- */
 
+Route::resource('/profile', User::class);
+Route::get('/profile/mail/{id}', [User::class, 'showMail']);
+
 Route::get('/', [Home::class, 'index']);
 Route::post('/send-form', [Home::class, 'sendForm']);
 Route::post('/send-contact', [Home::class, 'sendContact']);
@@ -53,6 +59,9 @@ Route::resource('/blog', Blog::class);
 Route::get('/blog-post', [Blog::class, 'customShow']);
 
 Route::resource('/booking-form', BookingForm::class);
+Route::get('/booking-form-store-review-mail/{userId}/{roomId}', [BookingForm::class, 'createReviewMail']);
+Route::post('/booking-form-store-review-mail', [BookingForm::class, 'storeReviewMail']);
+Route::post('/booking-form-update-booking-request/{id}', [BookingForm::class, 'updateBookingRequest']);
 
 Route::resource('/contact', Contact::class);
 
@@ -61,6 +70,7 @@ Route::resource('/gallery', Gallery::class);
 Route::resource('/team', Team::class);
 
 Route::resource('/room', room::class);
+
 Route::post('/room/send-form', [room::class, 'saveFormSidebar'])->name('room.send-form');
 
 /* -------------------------------------------------------------------------- */
@@ -75,6 +85,7 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
     Route::resource('/mailbox', Mailbox::class);
     route::get('/mailbox-archive', [Mailbox::class, 'indexArchive']);
     route::get('/layout/edit', [Layout::class, 'edit']);
+    Route::put('/layout/edit-image-brand', [Layout::class, 'updateImageBrand']);
     Route::put('/layout/edit-top-menu', [Layout::class, 'updateTopMenu']);
     Route::put('/layout/edit-header', [Layout::class, 'updateHeader']);
     Route::put('/layout/edit-footer', [Layout::class, 'updateFooter']);

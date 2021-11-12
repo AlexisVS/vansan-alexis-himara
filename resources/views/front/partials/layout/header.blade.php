@@ -4,7 +4,7 @@
     <div class="brand">
       <div class="logo">
         <a href="{{ $header->brand_href }}">
-          <img src="{{ asset('images/' . $header->brand_img ) }}" alt="Hotel Himara">
+          <img src="{{ asset('images/' . $image_brand->image_brand_img ) }}" alt="Hotel Himara">
         </a>
       </div>
     </div>
@@ -43,6 +43,15 @@
             {{ $header->menu_li6b_text }}</a>
           @endif
         </li>
+        @if (Auth::user() !== null)
+        <li class="menu-item menu-btn">
+            <a href="/profile" class="ml-2 d-flex justify-content-center align-items-center">
+              <i class="pb-1 mr-2 fa fa-2x {{ $header->menu_li6a_i_class }}"></i>
+              Profile
+            </a>
+        </li>
+
+        @endif
       </ul>
     </nav>
   </div>

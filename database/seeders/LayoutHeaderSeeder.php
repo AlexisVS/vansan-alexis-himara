@@ -16,7 +16,6 @@ class LayoutHeaderSeeder extends Seeder
     {
         DB::table('layout_headers')->insert([
             'brand_href' => '/',
-            'brand_img' => 'logo.svg',
             'menu_li1_href' => '/',
             'menu_li1_text' => 'HOME',
             'menu_li2_href' => '/room',

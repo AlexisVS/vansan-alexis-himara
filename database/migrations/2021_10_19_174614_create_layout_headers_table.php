@@ -16,7 +16,6 @@ class CreateLayoutHeadersTable extends Migration
         Schema::create('layout_headers', function (Blueprint $table) {
             $table->id();
             $table->string('brand_href');
-            $table->string('brand_img');
             $table->string('menu_li1_href');
             $table->string('menu_li1_text');
             $table->string('menu_li2_href');

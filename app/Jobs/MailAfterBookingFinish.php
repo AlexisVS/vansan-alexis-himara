@@ -2,16 +2,21 @@
 
 namespace App\Jobs;
 
+use App\Mail\UserReviewAfterBooking;
+use App\Models\Booking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class MailAfterBookingFinish implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
 
     /**
      * Create a new job instance.
@@ -20,7 +25,6 @@ class MailAfterBookingFinish implements ShouldQueue
      */
     public function __construct()
     {
-        //
     }
 
     /**
@@ -30,6 +34,8 @@ class MailAfterBookingFinish implements ShouldQueue
      */
     public function handle()
     {
-        //
+
+        Mail::to(Auth::user()->email)
+        ->send( new UserReviewAfterBooking);
     }
 }

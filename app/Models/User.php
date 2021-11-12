@@ -21,7 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone'
+        'phone',
+        'profile_img',
+        'role_id'
     ];
 
     /**
@@ -42,4 +44,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_users');
+    }
+
+    public function bookings()
+    {
+        return $this->hasOne(Booking::class, 'user_id');
+    }
 }

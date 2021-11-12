@@ -4,6 +4,7 @@ namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
 use App\Models\Room;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class dashboard extends Controller
@@ -19,6 +20,7 @@ class dashboard extends Controller
         // dd(collect($rooms->first())->keys());
         $rooms = Room::all();
         // dd($rooms->shuffle());
+
         return view('dashboard');
     }
 }

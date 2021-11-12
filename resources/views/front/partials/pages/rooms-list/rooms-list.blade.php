@@ -1,4 +1,4 @@
-@foreach ($roomLists->where('available', true) as $room)
+@foreach ($roomLists as $room)
 <div id="room-item-{{ $room->id }}" class="room-list-item" data-roomId="{{ $room->id }}"
   data-categoryId="{{ $room->category_id }}" {{--
   data-servicesId="{{ $roomServicesRooms->where('room_id', $room->id)->pluck('id')->toJSON() }}" --}}>
