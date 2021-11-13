@@ -79,22 +79,22 @@ Route::post('/room/send-form', [room::class, 'saveFormSidebar'])->name('room.sen
 /* -------------------------------------------------------------------------- */
 
 
-Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth', 'accessBackend'])->name('dashboard');
+Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth', 'accessBackendRoleUser', 'accessBackendRoleEditor'])->name('dashboard');
 
+Route::middleware(['auth', 'accessBackendRoleUser'])->prefix('/dashboard/room')->name('dashboard.room.')->group(function () {
+    Route::get('edit-static', [BackRoom::class, 'editStatic']);
+    Route::put('edit-static', [BackRoom::class, 'updateStatic']);
+    Route::get('edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
+    Route::put('edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
+    Route::delete('/{room}/destroy-image/{image}', [BackRoom::class, 'destroyImg']);
+    Route::resource('category', RoomCategory::class);
+    Route::resource('service', RoomService::class);
+    Route::resource('.review', RoomReview::class)->scoped(['review' => 'slug'])->parameter('', 'room');
+    Route::resource('', BackRoom::class)->parameter('', 'room')->except('destroy');
+    Route::resource('', BackRoom::class)->parameter('', 'room')->only('destroy');
+});
 
-Route::middleware(['auth', 'accessBackend'])->prefix('dashboard')->name('dashboard.')->group(function () {
-    
-    Route::prefix('room')->name('room.')->group(function () {
-        Route::get('edit-static', [BackRoom::class, 'editStatic']);
-        Route::put('edit-static', [BackRoom::class, 'updateStatic']);
-        Route::get('edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
-        Route::put('edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
-        Route::delete('/{room}/destroy-image/{image}', [BackRoom::class, 'destroyImg']);
-        Route::resource('category', RoomCategory::class);
-        Route::resource('service', RoomService::class);
-        Route::resource('.review', RoomReview::class)->scoped(['review' => 'slug'])->parameter('', 'room');
-        Route::resource('', BackRoom::class)->parameter('', 'room');
-    });
+Route::middleware(['auth', 'accessBackendRoleUser', 'accessBackendRoleEditor'])->prefix('dashboard')->name('dashboard.')->group(function () {
 
     Route::resource('/mailbox', Mailbox::class);
     route::get('/mailbox-archive', [Mailbox::class, 'indexArchive']);
