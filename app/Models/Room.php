@@ -36,4 +36,8 @@ class Room extends Model
         return $this->hasMany(Room_review::class);
     }
 
+    public function editorRoomRequests() {
+        return $this->hasOne(EditorRoomRequest::class, 'room_id');
+    }
+
 }

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use App\Mail\EditorRequest;
+use App\Models\EditorRoomRequest;
+use App\Models\Mailbox;
 
 class Room extends Controller
 {
@@ -135,10 +137,26 @@ class Room extends Controller
 
         if (Auth::user()->roles->first()->id == 3) {
 
+            $editorRequest = new EditorRoomRequest([
+                'editor_name' => auth()->user()->name,
+                'editor_id' => auth()->user()->id,
+                'room_id' => $store->id,
+                'action_crud' => 'store',
+            ]);
+            $editorRequest->save();
+
+            $mail = new Mailbox([
+                'title' => 'An editor has Created a new room and require your approvement.',
+                'read' => 0,
+                'archived' => 0,
+            ]);
+
+            $editorRequest->mails()->save($mail);
+
             // rajouter un mail a la mailbox
 
             Mail::to(env('MAIL_ADMIN'))
-            ->send(new EditorRequest($store));
+                ->send(new EditorRequest($store));
         }
 
         return redirect('/dashboard/room')->with('success', 'Room has been successfully created.');
@@ -257,6 +275,30 @@ class Room extends Controller
 
         foreach ($request->services as $service) {
             $update->services()->attach($service, ['available' => 1]);
+        }
+
+        if (Auth::user()->roles->first()->id == 3) {
+
+            $editorRequest = new EditorRoomRequest([
+                'editor_name' => auth()->user()->name,
+                'editor_id' => auth()->user()->id,
+                'room_id' => $update->id,
+                'action_crud' => 'update',
+            ]);
+            $editorRequest->save();
+
+            $mail = new Mailbox([
+                'title' => 'An editor has created a new room and require your approvement.',
+                'read' => 0,
+                'archived' => 0,
+            ]);
+
+            $editorRequest->mails()->save($mail);
+
+            // rajouter un mail a la mailbox
+
+            Mail::to(env('MAIL_ADMIN'))
+                ->send(new EditorRequest($update));
         }
 
         return redirect('/dashboard/room')->with('success', 'Room has been successfully created.');
@@ -423,5 +465,17 @@ class Room extends Controller
         Storage::disk('public')->delete($path);
 
         return redirect()->back()->with('success', 'room has been successfully deleted.');
+    }
+
+    public function roomEditorAdminApprovement (Request $request, $roomId) {
+        $update = ModelsRoom::find($roomId);
+        if ($request->available == 1) {
+            $update->available = 1;
+        } else {
+            $update->available = 0;
+        }
+        $update->save();
+
+        return redirect('/dashboard/mailbox')->with('success', 'The action has been successfully worked.');
     }
 }

@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AccessBackendRoleEditor
+class AccessBackendRoleWebmaster
 {
     /**
      * Handle an incoming request.
@@ -17,9 +16,9 @@ class AccessBackendRoleEditor
      */
     public function handle(Request $request, Closure $next)
     {
-        if ( auth()->user()->roles->first()->id !== 3) {
+        if ( auth()->user()->roles->first()->id !== 2) {
             return $next($request);
         }
-        return redirect('/dashboard/room')->with('error', 'You are not abilited to access a this section of the dashboard.');
+        return redirect()->back()->with('error', 'You are not abilited to access a this section of the dashboard.');
     }
 }

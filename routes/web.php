@@ -84,6 +84,7 @@ Route::get('/dashboard', [dashboard::class, 'index'])->middleware(['auth', 'acce
 Route::middleware(['auth', 'accessBackendRoleUser'])->prefix('/dashboard/room')->name('dashboard.room.')->group(function () {
     Route::get('edit-static', [BackRoom::class, 'editStatic']);
     Route::put('edit-static', [BackRoom::class, 'updateStatic']);
+    Route::put('editor-admin-approvement/{roomId}', [BackRoom::class, 'roomEditorAdminApprovement'])->withoutMiddleware('accessBackendRoleUser');
     Route::get('edit-static-sidebar', [BackRoom::class, 'editStaticSidebar']);
     Route::put('edit-static-sidebar', [BackRoom::class, 'updateStaticSidebar']);
     Route::delete('/{room}/destroy-image/{image}', [BackRoom::class, 'destroyImg']);
@@ -93,6 +94,8 @@ Route::middleware(['auth', 'accessBackendRoleUser'])->prefix('/dashboard/room')-
     Route::resource('', BackRoom::class)->parameter('', 'room')->except('destroy');
     Route::resource('', BackRoom::class)->parameter('', 'room')->only('destroy');
 });
+
+Route::middleware(['auth', 'accessBackendRoleUser', 'accessBackendRoleEditor', 'accessBackendRoleWebmaster'])->prefix('/dashboard/user')->name('dashboard')->resource('/dashboard/user', BackUser::class); // protect by policy UserPolicy
 
 Route::middleware(['auth', 'accessBackendRoleUser', 'accessBackendRoleEditor'])->prefix('dashboard')->name('dashboard.')->group(function () {
 
@@ -156,8 +159,6 @@ Route::middleware(['auth', 'accessBackendRoleUser', 'accessBackendRoleEditor'])-
     Route::get('/list-room/edit-static', [RoomList::class, 'editStatic']);
     Route::put('/list-room/edit-static', [RoomList::class, 'updateStatic']);
     Route::resource('/list-room', RoomList::class);
-
-    Route::resource('/user', BackUser::class); // protect by policy UserPolicy
 });
 
 require __DIR__ . '/auth.php';

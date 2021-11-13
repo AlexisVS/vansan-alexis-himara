@@ -17,6 +17,9 @@ class AccessBackendRoleUser
      */
     public function handle(Request $request, Closure $next)
     {
-        return auth()->user()->roles->first()->id != 4 ? $next($request) : redirect('/')->with('error');
+        if (auth()->user()->roles->first()->id !== 4) {
+            return $next($request);
+        }
+        return redirect('/');
     }
 }

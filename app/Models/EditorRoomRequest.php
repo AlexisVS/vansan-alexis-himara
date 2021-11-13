@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Booking extends Model
+class EditorRoomRequest extends Model
 {
     use HasFactory;
 
@@ -16,7 +16,7 @@ class Booking extends Model
         return $this->morphMany(Mailbox::class, 'mailable');
     }
 
-    public function users () {
-        return $this->belongsTo(User::class, 'user_id');
+    public function rooms () {
+        return $this->belongsTo(Room::class, 'room_id');
     }
 }
