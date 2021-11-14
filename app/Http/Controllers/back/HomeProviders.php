@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\page_home_about_providers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class HomeProviders extends Controller
 {
@@ -48,6 +49,9 @@ class HomeProviders extends Controller
         if ($request->file('provider_img')) {
             Storage::disk('public')->put('images/providers', $request->file('provider_img'));
             $store->provider_img = $request->file('provider_img')->hashName();
+            Image::make(public_path('/images/providers') . '/' . $store->provider_img)
+            ->fit(77, 20)
+            ->save();
         }
         $store->save();
         return redirect('/dashboard/home')->with('success', 'Your provider has been successfully created.');
@@ -93,14 +97,17 @@ class HomeProviders extends Controller
             'provider_img' => 'file',
         ]);
 
-        $store = page_home_about_providers::find($id);
-        $store->provider_href = $request->provider_href;
+        $update = page_home_about_providers::find($id);
+        $update->provider_href = $request->provider_href;
 
         if ($request->file('provider_img')) {
-            Storage::disk('public')->put('images/slider', $request->file('provider_img'));
-            $store->provider_img = $request->file('provider_img')->hashName();
+            Storage::disk('public')->put('images/providers', $request->file('provider_img'));
+            $update->provider_img = $request->file('provider_img')->hashName();
+            Image::make(public_path('/images/providers') . '/' . $update->provider_img)
+            ->fit(77, 20)
+            ->save();
         }
-        $store->save();
+        $update->save();
         return redirect('/dashboard/home')->with('success', 'Your provider has been successfully updated.');
     }
 

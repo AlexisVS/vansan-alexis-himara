@@ -112,7 +112,7 @@ class RoomReview extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            "userImage_img" => "required|file",
+            "userImage_img" => "file",
             "rating" => "required",
             "rating_i_class" => "required",
             "review_info" => "required",

@@ -12,6 +12,7 @@ use App\Models\Post_category;
 use App\Models\Post_tag_post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class Blog extends Controller
 {
@@ -72,6 +73,9 @@ class Blog extends Controller
         if ($request->file('figure_link_img')) {
             Storage::disk('public')->put('images/blog', $request->file('figure_link_img'));
             $store->figure_link_img = $request->file('figure_link_img')->hashName();
+            Image::make(public_path('/images/blog/') . $store->figure_link_img)
+            ->fit(370, 246)
+            ->save();
         }
 
         $store->title_text = $request->title_text ;
@@ -150,6 +154,9 @@ class Blog extends Controller
         if ($request->file('figure_link_img')) {
             Storage::disk('public')->put('images/blog', $request->file('figure_link_img'));
             $update->figure_link_img = $request->file('figure_link_img')->hashName();
+            Image::make(public_path('/images/blog/') . $update->figure_link_img)
+            ->fit(370, 246)
+            ->save();
         }
         $update->title_text = $request->title_text ;
         $update->text = $request->text ;

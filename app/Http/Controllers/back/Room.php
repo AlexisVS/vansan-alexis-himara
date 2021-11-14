@@ -227,7 +227,7 @@ class Room extends Controller
             "sq_mt" => "required",
             "room_category_id" => "required",
             "favorite_roomList" => "",
-            "images" => "required",
+            "images" => "",
         ]);
 
         $update = ModelsRoom::find($id);
@@ -261,16 +261,18 @@ class Room extends Controller
         $filePath = '/images/rooms/' . strtolower($categories->where('id', $request->room_category_id)->first()->value);
 
         // dd($request->file('images'), $filePath);
-        foreach ($request->file('images') as $file) {
-            Storage::disk('public')->put($filePath, $file);
-            $update->images()->create([
-                'image_img' => $file->hashName(),
-            ]);
-            $update->refresh();
+        if ($request->images) {
+            foreach ($request->file('images') as $file) {
+                Storage::disk('public')->put($filePath, $file);
+                $update->images()->create([
+                    'image_img' => $file->hashName(),
+                ]);
+                $update->refresh();
 
-            Image::make(public_path($filePath) . '/' . $file->hashName())
-                ->fit(370, 230)
-                ->save();
+                Image::make(public_path($filePath) . '/' . $file->hashName())
+                    ->fit(370, 230)
+                    ->save();
+            }
         }
 
         foreach ($request->services as $service) {
@@ -467,7 +469,8 @@ class Room extends Controller
         return redirect()->back()->with('success', 'room has been successfully deleted.');
     }
 
-    public function roomEditorAdminApprovement (Request $request, $roomId) {
+    public function roomEditorAdminApprovement(Request $request, $roomId)
+    {
         $update = ModelsRoom::find($roomId);
         if ($request->available == 1) {
             $update->available = 1;

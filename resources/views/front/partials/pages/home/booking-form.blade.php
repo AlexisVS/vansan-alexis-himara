@@ -17,7 +17,7 @@
                 </a>
               </label>
               <input class="form-control" name="booking-name" type="text" data-trigger="hover"
-                placeholder="{{ $static_bookingForm->name_input_placeholder }}">
+                placeholder="{{ $static_bookingForm->name_input_placeholder }}" {{ auth()->check() ? 'disabled' : null }} value="{{ auth()->user()->name ?? '' }}">
             </div>
           </div>
           <!-- EMAIL -->
@@ -31,7 +31,7 @@
                 </a>
               </label>
               <input class="form-control" name="booking-email" type="email"
-                placeholder="{{ $static_bookingForm->email_input_placeholder }}">
+                placeholder="{{ $static_bookingForm->email_input_placeholder }}" {{ auth()->check() ? 'disabled' : null }} value="{{ auth()->user()->email ?? '' }}">
             </div>
           </div>
           <!-- ROOM TYPE -->
@@ -47,8 +47,8 @@
               <select class="form-control" name="booking-roomtype"
                 title="{{ $static_bookingForm->roomtype_select_title }}" data-header="Room Type">
                 {{-- ! Reprendre room_categories --}}
-                @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->text }}</option>
+                @foreach($rooms as $room)
+                <option value="{{ $room->id }}">{{ $room->name }}</option>
                 @endforeach
               </select>
             </div>

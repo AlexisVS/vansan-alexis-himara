@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Page_home_restaurant_restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
+
 
 class HomeRestaurant extends Controller
 {
@@ -49,6 +52,9 @@ class HomeRestaurant extends Controller
         if ($request->file('img')) {
             Storage::disk('public')->put('images/restaurant', $request->file('img'));
             $store->img = $request->file('img')->hashName();
+            Image::make(public_path('/images/restaurant') . '/' . $store->img)
+            ->fit(170, 112)
+            ->save();
         }
         $store->title_name = $request->title_name;
         $store->title_price = '€' .$request->title_price;
@@ -104,6 +110,9 @@ class HomeRestaurant extends Controller
         if ($request->file('img')) {
             Storage::disk('public')->put('images/restaurant', $request->file('img'));
             $update->img = $request->file('img')->hashName();
+            Image::make(public_path('/images/restaurant') . '/' . $update->img)
+            ->fit(170, 112)
+            ->save();
         }
         $update->title_name = $request->title_name;
         $update->title_price = '€' . $request->title_price;

@@ -25,7 +25,7 @@
   <aside class="widget">
     <h4 class="widget-title">{{ $static_sidebar->latest_posts_title }}</h4>
     <div class="latest-posts">
-      @foreach ($posts as $post)
+      @foreach ($posts->sortDesc()->take(3) as $post)
         <div class="latest-post-item">
           <div class="row">
             <div class="col-5">

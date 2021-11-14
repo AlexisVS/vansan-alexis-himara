@@ -136,9 +136,9 @@ class HomeSlider extends Controller
         if ($request->order >= '2') {
 
             $sliders = Page_home_revolution_slider::all();
-    
+
             $sliders->where('order', $request->order);
-    
+
             foreach ($sliders as $slider) {
                 $slider->order = null;
                 $slider->save();
@@ -160,7 +160,17 @@ class HomeSlider extends Controller
         $update->layer4_text = "";
         $update->layer5_i_class = "";
         $update->layer6_text = "";
-        if ($request->order != '') {
+        if ($update->order == 1) {
+            $update->layer3_href = $request->layer3_href;
+            $update->layer3_i_class = $request->layer3_i_class;
+            $update->layer3_text = $request->layer3_text;
+            $update->layer4_href = $request->layer4_href;
+            $update->layer4_i_class = $request->layer4_i_class;
+            $update->layer4_text = $request->layer4_text;
+            $update->layer5_i_class = $request->layer5_i_class;
+            $update->layer6_text = $request->layer6_text;
+        } elseif ($update->order == 2 || $update->order == 3) {
+        } elseif ($request->order != '') {
             $update->order = $request->order;
         } else {
             $update->order = null;

@@ -76,7 +76,7 @@
           <li class="border-gray-400 flex flex-row mb-2">
 
             
-              <a href="/dashboard/mailbox/{{ $mail->mailable->id }}" class="transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:shadow-lg select-none cursor-pointer {{ $mail->read == 0 ? 'bg-himaraGold-400 text-gray-600 font-semibold' : 'bg-white text-gray-500' }} dark:bg-gray-800 rounded-md flex flex-1 items-center p-4">
+              <a href="/dashboard/mailbox/{{ $mail->id }}" class="transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:shadow-lg select-none cursor-pointer {{ $mail->read == 0 ? 'bg-himaraGold-400 text-gray-600 font-semibold' : 'bg-white text-gray-500' }} dark:bg-gray-800 rounded-md flex flex-1 items-center p-4">
                 {{-- <div class="flex flex-col w-10 h-10 justify-center items-center mr-4">
                   
                 </div> --}}

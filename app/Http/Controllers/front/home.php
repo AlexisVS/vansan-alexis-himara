@@ -28,7 +28,8 @@ use Illuminate\Http\Request;
 
 class Home extends Controller
 {
-    public function index () {
+    public function index()
+    {
         $categories = Room_categories::all()->filter(function ($item) {
             foreach ($item->rooms as $room) {
                 if ($room->available == true && $room->category_id != null) {
@@ -50,7 +51,7 @@ class Home extends Controller
             'static_new' => Page_home_new::find(1),
             'static_video' => Page_home_video::find(1),
             'static_contact' => Page_home_contact_v2::find(1),
-            
+
             // * dynamic
             'revolutionSliders' => Page_home_revolution_slider::all(),
             'aboutProviders' => Page_home_about_providers::all(),
@@ -65,16 +66,17 @@ class Home extends Controller
         return view('home', $data);
     }
 
-    public function sendForm() {
+    public function sendForm()
+    {
         $formHome = request()->query('formHome');
 
         $dataForm = [
             'form_home' => $formHome,
-            'form_categoryId' => request('booking-roomtype'),
-            'form_email' => request('booking-email') ,
-            'form_checkin' => request('booking-checkin') ,
-            'form_adults' =>request('booking-adults') ,
-            'form_children' =>request('booking-children') ,
+            'form_roomId' => request('booking-roomtype'),
+            'form_email' => request('booking-email'),
+            'form_checkin' => request('booking-checkin'),
+            'form_adults' => request('booking-adults'),
+            'form_children' => request('booking-children'),
         ];
 
         return redirect("/booking-form")->with('dataForm', $dataForm);
@@ -83,18 +85,18 @@ class Home extends Controller
     /* -------------------------------------------------------------------------- */
     /*                    Send function for section CONTACT V2                    */
     /* -------------------------------------------------------------------------- */
-    
-    public function sendContact() {
-        
+
+    public function sendContact()
+    {
         request()->validate([
-            'name' => 'required',
-            'email' => 'required',
+            'name' => '',
+            'email' => '',
             'message' => 'required',
         ]);
 
         $store = new ContactForm();
-        $store->name = request('name');
-        $store->email = request('email');
+        $store->name = auth()->user()->name;
+        $store->email = auth()->user()->email;
         $store->message = request('message');
         $store->save();
 
@@ -103,7 +105,7 @@ class Home extends Controller
             'read' => 0,
             'archived' => 0,
         ]);
-        
+
         $store->mails()->save($mail);
 
         return redirect('/');

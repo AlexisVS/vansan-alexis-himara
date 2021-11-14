@@ -71,12 +71,15 @@ class Mailbox extends Controller
         $show->read = 1;
         $show->save();
 
-        $data = [
-            'show' => ModelsMailbox::find($id),
-            'archive' => 'Archive',
-        ];
+            $show = ModelsMailbox::find($id);
+            if ($show->archived == 1) {
+                $archive = 'Archive';
+            } else {
+                $archive = false;
+            }
 
-        return view('pages.mailbox.show', $data);
+
+        return view('pages.mailbox.show', compact('show', 'archive'));
     }
 
 

@@ -56,7 +56,18 @@
           <x-form.upload name="mainImage_img" />
           <x-form.text name="layer1_text" :text="$edit->layer1_text" />
           <x-form.text name="layer2_text" :text="$edit->layer2_text" />
+          @if($edit->order > 3)
           <x-form.select name="order" title="" selected="{{ $edit->order ?? '' }}" :options="collect(['','4', '5', '6', '7', '8', '9', '10'])" />
+          @elseif($edit->order == 1)
+          <x-form.text name="layer3_href" :text="$edit->layer3_href" />
+          <x-form.text name="layer3_i_class" :text="$edit->layer3_i_class" />
+          <x-form.text name="layer3_text" :text="$edit->layer3_text" />
+          <x-form.text name="layer4_href" :text="$edit->layer4_href" />
+          <x-form.text name="layer4_i_class" :text="$edit->layer4_i_class" />
+          <x-form.text name="layer4_text" :text="$edit->layer4_text" />
+          <x-form.text name="layer5_i_class" :text="$edit->layer5_i_class" />
+          <x-form.text name="layer6_text" :text="$edit->layer6_text" />
+          @endif
         </x-form.form>
         {{--
                         <x-form.checkbox name="" title="" label="" label-subtitle="" />

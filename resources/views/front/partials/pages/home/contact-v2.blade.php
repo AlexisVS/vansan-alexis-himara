@@ -39,10 +39,16 @@
           @csrf
           @method('POST')
           <div class="form-group">
-            <input class="form-control" name="name" placeholder="{{ $static_contact->form_input1_placeholder }}" type="text">
+            <input class="form-control" name="name" @auth
+            disabled
+              value='{{ auth()->user()->name }}'
+            @endauth placeholder="{{ $static_contact->form_input1_placeholder }}" type="text">
           </div>
           <div class="form-group">
-            <input class="form-control" name="email" type="email" placeholder="{{ $static_contact->form_input2_placeholder }}">
+            <input class="form-control" name="email" @auth
+            disabled
+              value='{{ auth()->user()->email }}'
+            @endauth type="email" placeholder="{{ $static_contact->form_input2_placeholder }}">
           </div>
           <div class="form-group">
             <textarea class="form-control" name="message" placeholder="{{ $static_contact->form_input3_placeholder }}"></textarea>

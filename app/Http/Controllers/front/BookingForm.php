@@ -22,6 +22,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 
@@ -49,6 +50,7 @@ class BookingForm extends Controller
             'bookingFormOffers' => Page_booking_form_offer::all(),
             'room_categories' => Room_categories::all(),
             'categories' => $categories,
+            'rooms' => Room::all()->where('available', true),
         ];
 
         // * BookingForm de la page room -> sidebar -> form
@@ -68,7 +70,7 @@ class BookingForm extends Controller
         ];
 
         // * fusion de $data && $dataForm
-        if ($dataForm['form_categoryId'] != null) {
+        if ($dataForm['form_roomId'] != null) {
             $data = Arr::add($data, 'dataForm', $dataForm);
         }
 
@@ -85,26 +87,30 @@ class BookingForm extends Controller
     {
         request()->validate([
             'booking_country' => "required",
-            'booking_date' => "required",
+            'booking_date' => "",
             'booking_adults' => "required",
             'booking_children' => "required",
-            'booking_room' => "required",
+            'booking_roomId' => "required",
             'booking_comments' => "required",
         ]);
 
         $store = new Booking();
         $store->country = request('booking_country');
-        $store->date = request('booking_date');
+        if (request('booking_date' == null)) {
+            $store->date = date('Y-m-d') . '-' . date('Y-m-d', time() + (5 * 24 * 60 * 60));
+        } else {
+            $store->date = request('booking_date');
+        }
         $store->adults = request('booking_adults');
         $store->children = request('booking_children');
-        $store->room = request('booking_room');
+        $store->room = request('booking_roomId');
         $store->comments = request('booking_comments');
         $store->name = Auth::user()->name;
         $store->email = Auth::user()->email;
         $store->phone = Auth::user()->phone;
         $store->user_id = Auth::user()->id;
         $store->save();
-        $store->fresh();
+        $store->refresh();
 
         $mail = new Mailbox([
             'title' => 'Reservation from ' . $store->name . ' for ' . Room::find($store->room)->name . ' room.',
@@ -113,11 +119,13 @@ class BookingForm extends Controller
         ]);
 
         $store->mails()->save($mail);
-
         
         Mail::to($store->email)
         ->send(new ReservationDetails);
-
+        
+        Mail::to(env('MAIL_ADMIN'))
+        ->send(new AdminReservation);
+        
         return redirect("/");
     }
 
@@ -166,7 +174,8 @@ class BookingForm extends Controller
         return redirect('/');
     }
 
-    public function updateBookingRequest (Request $request, $id) {
+    public function updateBookingRequest(Request $request, $id)
+    {
 
         $update = Booking::find($id);
         $update->approvement = $request->approvement;
@@ -176,18 +185,14 @@ class BookingForm extends Controller
             $room = Room::find($request->room_id);
             $room->available = 0;
             $room->save();
-    
+
             RoomAvailableAfterBookingFinish::dispatch($room)
                 ->delay(now()->addMinutes(2));
-    
-            Mail::to(env('MAIL_ADMIN'))
-                ->send(new AdminReservation);
-    
+
             Mail::to($update->email)
                 ->send(new UserReviewAfterBooking);
         }
-        
-        return redirect('/');
 
+        return redirect('/');
     }
 }

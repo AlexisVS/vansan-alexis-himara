@@ -75,9 +75,7 @@ class Layout extends Controller
 
 
         Image::make(public_path() . '/images/' . $request->file('image_brand_img')->hashName())
-            ->resize(150, 20, function ($constraint) {
-                $constraint->aspectRatio();
-            })
+            ->fit(150, 20)
             ->save();
         return redirect('/dashboard/layout')->with('success', 'Your image brand has been successfully updated.');
     }

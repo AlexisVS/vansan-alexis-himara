@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <!-- ITEM -->
-      @foreach ($rooms->where('available', true)->shuffle()->take(3) as $room)
+      @foreach (collect([$rooms->where('favorite_roomList', true), $rooms->where('favorite_roomList', false)->shuffle()])->collapse()->take(3) as $room)
       <div class="col-lg-4">
         <div class="room-grid-item">
           <figure class="gradient-overlay-hover link-icon">

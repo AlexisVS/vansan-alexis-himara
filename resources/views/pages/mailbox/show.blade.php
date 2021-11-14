@@ -127,7 +127,7 @@
                   <form action="/booking-form-update-booking-request/{{ $show->id }}" class="flex items-center space-x-6" method="post">
                     @csrf
                     @method('POST')
-                    <input type="hidden" name="room_id" value="{{ $show->id}}">
+                    <input type="hidden" name="room_id" value="{{ $row->room}}">
                     <button name="approvement" value="1" class="border-0 px-6 py-3 mr-2 ml-3 mt-3 bg-green-400 text-white shadow rounded-md hover:bg-green-500" type="submit">Accept</button>
                     <button name="approvement" value="0" class="border-0 px-6 py-3 mr-2 ml-3 mt-3 bg-red-500 text-white shadow rounded-md hover:bg-red-600" type="submit">Refused</button>
                   </form>
@@ -151,7 +151,7 @@
                   <form action="/dashboard/room/editor-admin-approvement/{{ $row->rooms->id }}" class="flex items-center space-x-6" method="post">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="room_id" value="{{ $show->id}}">
+                    <input type="hidden" name="room_id" value="{{ $row->id}}">
                     <button name="available" value="1" class="border-0 px-6 py-3 mr-2 ml-3 mt-3 bg-green-400 text-white shadow rounded-md hover:bg-green-500" type="submit">Accept</button>
                     <button name="available" value="0" class="border-0 px-6 py-3 mr-2 ml-3 mt-3 bg-red-500 text-white shadow rounded-md hover:bg-red-600" type="submit">Refused</button>
                   </form>
