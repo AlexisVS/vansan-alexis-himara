@@ -65,7 +65,7 @@ class Room extends Controller
             ->where('available', true)
             ->allowedFilters(['name', 'room_category_id', AllowedFilter::exact('services.id')])
             ->allowedIncludes(['services'])
-            ->paginate(3);
+            ->paginate(5);
 
         $data = [
             // * static
