@@ -24,7 +24,7 @@
           :data-tables="collect([auth()->user()])" 
         />
       
-        <x-form.form action='/profile' method='PUT' enctype title='Edition user' subtitle="All text in your page">
+        <x-form.form action='/profile/{{ auth()->user()->id }}' method='PUT' enctype title='Edition user' subtitle="All text in your page">
           <x-form.text name="name" :text="auth()->user()->name" />
           <x-form.text name="email" :text="auth()->user()->email" />
           <x-form.text name="phone" :text="auth()->user()->phone" />

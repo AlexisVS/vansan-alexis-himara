@@ -5,8 +5,10 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\Mailbox;
+use App\Models\User as ModelsUser;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Controller
 {
@@ -87,7 +89,7 @@ class User extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -99,7 +101,22 @@ class User extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => "required",
+            'phone' => "required",
+            "profile_img" => "file",
+        ]);
+
+        $update = ModelsUser::find($id);
+        $update->name = $request->name;
+        $update->email = $request->email;
+        if ($request->file('profile_img')) {
+            Storage::disk('public')->put('images/users', $request->file('profile_img'));
+            $update->profile_img = $request->file('profile_img')->hashName();
+        }
+        $update->save();
+        return redirect("/profile")->with('success', 'Your profile has bene successfully updated.');
     }
 
     /**
