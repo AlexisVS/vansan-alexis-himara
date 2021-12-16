@@ -18,7 +18,7 @@ class UserPolicy
      */
     public function viewAny()
     {
-        return Auth::user()->roles->first()->id != 4; // admin
+        return Auth::user()->roles->first()->id !== 4; // admin
     }
 
     /**
@@ -30,7 +30,7 @@ class UserPolicy
      */
     public function view()
     {
-        return Auth::user()->roles->first()->id != 4; // admin
+        return Auth::user()->roles->first()->id !== 4; // admin
     }
 
     /**
