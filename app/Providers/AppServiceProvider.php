@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Paginator::defaultView('front.partials.layout.pagination');
         View::share([
             // mettre toutes les variables
